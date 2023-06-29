@@ -1,0 +1,47 @@
+/* CUSTOM BETTER LOGIN CSS */
+p.login-title {
+    border: 0;
+}
+#auth_box {
+    width: 95%;
+    margin: 0 auto;
+    padding: 50px 0 0;
+    font-family: inherit;
+}
+#auth_box input[type="text"], #auth_box input[type="password"] {
+    width: 95%;
+}
+@media screen and (min-width: 40em) {
+    #auth_box {
+        width: 440px;
+    }
+    #auth_box input[type="text"], #auth_box input[type="password"] {
+        width: 390px
+    }
+}
+#user-login-form,
+#user-pass {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+#auth_box input[type=submit] {
+  padding: 5px 20px;
+  height: 29px;
+  font-size: 1rem;
+  background-color: #eee;
+  color: #0a0a0a;
+  text-shadow: 0 1px #e3f1f1;
+  border: 1px solid;
+  border-color: #ccc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  outline: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-image: none;
+  box-shadow: none;
+}
+#auth_box input[type=submit]:hover {
+    color: #af1f7b;
+}

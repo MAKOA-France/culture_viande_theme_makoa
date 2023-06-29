@@ -1,0 +1,183 @@
+/* CSS for CiviCRM pages utilisateur */
+
+/* Block Home et Sidebar */
+.block-views-block-civievents-base-sur-le-contact-block-2-2 ul,
+.block-views-block-civievents-base-sur-le-contact-block-1-2 ul,
+.block-views-block-civievents-base-sur-le-contact-block-2 ul,
+.block-views-block-civievents-base-sur-le-contact-block-1 ul {
+    margin-left: 0
+}
+.block-views-block-civievents-base-sur-le-contact-block-2-2 li,
+.block-views-block-civievents-base-sur-le-contact-block-1-2 li,
+.block-views-block-civievents-base-sur-le-contact-block-2 li,
+.block-views-block-civievents-base-sur-le-contact-block-1 li,
+.block-views-block-civicrm-membres-group-contact-block-1 li,
+.block-views-block-civievents-base-sur-le-contact-block-13 li {
+  list-style: none;
+  font-weight: bold;
+  padding: 0 0 .5rem;
+}
+.block-views-block-civievents-base-sur-le-contact-block-2-2 li,
+.block-views-block-civievents-base-sur-le-contact-block-2 li {
+  font-weight: inherit;
+}
+.block-views-block-civievents-base-sur-le-contact-block-2-2 .views-field-start-date,
+.block-views-block-civievents-base-sur-le-contact-block-2 .views-field-start-date {
+  font-size: .95rem;
+}
+.block-views-block-civievents-base-sur-le-contact-block-1 li:last-of-type {
+  padding-bottom: 0;
+}
+
+.block-views-block-civievents-base-sur-le-contact-block-1-2 li a:before,
+.block-views-block-civievents-base-sur-le-contact-block-1 li a:before,
+.block-views-block-civicrm-membres-group-contact-block-1 li a:before,
+.block-views-block-civievents-base-sur-le-contact-block-13 li a:before {
+  content: "\f111";
+  margin-right: .3rem;
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  padding-right: 3px;
+  font-weight: 700;
+}
+.block-views-block-civievents-base-sur-le-contact-block-1-2,
+.block-views-block-civievents-base-sur-le-contact-block-2-2,
+.block-views-block-civicrm-membres-group-contact-block-1 {
+  background: #f6f6f6;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+/* Page groupe utilisateur */
+.civicrm-entity--view-mode-full .layout--onecol:first-of-type {
+  background: #f6f6f6;
+  padding: 2rem;
+  border-bottom: 4px solid #003B74;
+  border-top: 4px solid #003B74;
+  margin: 1rem 0 0;
+}
+.civicrm-entity--view-mode-full .layout--onecol:first-of-type .block-layout-builder:not(:first-child) {
+  margin: 1rem 0;
+  font-style: italic;
+}
+.civicrm-entity--view-mode-full .layout--onecol:first-of-type .block-layout-builder:last-child {
+  margin-bottom: 0;
+}
+.civicrm-entity--view-mode-full .layout--twocol-section .layout__region {
+  border-bottom: 1px solid rgba(217,32,38,.0);
+  margin: 3rem 0 1rem;
+  padding: 0 1.5rem;
+}
+.civicrm-entity--view-mode-full .layout--twocol-section .layout__region.layout__region--first {
+  border-right: 1px solid rgba(217,32,38,.2);
+}
+
+/* Titre blocs */
+.civicrm-entity .civicrm_group__frontend-title {
+  font-size: 1.6rem;
+  font-family: 'tex_gyre_adventorregular', Roboto, sans-serif;
+  margin-bottom: .5rem;
+}
+.civicrm-entity > div:nth-child(3),
+.civicrm-entity > div:nth-child(4){
+  margin: 4rem 0;
+}
+.civicrm-entity .layout__region h2 {
+  border-bottom: 1px solid #ddd;
+  font-size: 1.3rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.civicrm-entity .layout__region ul {
+  margin-left: .5rem;
+}
+.civicrm-entity .layout__region li {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+.civicrm-entity .views-field-display-name {
+  text-decoration: underline;
+}
+.civicrm-entity .views-field-current-employer,
+.civicrm-entity .views-field-job-title {
+  padding-left: 1.5rem;
+  font-size: .9rem;
+}
+.civicrm-entity .views-field-job-title {
+  font-style: italic;
+}
+.block-views-block-civievents-base-sur-le-contact-block-2-2 li a:before,
+.block-views-block-civievents-base-sur-le-contact-block-2 .views-field-title a:before,
+.civicrm-entity .layout__region li a:before,
+.civicrm-entity .layout__region li span:before,
+.civicrm-entity .layout__region h2:before {
+  margin-right: .3rem;
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  padding-right: 5px;
+  font-weight: 700;
+}
+.civicrm-entity > div:nth-child(2) .layout__region.layout__region--first h2:before {
+  content: "\f274";
+}
+.civicrm-entity > div:nth-child(2) .layout__region.layout__region--first li a:before {
+  content: "\f253";
+}
+.civicrm-entity > div:nth-child(2) .layout__region.layout__region--second h2:before {
+  content: "\f271";
+}
+.block-views-block-civievents-base-sur-le-contact-block-2-2 li a:before,
+.block-views-block-civievents-base-sur-le-contact-block-2 .views-field-title a:before,
+.civicrm-entity > div:nth-child(2) .layout__region.layout__region--second li a:before,
+.block-views-block-civievents-base-sur-le-contact-block-13 li a:before {
+  content: "\f251";
+}
+.civicrm-entity > div:nth-child(3) .layout__region h2:before {
+  content: "\f15c";
+}
+.civicrm-entity > div:nth-child(4) .layout__region li .views-field-display-name span:before {
+  content: "\f2bd";
+}
+.civicrm-entity > div:nth-child(4) .layout__region h2:before {
+  content: "\f500";
+}
+
+.civicrm-entity > div:nth-child(4) .layout__region .cell {
+  background: #eee;
+}
+
+
+/* EVENEMENT */
+.civicrm_event__title {
+  font-size: 1.8rem;
+  font-family: 'tex_gyre_adventorregular', Roboto, sans-serif;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.civicrm_event__end-date {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+.civicrm_event__start-date div:last-of-type,
+.civicrm_event__end-date div:last-of-type {
+  padding-bottom: 1rem;
+}
+.civicrm_event__start-date div:first-of-type,
+.civicrm_event__end-date div:first-child {
+  padding-bottom: .3rem;
+  font-weight: bold;
+}
+.civicrm_event__custom-91 {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+
