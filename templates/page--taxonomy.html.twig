@@ -14,10 +14,22 @@
           <div class="medium-3 cell">
             {{ page.header }}
           </div>
+          
           <div class="medium-9 cell">
             <div class="grid-x align-middle">
-              <div class="cell medium-11">{{ page.info }}</div>
-              <div class="cell medium-1"><button class="float-right" data-toggle="searchModal"><i class="fas fa-search"></i></button></div>
+              <div class="cell medium-7">
+                {# <button class="icon-recherche" data-toggle="searchModal"><i class="fas fa-search"></i></button> #}
+                {{ include ('@b_zf/recherche/recherche.html.twig') }}
+                
+              </div>
+
+              <div class="cell medium-2">
+                <div class="custon-content-formation">
+                  <a href="#" class="btn-formation" >Formation</a>
+                </div>
+              </div>
+
+              <div class="cell medium-3">{{ page.info }}</div>
             </div>
           </div>
         </div>
@@ -160,7 +172,7 @@
                         Culture Viande fédère les principales entreprises françaises des viandes du secteur de la viande bovine, ovine et porcine en France.
                       </p>
                       <div class="footer-icons">
-                        <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
                         <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>

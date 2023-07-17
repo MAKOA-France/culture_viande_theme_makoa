@@ -14,6 +14,7 @@ global:
       css/theme/theme.css: {}
       css/fonts/stylesheet.css: {}
       css/fonts/fontawesome5/css/all.css: {}
+      https://use.typekit.net/kty8aan.css: {}
 
   js:
     js/foundation.min.js: {}

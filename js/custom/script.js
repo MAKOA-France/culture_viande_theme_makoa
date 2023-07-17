@@ -28,6 +28,9 @@
     
     $target.toggleClass("d-block");
   });
+
+  //change backtotop
+  $('button#backtotop').html('<i class="fa fa-angle-double-up"></i>');
   
 
 });   
