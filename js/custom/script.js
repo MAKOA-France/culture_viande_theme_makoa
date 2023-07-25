@@ -1,5 +1,10 @@
 (function($) {
   $(document).ready(function() {
+
+    //login page set placeholder
+    jQuery('.user-login-form [name="name"]').attr('placeholder', 'Identifiant');
+
+
   // This is a function to open sidenav menu
     $('body').on('click', '.menu-open', function(){
       $('#main-menu.top-bar').css('width', '200px');
@@ -14,7 +19,7 @@
       $('.content-menu-burger .menu-open, .content-menu-burger .content-sub-menu-burger').show();
       $('#main-menu .grid-container nav, .content-menu-burger .menu-close').hide();
 
-    });
+  });
 
   // This is a function for dropdown account in the header
   $('body').on('click', '.custom-my-account .btn-my-account', function() {
@@ -57,15 +62,41 @@
   handleSubMenuEvents('.menu-poser-question');
 
 
-  
-/*   $('body').on('focus','#select-ask-question-category', function() {
-    $(this).addClass('opened');
+  // This is function for breadcrumb
+  $(".breadcrumb ol li").hover(function() {
+    var isHovered = $(this).is(":hover");
+    if (isHovered) {
+      $(this).children("ul").stop().slideDown(300);
+    } else {
+      $(this).children("ul").stop().slideUp(300);
+    }
   });
+  
 
-  // When the select loses focus
-  $('body').on('blur','#select-ask-question-category', function() {
-    $(this).removeClass('opened');
-  }); */
+    $('body').on('click', 'nav#block-menuprincipal ul li.is-dropdown-submenu-parent', function () {
+      var isClick = $(this).hasClass("first-level-click");
+  
+      if (isClick) {
+        $(this).removeClass("first-level-click");
+        $(this).children("ul").stop().slideUp(300);
+      } else {
+        $(this).addClass("first-level-click");
+        $(this).children("ul").stop().slideDown(300);
+      }
+    });
+    $('body').on('click', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function (event) {
+      event.stopPropagation();
+      var isClick = $(this).hasClass("second-level-click");
+  
+      if (isClick) {
+        $(this).removeClass("second-level-click");
+        $(this).children("ul").stop().slideUp(300);
+      } else {
+        $(this).addClass("second-level-click");
+        $(this).children("ul").stop().slideDown(300);
+      }
+    });
+  
 
   // This is function homepage search
   jQuery('body .btn-search-header').on('click', () => {

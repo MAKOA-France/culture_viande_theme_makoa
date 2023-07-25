@@ -47,6 +47,34 @@ nav#block-menuprincipal .menu li a.is-active{
 #main-menu .menu{
     display: initial;
 }
+
+
+
+
+
+nav#block-menuprincipal ul >li> ul{
+    position: relative;
+    background-color: initial;
+    border: none;
+}
+nav#block-menuprincipal ul >li> ul>li >a{
+    background: initial;
+}
+ul.submenu.is-dropdown-submenu.second-sub.vertical {
+    right: initial;
+    left: 15px;
+}
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
+    display: none;
+}
+
+
+
+
+
+
+
+
 #main-menu.top-bar .grid-container {
     width: auto;
 }
@@ -371,12 +399,34 @@ h1.js-quickedit-page-title:before {
 #block-breadcrumbs-2 ol{
     background-color: #fce7e8;
     width: fit-content;
-    padding: 0px 15px;
+    padding: 2px 15px;
     border-radius: 10px 0;
 }
-#block-breadcrumbs-2 ol > li > a{
-    color: black;
+#block-breadcrumbs-2 ol > li > a,
+.breadcrumb ol li > ul li:hover a{
+    color: #000;
+    font-weight: 400;
 }
+.breadcrumb ol li > ul {
+    display: none;
+    position: absolute;
+    width: 150px;
+    top: calc(100% + 2px);
+    left: auto;
+    z-index: 1;
+    text-align: left;
+    background: #fce7e8;
+    border-radius: 10px 0 0;
+    
+  }
+  .breadcrumb ol li > ul li {
+    padding: 5px 15px;
+    width: 100%;
+  }  
+  .breadcrumb ol li > ul li a {
+    color: #6e6e6e;
+    font-weight: 400;
+  }  
 /*========================================= Fin fil d'ariane ===========================================================*/
 
 /*========================================= Debut page principale ===========================================================*/
@@ -1062,6 +1112,170 @@ select#select-ask-question-category {
     outline: 0;
   }
 /*========================================= Fin poser question dans la page d'accueil ===========================================================*/
+
+/*========================================= Debut login ===========================================================*/
+#auth_box.login {
+    width: 100%;
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+}
+#left_part,
+#right_part {
+    width: 50%;
+}
+#left_part {
+    padding: 5rem 15rem 5rem 10rem;
+}
+#right_part:before {
+    content: "";
+    background: url(/files/after-section-reunion.png) no-repeat center 0;
+    right: calc(29% + 5px);
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    background-size: contain;
+}
+#auth_box #left_part #the_logo {
+    text-align: initial;
+    margin-bottom: 3rem;
+}
+
+#left_part #the_logo > a > img {
+    width: 20%;
+}
+#left_part .title-login {
+    font-weight: 900;
+    font-size: 2.8rem;
+}
+#left_part .login-title{
+    margin-bottom: 0;   
+}
+#left_part .block-textepagedeconnexionentete strong{
+    font-weight: 500;
+}
+.block-textepagedeconnexionentete p{
+    text-align: initial;
+}
+#left_part #user-login-form {
+    border: initial;
+    background-image: initial;
+    max-width: initial;
+    margin-bottom:initial;
+    display: grid;
+    gap: 20px;
+}
+#auth_box #left_part input[type="text"],
+#auth_box #left_part input[type="password"],
+#auth_box #left_part  input[type="submit"]  {
+    width: 100%;
+}
+#auth_box #left_part input[type="text"],
+#auth_box #left_part  input[type="password"] {
+    border-bottom: 2px #707070 solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 5px;
+    font-size: 1.2rem;
+    -webkit-box-shadow: initial;
+    box-shadow: initial;
+    font-weight: 400;
+}
+#auth_box #left_part input[type="text"]::placeholder,
+#auth_box #left_part  input[type="password"]::placeholder {
+    color: #707070;
+}
+
+#auth_box #left_part #edit-pass,
+#auth_box #left_part #edit-name {
+    background: initial;
+    background-size: initial;
+    text-indent: initial;
+}
+#auth_box #left_part input.form-text:focus {
+    box-shadow: initial;
+}
+#left_part #user-login-form .form-item,
+#left_part #user-pass .form-item {
+    padding-left: initial;
+}
+#left_part #user-login-form #edit-actions {
+    order: 3;
+    margin: initial;
+}
+
+#left_part .forgot-password {
+    order: 4;
+    margin-left: initial;
+    top: initial;
+}
+#left_part #capslockdiv{
+    order: 5;
+}
+#auth_box #left_part input[type="submit"] {
+    float: initial;
+    padding: 0;
+    height: 40px;
+    background-color: #dc001d;
+    color: #ffffff;
+    text-shadow: initial;
+    border: initial;
+    border-color: initial;
+    -webkit-border-radius: 15px 0;
+    -moz-border-radius: 15px 0;
+    border-radius: 15px 0;
+    box-shadow: none;
+    font-weight: 400;
+}
+#auth_box #left_part input[type="submit"]:hover {
+    background-color: #140d3d;
+}
+#left_part input.form-text {
+    max-width: initial;
+}
+
+
+#left_part .forgot-password a{
+    color: #707070;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+#left_part .forgot-password{
+    text-align: center;
+}
+#user-login-form .messages, #user-pass .messages {
+    margin: initial;
+}
+#left_part #block-blocbasdepage h4{
+    margin-bottom: initial;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1rem;
+
+}
+#left_part #block-blocbasdepage p > a,
+#left_part #block-makoa h6 > a{
+    color: #000;
+}
+#left_part #block-blocbasdepage p > a:hover,
+#left_part #block-makoa h6 > a:hover,
+#left_part .forgot-password a:hover{
+    color: #dc001d;
+    text-decoration: initial;
+}
+
+#left_part .messages--error {
+    color: #e46f7f;
+    background-color: #fce6e7;
+    border-color: initial;
+    border: initial;
+    border-radius: 15px 0;
+}
+/*========================================= Fin login ===========================================================*/
 
 /*========================================= Debut Reesponsive design ===========================================================*/
 

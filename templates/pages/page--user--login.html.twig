@@ -23,17 +23,14 @@
 #}
 
 <div id="auth_box" class="login">
-  <div id="top_part">
-    <h1 id="the_logo">
+  <div id="left_part">
+    <div id="the_logo">
       <a href="{{ url('<front>') }}">
         <img src="{{ logo }}" alt="{{ site_name }}" />
       </a>
-    </h1>
-  </div>
+    </div>
 
-  <div id="middle_part">
-    <h2 class="title text-align-center">{{ title }}</h2>
-
+    <h1 class="title-login">{{ title }}</h1>
     {{ page.highlighted }}
 
     {{ page.content }}
@@ -41,9 +38,9 @@
     {{ page.footer }}
   </div>
 
-  <div id="bottom_part">
-    <div class="footer">
-
+  <div id="right_part">
+    <div class="image-right">
+      <image src="/files/Porc-hache-design.jpg" alt="image right login" />
     </div>
   </div>
 </div>
