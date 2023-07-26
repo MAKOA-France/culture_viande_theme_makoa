@@ -17,9 +17,9 @@
           <a href="{{ item.url }}">{{ item.text }}</a>
           {% if item.submenu %}
             <ul class="custom-submenu-ul">
-            {% for elm in item.submenu %}
+            {% for link_text,elm in item.submenu %}
               <li class="custom-submenu-li">
-                <a href="#">{{ elm }}</a>
+                <a href="{{ link_text}}">{{ elm }}</a>
               </li>
             {% endfor %}
             </ul>
@@ -28,9 +28,9 @@
           {{ item.text }}
           {% if item.submenu %}
             <ul class="custom-submenu-ul">
-            {% for elm in item.submenu %}
-              <li class="custom-submenu-li">
-                <a href="#">{{ elm }}</a>
+            {% for string_url, elm in item.submenu %}
+              <li class="custom-submenu-li de test">
+                <a href="{{ string_url }}">{{ elm }}</a>
               </li>
             {% endfor %}
             </ul>

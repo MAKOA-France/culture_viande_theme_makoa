@@ -11,6 +11,7 @@ use Drupal\Core\Cache\CacheableMetadata;
  * Prepares variables for the html.html.twig template.
  */
 function b_zf_preprocess_html(&$variables) {
+  $variables['public-site'] = 'https://www.cultureviande.eu/';
   try {
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   }

@@ -11,25 +11,32 @@
 /*========================================= Fin Load font local DM ===========================================================*/
 
 /*========================================= Police "new order" from CDN ===========================================================*/
-h1,h3, p, span, label, li, button, a,  input, select, textarea, .extrait-resume{
+h1,h3, p, span, label, li, button, a,  input, select, textarea, .extrait-resume, h2,
+.paragraph.paragraph--type--dossier.paragraph--view-mode--default > div:first-of-type > div:nth-child(2),
+.title-last-doc{
     font-family: "new-order", sans-serif !important;
     font-style: normal;
 }
 /*========================================= Fin Police "new order" from CDN ===========================================================*/
 
 /*========================================= DM Font ===========================================================*/
-h2,
+/* h2,
 .paragraph.paragraph--type--dossier.paragraph--view-mode--default > div:first-of-type > div:nth-child(2),
 .title-last-doc {
     font-family: "DM" !important;
     font-weight: 900 !important;
-}
+} */
 /*========================================= Fin DM Font ===========================================================*/
 
 /*========================================= Debut menu principal à gauche ===========================================================*/
-.adminimal-admin-toolbar #main-menu{
+.adminimal-admin-toolbar.toolbar-tray-open #main-menu{
     top:79px;
     height: calc(100% - 79px);
+}
+
+.adminimal-admin-toolbar #main-menu{
+    top:39px;
+    height: calc(100% - 39px);
 }
 #main-menu{
     position: absolute;
@@ -40,18 +47,9 @@ h2,
     background-color: #e52329 !important;
     z-index: 10;
 }
-nav#block-menuprincipal .menu li a:hover,
-nav#block-menuprincipal .menu li a.is-active{
-    color: #ffc22c;
-}
 #main-menu .menu{
     display: initial;
 }
-
-
-
-
-
 nav#block-menuprincipal ul >li> ul{
     position: relative;
     background-color: initial;
@@ -60,23 +58,87 @@ nav#block-menuprincipal ul >li> ul{
 nav#block-menuprincipal ul >li> ul>li >a{
     background: initial;
 }
+nav#block-menuprincipal ul > li > ul > li >ul{
+    position:absolute;
+    left: 200px;
+    background-color: #fff;
+    box-shadow: 1px 3px 5px rgb(195 195 195);
+}
+nav#block-menuprincipal ul >li> ul>li >ul > li > a{
+    color: #000 !important;
+}
+nav#block-menuprincipal ul > li > ul.first-sub > li.menu-item{
+    padding: initial;
+}
 ul.submenu.is-dropdown-submenu.second-sub.vertical {
     right: initial;
     left: 15px;
 }
+nav#block-menuprincipal ul >li.menu-item--expanded::after{
+    position: absolute;
+    content: "+";
+    background-color: #fff;
+    color: #e52329;
+    right: 0;
+    top: -6px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px 0px;
+}
+nav#block-menuprincipal ul >li.menu-item--expanded.first-level-click::after{
+    content: "-";
+}
+nav#block-menuprincipal ul >li>ul.first-sub>li.menu-item--expanded::after,
+nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded::after{
+    content: ">" !important;
+    background-color:transparent;
+    color: #fff;
+    top: -2px;
+    right: 25px;
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 1.2rem;
+    width: auto;
+    height: auto;
+}
+nav#block-menuprincipal ul > li.first-level-click > ul.first-sub > li.menu-item--expanded:hover::after {  
+    animation: slideOutRight 0.5s ease forwards;
+  }
+  
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(40%);
+    }
+  }
+nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded.second-level-active,
+nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li:hover{
+    background-color:#ffffff77;
+}
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
     display: none;
 }
+nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
+    display: block;
+}
 
-
-
-
-
-
-
-
+#main-menu.top-bar .first-sub {
+    min-width: 200px;
+    width: 100%;
+}
+#main-menu.top-bar .second-sub{
+    min-width: initial;
+    width: 100%;
+}
+#main-menu.top-bar .dropdown .is-dropdown-submenu a {
+    padding: 0.5rem 0.5rem;
+}
 #main-menu.top-bar .grid-container {
-    width: auto;
+    width: 100%;
 }
 #main-menu .content-menu-burger .menu-close{
     display: none;
@@ -107,7 +169,7 @@ ul.submenu.is-dropdown-submenu.second-sub.vertical {
 .icon-reunion i.fa-calendar {
     font-weight: 500;
 }
-.content-menu-burger:before {
+.menu-open:before {
     content: "";
     width: calc(100% + 10px);
     position: absolute;
@@ -134,12 +196,12 @@ ul.submenu.is-dropdown-submenu.second-sub.vertical {
 }
 
 body #main-menu .grid-container  nav {
-    position: absolute;
     display: none;
-    top: 5em;
+    width: 100%;
+    padding-top: 5rem;
 }
 #block-menuprincipal li{
-    padding: 0 0 0.8em;
+    padding: 0 0 0.2em;
 }
 #main-menu .menu > li > a {
     padding: 0;
@@ -284,10 +346,10 @@ body #main-menu .grid-container  nav {
     border: 1px solid #e52329;
     text-transform: uppercase;
 }
-.btn-formation:hover {
+/* .btn-formation:hover {
     background-color: #e7e0d9;;
     color: #000;
-}
+} */
 .custon-content-formation {
     width: 100%;
     border-left: 2px solid #bdbdbd;
@@ -314,8 +376,9 @@ body #main-menu .grid-container  nav {
     border: solid 1px #e52329;
 }
 .btn-search-header:hover {
-    background-color: #e7e0d9;;
-    color: #000;
+    /* background-color: #e7e0d9;;
+    color: #000 ;*/
+    color: #fff;
 }
 .input-search-header {
     height: auto;
@@ -361,17 +424,19 @@ i.icon-search-header{
     align-items: center;
 }
 
-.hero .block-pagetitle--2 h1 {
-    background: #140d3dd9 !important;
+.hero #block-pagetitle--2.block-pagetitle--2 h1 {
+    background: #140d3dd9;
     border-radius: 50px 0 50px;
     margin: initial;
-    color: #fff !important;
+    color: #fff;
     width: 50%;
     min-height: 150px;
     height: auto;
-    display: flex !important;
+    display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: initial;
+    font-weight: 300 !important;
 }
 .grid-container.full.hero.hero-taxonomy:before {
     content: "";
@@ -841,7 +906,8 @@ img.icon-first-doc {
     bottom: 1rem;
     position: absolute;
 }
-.grid-container.full.hero .section-caroussel::before{
+/* .grid-container.full.hero .section-caroussel */
+#views_slideshow_cycle_teaser_section_home_caroussel-block_1::before{
     content: "";
     background: url(/files/before-section-title.png) no-repeat center 0;
     left: -100px;
@@ -880,12 +946,17 @@ img.icon-first-doc {
 /*========================================= Fin caroussel dans la page d'accueil ===========================================================*/
 
 /*========================================= Debut mes réunions dans la page d'accueil ===========================================================*/
+#block-blockhomemeetings,
+#block-blockmescommissions {
+    position: relative;
+}
 .title-commission-home,
 .title-ask-question-home,
 .title-meetings-home {
     color: #3d3d3d;
     margin-top: 2rem;
     font-size: 2.1rem;
+    font-weight: 600;
 }
 .all-meet-who-s-mine {
     background-color: #e52329;
@@ -993,7 +1064,7 @@ img.icon-first-doc {
     width: 50%;
 }
 #block-blockmescommissions .my-group-image:after{
-    content: "";
+    content: '';
     background: url(/files/before-section-commission.png) no-repeat center 0;
     left: 35%;
     bottom: 2rem;
