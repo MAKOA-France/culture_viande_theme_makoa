@@ -5,12 +5,71 @@
  * Preprocess functions for basic smv.
  */
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Cache\CacheableMetadata;
+
+
+/* function getNodeFieldValue ($node, $field) {
+  $value = '';
+  $getValue = $node->get($field)->getValue();
+  if (!empty($getValue)) {
+    if (isset($getValue[0]['target_id'])) { //For entity reference (img / taxonomy ...)
+      $value = $getValue[0]['target_id'];
+    }elseif (isset($getValue[0]['value']))  { //For simple text / date
+      $value = $getValue[0]['value'];
+    }else if(isset($getValue[0]['uri'])) {
+      $value = $getValue[0]['uri'];
+    }else { //other type of field
+
+    }
+  }
+  return $value;
+} */
 
 /**
  * Prepares variables for the html.html.twig template.
  */
 function b_zf_preprocess_html(&$variables) {
+
+
+
+// Load the entity type manager service.
+$entityTypeManager = \Drupal::entityTypeManager();
+
+// Define the array of media IDs you want to load.
+$mediaIds = [29369, 29368, 29367, 29366, 29370]; // Replace these IDs with your actual media IDs.
+
+// Load the media items.
+$mediaItems = $entityTypeManager->getStorage('media')->loadMultiple($mediaIds);
+
+// Now you can loop through the loaded media items and access their properties.
+$file_ids = [];
+foreach ($mediaItems as $media) {
+   $file_ids[] = getNodeFieldValue($media, 'field_media_image');
+  //  dump($media_file);
+}
+
+
+// Load the files.
+$files = Drupal\file\Entity\File::loadMultiple($file_ids);
+
+$file_urls = [];
+foreach ($files as $file) {
+  // Get the URL of the file.
+  $fileUrl = $file->createFileUrl();
+  $file_urls[] = $fileUrl;
+}
+
+// Get a random key from the array
+$randomKey = array_rand($file_urls);
+
+// Get the random element using the random key
+$variables['page']['random_img_header_last_document'] = $file_urls[$randomKey];
+
+// dump($variables);
+
+
+  
   $variables['public-site'] = 'https://www.cultureviande.eu/';
   try {
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();

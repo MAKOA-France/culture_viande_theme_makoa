@@ -11,13 +11,13 @@
       <!-- logo and ad break -->
       <article class="grid-container">
         <div class="grid-x grid-margin-x align-middle">
-          <div class="medium-2 cell">
+          <div class="medium-2 cell {# logo-entete #}">
             {{ page.header }}
           </div>
           
-          <div class="medium-10 cell">
+          <div class="medium-10 cell {# section-recherche-entete #}">
             <div class="grid-x align-middle">
-              <div class="cell medium-7">
+              <div class="cell medium-8">
                 {# <button class="icon-recherche" data-toggle="searchModal"><i class="fas fa-search"></i></button> #}
                 {{ include ('@b_zf/recherche/recherche.html.twig') }}
                 
@@ -29,7 +29,7 @@
                 </div>
               </div>
 
-              <div class="cell medium-3">{{ page.info }}</div>
+              <div class="cell medium-2">{{ page.info }}</div>
             </div>
           </div>
         </div>
@@ -187,16 +187,16 @@
 
                     <div class="btn-footer-center">
                       <a  target="_blank" href="https://www.google.com/maps/place/17+Pl.+des+Vins+de+France,+75012+Paris,+France/@48.8323146,2.3843719,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6723f7bb6c197:0x99f51e3b2ada0b89!8m2!3d48.8323111!4d2.3869468!16s%2Fg%2F11cslplhc2?entry=ttu">
-                      <i class="fa fa-map-marker"></i>17, Place des vins de France 75012 PARIS France
+                      <i class="icon-custom-map-marker"></i>17, Place des vins de France 75012 PARIS France
                       </a>
                     </div>
 
                     <div class="btn-footer-center">                                           
-                      <a href="tel:0153024004"><i class="fa fa-phone"></i>01 53 02 40 04</a>
+                      <a href="tel:0153024004"><i class="icon-custom-phone-call"></i>01 53 02 40 04</a>
                     </div>
 
                     <div class="btn-footer-center">                      
-                      <a href="mailto:courrier@cultureviande.fr"><i class="fa fa-envelope"></i>courrier@cultureviande.fr</a>
+                      <a href="mailto:courrier@cultureviande.fr"><i class="icon-custom-mail-box"></i>courrier@cultureviande.fr</a>
                     </div>
 
                   </div>
@@ -205,7 +205,7 @@
 
                     <ul class="footer-links">
                       <li>
-                        <a href="{{ public-site }}"><i class="fas fa-globe"></i> Site public</a>
+                        <a href="{{ public-site }}"><i class="icon-custom-terrestrial-globe"></i> Site public</a>
                       </li>
                    <ul>
                 </div>

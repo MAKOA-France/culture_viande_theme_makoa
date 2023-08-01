@@ -19,7 +19,11 @@
             <ul class="custom-submenu-ul">
             {% for link_text,elm in item.submenu %}
               <li class="custom-submenu-li">
-                <a href="{{ link_text}}">{{ elm }}</a>
+                {% if  'no-link' in link_text %}
+                  <span class="no-link-text">{{ elm }}</span>  
+                {% else %}
+                  <a class="with-link" href="{{ link_text}}">{{ elm }}</a>
+                {% endif %}
               </li>
             {% endfor %}
             </ul>
@@ -29,8 +33,12 @@
           {% if item.submenu %}
             <ul class="custom-submenu-ul">
             {% for string_url, elm in item.submenu %}
-              <li class="custom-submenu-li de test">
-                <a href="{{ string_url }}">{{ elm }}</a>
+              <li class="custom-submenu-li ">
+              {% if  'no-link' in link_text %}
+                <span class="no-link-text">{{ elm }}</span>
+               {% else %}
+                  <a class="with-link" href="{{ string_url }}">{{ elm }}</a>
+                {% endif %}
               </li>
             {% endfor %}
             </ul>

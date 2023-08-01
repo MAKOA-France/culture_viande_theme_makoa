@@ -8,16 +8,16 @@
 
   // This is a function to open sidenav menu
     $('body').on('click', '.menu-open', function(){
-      $('#main-menu.top-bar').css('width', '223px');
-      $('.content-menu-burger .menu-open, .content-menu-burger .content-sub-menu-burger').hide();
+      $('#main-menu.top-bar').addClass('menu-sidebar-open');
+      $('.content-menu-burger .menu-open').hide();
       $('#main-menu .grid-container nav, .content-menu-burger .menu-close').show();
 
     });
 
   // This is a function to close sidenav menu
   $('body').on('click', '.menu-close', function(){
-      $('#main-menu.top-bar').css('width', '70px');
-      $('.content-menu-burger .menu-open, .content-menu-burger .content-sub-menu-burger').show();
+      $('#main-menu.top-bar').removeClass('menu-sidebar-open');
+      $('.content-menu-burger .menu-open').show();
       $('#main-menu .grid-container nav, .content-menu-burger .menu-close').hide();
 
   });
@@ -155,7 +155,7 @@
       h2Element.text(errorMessage);
       // Remove the error message from the div
       jQuery('<i class="fa fa-times-circle" aria-hidden="true"></i>').insertBefore(".messages--error div[role='alert']");
-      jQuery(".messages--error div[role='alert']").html('<h2>Accès refusé</h2>Vous devez vous authentifier pour visualiser cette page.');
+      jQuery(".messages--error div[role='alert']").html('<h2>Accès refusé.</h2>Vous devez vous authentifier pour visualiser cette page.');
       jQuery(".messages--error h2.visually-hidden").removeClass('visually-hidden');
     }
   })
