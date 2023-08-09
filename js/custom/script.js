@@ -2,6 +2,9 @@
   $(document).ready(function() {
 
 
+    //mot de passe oublié
+    jQuery('.back-to-login').insertBefore('.btn-custom-submit #edit-actions');
+
     //login page set placeholder
     jQuery('.user-login-form [name="name"]').attr('placeholder', 'Identifiant');
 
@@ -73,7 +76,8 @@
   });
 
   // This is function for level 1 dropdown of menu
-  $('body').on('click', 'nav#block-menuprincipal ul li.is-dropdown-submenu-parent', function () {
+  $('body').on('click', 'nav#block-menuprincipal ul li.is-dropdown-submenu-parent', function(event) {
+    event.stopPropagation();
     var $this = $(this);
     var isClick = $this.hasClass("first-level-click");
 
@@ -87,6 +91,11 @@
       $this.addClass("first-level-click");
       $this.children("ul").stop().slideDown(300);
     }
+  });
+  
+  // This is function stopped propagation on click submenu in sidebar left
+  $('body').on('click', 'nav#block-menuprincipal ul > li > ul > li.menu-item a ', function(event) {
+    event.stopPropagation();
   });
 
    // This is function for display level 2 dropdown of menu on mouseenter
@@ -158,7 +167,29 @@
       jQuery(".messages--error div[role='alert']").html('<h2>Accès refusé.</h2>Vous devez vous authentifier pour visualiser cette page.');
       jQuery(".messages--error h2.visually-hidden").removeClass('visually-hidden');
     }
-  })
-  
+  });
+
+  //This is a function of accordeon dans l'image + text    
+  $(".middle.faq-dropdown").each(function () {
+      const faqDropdown = $(this);
+      const firstH4 = faqDropdown.find("h4:first");
+      const toggleIcon = firstH4.find("span.glyphicon");
+      const elementsToToggle = faqDropdown.children().not(firstH4);
+
+    firstH4.on("click", function () {
+        elementsToToggle.slideToggle();
+        toggleIcon.toggleClass("glyphicon-chevron-down glyphicon-chevron-up");
+        $(".middle.faq-dropdown")
+          .not(faqDropdown)
+          .find("> *:not(h4:first)")
+          .slideUp()
+          .end()
+          .find("span.glyphicon")
+          .removeClass("glyphicon-chevron-up")
+          .addClass("glyphicon-chevron-down");
+    });
+  }); 
+
 });    
 })(jQuery);
+

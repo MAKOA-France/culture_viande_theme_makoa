@@ -7,3 +7,41 @@
 .footer-distributed .footer-center {
     width: 37%;
 }
+
+#auth_box .btn-custom-submit input, .btn-custom-submit  .back-to-login {
+    float: initial;
+    width: 100%;
+    padding: 0;
+    height: 45px;
+    background-color: #dc001d;
+    color: #ffffff;
+    text-shadow: initial;
+    border: initial;
+    border-color: initial;
+    -webkit-border-radius: 15px 0;
+    -moz-border-radius: 15px 0;
+    border-radius: 15px 0;
+    box-shadow: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+} 
+
+ .btn-custom-submit {
+    line-height: 3.5;
+    margin: 0;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+ } 
+ .btn-custom-submit  .back-to-login  {
+    padding: 8px 26px;
+    width: 100%;
+    text-align: center;
+ } 
+ .btn-custom-submit  .back-to-login a {
+    color : white !important;
+ }
+ #auth_box #edit-actions {
+    margin: 0;
+ }

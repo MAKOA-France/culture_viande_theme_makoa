@@ -32,7 +32,6 @@ use Drupal\Core\Cache\CacheableMetadata;
 function b_zf_preprocess_html(&$variables) {
 
 
-
 // Load the entity type manager service.
 $entityTypeManager = \Drupal::entityTypeManager();
 

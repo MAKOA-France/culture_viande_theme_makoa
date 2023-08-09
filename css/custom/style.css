@@ -44,7 +44,7 @@
 /*========================================= Fin Load font local DM ===========================================================*/
 
 /*========================================= Police "new order" from CDN ===========================================================*/
-h1,h3, p, span, label, li, button, a,  input, select, textarea, .extrait-resume, h2,
+h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume, h2,
 .paragraph.paragraph--type--dossier.paragraph--view-mode--default > div:first-of-type > div:nth-child(2),
 .title-last-doc{
     font-family: "new-order", sans-serif !important;
@@ -66,8 +66,8 @@ h1,h3, p, span, label, li, button, a,  input, select, textarea, .extrait-resume,
     top:79px;
     height: calc(100% - 79px);
 }
-
-.adminimal-admin-toolbar #main-menu{
+.adminimal-admin-toolbar #main-menu,
+.adminimal-admin-toolbar.toolbar-tray-open.toolbar-vertical #main-menu{
     top:39px;
     height: calc(100% - 39px);
 }
@@ -554,11 +554,12 @@ header .site-logo img {
     text-transform: initial;
     font-weight: 300 !important;
 }
-.grid-container.full.hero.hero-taxonomy:before {
+.grid-container.full.hero.hero-taxonomy:after {
     content: "";
     background: url(/files/before-section-title.png) no-repeat center 0;
-    left: -100px;
-    top: 31%;
+    right: -50px;
+    /* top: 31%; */
+    top: 20%; 
     width: 150px;
     height: 100%;
     position: absolute;
@@ -577,6 +578,9 @@ header .site-logo img {
 /*========================================= Fin section titre de chaque page ===========================================================*/
 
 /*========================================= Debut fil d'ariane ===========================================================*/
+#block-breadcrumbs-2 nav.breadcrumb {
+    position: relative;
+}
 #block-breadcrumbs-2 ol{
     background-color: #fce7e8;
     width: fit-content;
@@ -592,7 +596,7 @@ header .site-logo img {
     display: none;
     position: absolute;
     width: 150px;
-    top: 30px;
+    top: 31px;
     left: auto;
     z-index: 1;
     text-align: left;
@@ -615,8 +619,8 @@ header article.grid-container,
 body .grid-container#main,
 .grid-container.hero.hero-taxonomy,
 #block-views-block-home-caroussel-block-1 {
-    /* max-width: 75%; */
-    max-width: 85.375rem;
+    max-width: 75%;
+    /* max-width: 85.375rem; */
     width: 100%;
 }
 .grid-container#main,
@@ -1166,9 +1170,6 @@ h2.main-title-last-doc{
     background-color: #e7e0d994;
 }
 .home-ask-question select.form-select {
-   /*  background-image: linear-gradient(45deg, transparent 50%, #707070 50%), linear-gradient(135deg, #707070 50%, transparent 50%);
-    background-position: calc(100% - 20px) .7em, calc(100% - 15px) .7em, 100% 0;
-    background-size: 5px 5px, 5px 5px, 2.5em 2.5em; */
     background-image: url('/files/arrows-chevron-down-select.png');
     background-size: 1.2rem;
     background-repeat: no-repeat; 
@@ -1176,9 +1177,6 @@ h2.main-title-last-doc{
   }
   
   .home-ask-question select.form-select:focus {
-    /* background-image: linear-gradient(45deg, #707070 50%, transparent 50%), linear-gradient(135deg, transparent 50%, #707070 50%);
-    background-position: calc(100% - 15px) .7em, calc(100% - 20px) .7em, 100% 0;
-    background-size: 5px 5px,  5px 5px, 2.5em 2.5em; */
     background-image: url('/files/arrows-chevron-up-select.png');
     outline: 0;
   }
@@ -1241,6 +1239,7 @@ h2.main-title-last-doc{
     margin-bottom:initial;
     display: grid;
     gap: 20px;
+    background-color: transparent;
 }
 #auth_box #left_part input[type="text"],
 #auth_box #left_part input[type="password"],
@@ -1369,24 +1368,230 @@ h2.main-title-last-doc{
 }
 /*========================================= Fin login ===========================================================*/
 
+/*========================================= Debut Image + texte ===========================================================*/
+.text-image .img-html-bloc img{
+    border-radius: 100px 0; 
+}
+.text-image .img-html-bloc{
+    position: relative;
+    margin-bottom: 4rem;
+}
+.text-image  span.glyphicon{
+    font-family: 'Glyphicons Halflings' !important;
+}
+.text-image .img-html-bloc:after,
+.formatted-text table > thead > tr > th:nth-child(1):after{
+    content: '';
+    background: url(/files/before-section-title.png) no-repeat right bottom;
+    position: absolute;
+    background-size: contain;
+}
+.text-image .img-html-bloc:after {
+    right: 40px;
+    bottom: 40px;    
+    width: 150px;
+    height: 350px;
+}
+.text-image h2 {
+    font-weight: 700;
+    font-size: 2.3rem;
+    font-family: "DM" !important;
+    margin-bottom: 1rem;
+}
+.text-image h3 {
+    color: #dc001d;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.formatted-text table > thead > tr > th{
+    position: relative;
+}
+.formatted-text table > thead > tr > th:nth-child(1):after{
+    right: 50px;
+    width: 100px;
+    height: 310px;
+}
+.text-image .formatted-text blockquote {
+    background-color: #fff5dd;
+    padding: 30px;
+    border-radius: 20px 0;
+    border-left: initial
+}
+.text-image .formatted-text blockquote p{
+    color: #634703;
+    margin: 0;
+}
+.text-image .formatted-text pre {
+    text-align: center;
+    background-color: #f8f6f4;
+    width: fit-content;
+    align-content: center;
+    margin: auto;
+    padding: 2rem 10rem;
+    border-radius: 50px 0;
+}
+.text-image .formatted-text pre code{
+    padding: initial;
+    border: initial;
+    background-color: initial;
+    font-family: "new-order", sans-serif !important;
+}
+.text-image h5.text-align-right {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+.text-image iframe.media-oembed-content {
+    min-height: 600px;
+    width: 100%;
+}
+.text-image .formatted-text table > thead,
+.middle.faq-dropdown table > thead  {
+    border: initial;
+    background-color: initial;
+}
+.text-image .formatted-text table > thead > tr > th,
+.middle.faq-dropdown table > thead > tr > th {
+    padding: 0;
+    font-weight: normal;
+}
+.text-image .formatted-text table > thead > tr > th > img,
+.middle.faq-dropdown table > thead > tr > th > img{
+    padding-right: 2rem;
+    width: 100%;
+    height: auto;
+    border-radius: 7rem 0;
+}
+.text-image .txt-img-all-doc {
+    padding: 0 0 2rem;
+}
+.text-image .formatted-text,
+.text-image .text-img-video  {
+    padding: 2rem 0 2rem;
+}
+.text-image .txt-img-all-doc .custom-section-doc .description-with-date-size .each-img-link{
+    color: #000;
+}
+.text-image .link-custom {
+    padding: 1.7rem 1.2rem;
+    border-radius: 20px 0;
+    display: block;
+    width: 100%;
+    color: #707070;
+}
+.text-image .link-custom .custom-link-font-awesome {
+    margin-right: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.text-image .link-custom:nth-of-type(odd) {
+    background-color: #e7e0d9;
+}
+.text-image .link-custom:hover,
+.text-image .link-custom:nth-of-type(odd):hover{
+    background-color: #fce6e7;
+}
+.formatted-text table{
+    text-align: center;
+    margin-bottom: 0;
+}
+.formatted-text table tbody{
+    border: initial;
+    background-color: initial;
+}
+.formatted-text table > tbody > tr:first-child {
+    background-color: #e7e0d9;
+    height: 40px;
+    font-weight: bold;
+}
+.formatted-text table > tbody > tr:not(:first-child) {
+    height: 60px;
+}
+.formatted-text table > tbody > tr:first-child  td:not(:last-child) {
+    border-right: solid 1px #b4b4b4;
+}
+.middle.faq-dropdown {
+    position: relative;
+    padding-left: 2rem;
+}
+.middle.faq-dropdown::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+.middle.faq-dropdown:last-child {
+    border-bottom: 1px solid #ccc;
+}
+/* Masquer tous ce qui dans le middle.faq-dropdown a part le premiere h4 */
+.middle.faq-dropdown > *:not(h4:first-of-type) {
+    display: none;
+}
+.middle.faq-dropdown h4:first-of-type {
+    cursor: pointer;
+    padding: 1rem 5rem 1rem 0;
+    margin : initial
+}
+.middle.faq-dropdown h4 strong span.glyphicon{  
+    float: right;
+    margin-right: -3rem;
+}
+.middle.faq-dropdown ul{
+    list-style-type: none;
+}
+.middle.faq-dropdown > ul > li:before {
+    content: "\f058";
+    font-family: 'Font Awesome 5 Free';
+    color: green;
+    font-weight: 900;
+    padding-right: 1rem;
+}
+.middle.faq-dropdown > p > a:before{
+    content: "\f35d";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    padding-right: 1rem;
+    font-size: 22px;
+}
+.middle.faq-dropdown > p > a{
+    color: #707070;
+    line-height: initial;
+}
+/*========================================= Fin Image + texte ===========================================================*/
+
 /*========================================= Debut Reesponsive design ===========================================================*/
 
-/* XX-Large devices (larger desktops, 1400px and down) */
-@media (max-width: 1400px) {
-    
- }
-
-/* X-Large devices (large desktops, 1200px and down) */
+/* Large devices (desktops) */
 @media (max-width: 1200px) {
-    
+    #left_part {
+        padding: 20px;
+    }
+    #right_part .image-right {
+        height: 100%;
+    }
+    #right_part .image-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        z-index: -2;
+        position: relative;
+    }
+
+    #right_part:before {
+        right: calc(31% - 19px);
+        z-index: -1;
+    }    
 }
 
-/* Large devices (desktops, 992px and down) */
+/* Medium devices (tablets) */
 @media (max-width: 992px) { 
-    
+    #right_part:before {
+        right: calc(31% - 28px);
+    }
 }
 
-/* Medium devices (tablets, 768px and down) */
+/* Small devices (landscape phones) */
 @media (max-width: 768px) { 
     #footer-region .footer-distributed .footer-center {
         border-left: unset;
@@ -1401,11 +1606,19 @@ h2.main-title-last-doc{
     #footer-region .footer-distributed .footer-left{
         text-align: start;
     }
-    
- }
-
-/* Small devices (landscape phones, 766px and down) */
-@media (max-width: 766px) { 
+    #right_part:before {
+        right: calc(31% - 24px);
+    }
    
+}
+
+/* Extra small devices (portrait phones) */
+@media (max-width: 680px) { 
+    #left_part{
+        width: 100%;
+    }
+    #right_part {
+        display: none;
+    }
 }
 /*========================================= Fin Reesponsive design ===========================================================*/
