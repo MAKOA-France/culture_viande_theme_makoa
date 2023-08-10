@@ -34,7 +34,7 @@
             <ul class="custom-submenu-ul">
             {% for string_url, elm in item.submenu %}
               <li class="custom-submenu-li ">
-              {% if  'no-link' in link_text %}
+              {% if  'no-link' in string_url %}
                 <span class="no-link-text">{{ elm }}</span>
                {% else %}
                   <a class="with-link" href="{{ string_url }}">{{ elm }}</a>

@@ -331,25 +331,25 @@ body #main-menu .grid-container  nav {
     display: flex !important;
     align-items: center;
 }
-.icon-reunion,
-.icon-comission,
-.icon-question {
+.dropdown-item-burger .icon-reunion,
+.dropdown-item-burger .icon-comission,
+.dropdown-item-burger .icon-question {
     width: 10%;
     font-size: 15px;
     margin-right: 10px;
 }
-.details-reunion {
+.dropdown-item-burger .details-reunion {
     width: 90%;
 }
-.title_reunion {
+.dropdown-item-burger .details-reunion .title_reunion {
     width: 100%;
     display: block;
     text-wrap: wrap;
     font-size: 0.9rem;
 }
-.date_reunion,
-.hour_reunion,
-.separator_reunion{
+.dropdown-item-burger .details-reunion .date_reunion,
+.dropdown-item-burger .details-reunion .hour_reunion,
+.dropdown-item-burger .details-reunion .separator_reunion{
     font-weight: 400;
     font-size: 0.8rem;
 }
@@ -618,7 +618,8 @@ header .site-logo img {
 header article.grid-container, 
 body .grid-container#main,
 .grid-container.hero.hero-taxonomy,
-#block-views-block-home-caroussel-block-1 {
+#block-views-block-home-caroussel-block-1,
+body .grid-container.full.hero.communication{
     max-width: 75%;
     /* max-width: 85.375rem; */
     width: 100%;
@@ -1102,12 +1103,14 @@ h2.main-title-last-doc{
     justify-content: center;
     align-items: center;
 }
-#block-blockmescommissions .all-group-who-s-mine .each-group h3 {
+#block-blockmescommissions .all-group-who-s-mine .each-group h3,
+.block-blockdetailcommission--2 .detail-group-title .group-info .group-name {
     color: #140d3d;
     font-weight: 600;
     font-size: 1.2rem;
 }
-#block-blockmescommissions .all-group-who-s-mine .each-group p {
+#block-blockmescommissions .all-group-who-s-mine .each-group p,
+.block-blockdetailcommission--2 .detail-group-title .group-info .group-members{
     color: #707070;
     margin-bottom: 0;
 }
@@ -1369,7 +1372,8 @@ h2.main-title-last-doc{
 /*========================================= Fin login ===========================================================*/
 
 /*========================================= Debut Image + texte ===========================================================*/
-.text-image .img-html-bloc img{
+.text-image .img-html-bloc img,
+.middle.faq-dropdown p img{
     border-radius: 100px 0; 
 }
 .text-image .img-html-bloc{
@@ -1429,11 +1433,6 @@ h2.main-title-last-doc{
     margin: auto;
     padding: 2rem 10rem;
     border-radius: 50px 0;
-}
-.text-image .formatted-text pre code{
-    padding: initial;
-    border: initial;
-    background-color: initial;
     font-family: "new-order", sans-serif !important;
 }
 .text-image h5.text-align-right {
@@ -1453,6 +1452,7 @@ h2.main-title-last-doc{
 .middle.faq-dropdown table > thead > tr > th {
     padding: 0;
     font-weight: normal;
+    vertical-align: top;
 }
 .text-image .formatted-text table > thead > tr > th > img,
 .middle.faq-dropdown table > thead > tr > th > img{
@@ -1559,6 +1559,127 @@ h2.main-title-last-doc{
     line-height: initial;
 }
 /*========================================= Fin Image + texte ===========================================================*/
+
+/*========================================= Debut détails commission ===========================================================*/
+.civicrm-entity--type-civicrm-group table > thead, .civicrm-entity--type-civicrm-group table > tbody, .civicrm-entity--type-civicrm-group table > tfoot {
+    border: initial;
+}
+.civicrm-entity--type-civicrm-group table >thead > tr {
+    background-color: #e7e0d9;
+    font-weight: 600;
+    text-decoration : none;
+}
+.civicrm-entity--type-civicrm-group table > thead > tr > th > a{
+   color: #000;
+   font-weight: 600;
+}
+.civicrm-entity--type-civicrm-group table > thead > tr > th:not(:last-child) {
+    border-right: solid 1px #b4b4b4;
+}
+.civicrm-entity--type-civicrm-group .views-field-display-name {
+    text-decoration: none !important;
+}
+.civicrm-entity--type-civicrm-group table > tbody >  tr:nth-child(odd) {
+    background-color: #f5f5f5;
+    height: 60px;
+}
+.civicrm-entity--type-civicrm-group table > tbody >  tr:nth-child(even) {
+    background-color: #fff;
+    height: 60px;
+}
+.detail-group-title {
+    background-color: #f7f5f3;
+    border-radius: 30px 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.communication .block-blockdetailcommission--2 .icon-group {
+    width: 130px;
+    height: 130px;
+    background-color: #3e7269;
+    border-radius: 100%;
+    border: 2px solid #FFF;
+    box-shadow: 1px 1px 5px #0000005e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.communication .block-blockdetailcommission--2 .icon-group i{
+    font-size: 3rem;
+    color: #FFF;
+}
+.block-blockdetailcommission--2 .detail-group-title .group-info {
+    text-align: center;
+}
+.block-blockdetailcommission--2 .detail-group-title .group-info .group-name{
+    margin: 20px 0 0;
+    font-size: 2rem;
+}
+.block-blockdetailcommission--2 .group-presentation-title{
+    font-size: .85rem;
+    font-weight: 500;
+    margin: 15px 0;
+}
+.block-blockdetailcommission--2 .group-presentation-description {
+    background-color: #f7f5f3;
+    padding: 15px;
+    border-radius: 5px;
+}
+.block-blockdetailcommission--2 .detail-group-title:before{
+    content: "";
+    background: url(/files/before-section-details-comission.png) no-repeat center 0;    
+    top: 30px;
+    left: 30px;
+    width: 90PX;
+    height: 50px;
+    position: absolute;
+    background-size: contain;
+}
+.block-blockdetailcommission--2 .detail-group-title:after{
+    content: "";
+    background: url(/files/after-sestion-details-commission.png) no-repeat right bottom;
+    right: 30px;
+    bottom: 30px;
+    width: 90px;
+    height: 130px;
+    position: absolute;
+    background-size: contain;
+}
+.button-purple a {
+    background-color: #140d3d;
+    color: #fff;
+    padding: 15px 50px;
+    position: relative;
+    border-radius: 20px 0;
+}
+#main .civicrm-entity .views-field-current-employer,
+#main .civicrm-entity .views-field-display-name .field-content{    
+    padding-left:  0.625rem;
+}
+#main .civicrm-entity .views-field-display-name .field-content{
+    font-weight: 500;
+}
+#main .civicrm-entity > div:nth-child(4) .layout__region .cell {
+    background: #f7f5f3;
+    border-radius: 10px 0;
+}
+#main .civicrm-entity .views-field-current-employer .field-content {
+    color: #acacac;
+}
+.civicrm-entity .layout__region h2 {
+    border-bottom: initial;
+    text-align: initial;
+    /* padding-bottom: 1rem; */
+    /* margin-bottom: 1rem; */
+    color: #3d3d3d;
+    margin-top: 2rem;
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+/*========================================= Fin détails commission ===========================================================*/
 
 /*========================================= Debut Reesponsive design ===========================================================*/
 

@@ -175,19 +175,20 @@
       const firstH4 = faqDropdown.find("h4:first");
       const toggleIcon = firstH4.find("span.glyphicon");
       const elementsToToggle = faqDropdown.children().not(firstH4);
-
-    firstH4.on("click", function () {
-        elementsToToggle.slideToggle();
-        toggleIcon.toggleClass("glyphicon-chevron-down glyphicon-chevron-up");
-        $(".middle.faq-dropdown")
-          .not(faqDropdown)
-          .find("> *:not(h4:first)")
-          .slideUp()
-          .end()
-          .find("span.glyphicon")
-          .removeClass("glyphicon-chevron-up")
-          .addClass("glyphicon-chevron-down");
-    });
+      
+      firstH4.on("click", function (event) {
+        event.stopPropagation();
+          elementsToToggle.slideToggle();
+          toggleIcon.toggleClass("glyphicon-chevron-down glyphicon-chevron-up");
+          $(".middle.faq-dropdown")
+            .not(faqDropdown)
+            .find("> *:not(h4:first)")
+            .slideUp()
+            .end()
+            .find("span.glyphicon")
+            .removeClass("glyphicon-chevron-up")
+            .addClass("glyphicon-chevron-down");
+      });
   }); 
 
 });    
