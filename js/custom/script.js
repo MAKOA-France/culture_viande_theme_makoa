@@ -99,11 +99,15 @@
   });
 
    // This is function for display level 2 dropdown of menu on mouseenter
-  $('body').on('mouseenter', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
+  $('body').on('mouseenter', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded', function(event) {
     event.stopPropagation();
-    $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ul').addClass("d-block");
+    $('nav#block-menuprincipal ul ul').removeClass("d-block");
+
+    $(this).find('ul').addClass("d-block");
+    $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded').removeClass("second-level-active");
     $(this).addClass("second-level-active");
-  });
+});
+
 
   // This is function for hide level 2 dropdown of menu on mouseover
   $('body').on('mouseleave', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
@@ -147,6 +151,12 @@
 
   //window on load 
   $(window).on('load', function () {
+    var messageDiv = $('.messages--status');
+    var messageText = messageDiv.text();
+
+    if (messageText.includes("You have already submitted this webform.")) {
+        messageDiv.hide();
+    }
     //login page 
     const h2Text = $('.page-user-login .user-login-form [role="alert"] h2.visually-hidden').text().trim();
 
@@ -190,6 +200,19 @@
             .addClass("glyphicon-chevron-down");
       });
   }); 
+
+    $('.search-local-header .icon-search-header').on("click", function (event) {
+      event.stopPropagation(); // Empêche la propagation de l'événement vers les gestionnaires de niveau supérieur
+      event.preventDefault(); // Empêche le comportement par défaut du lien
+      
+      var $searchHeader = $('.search-local-header');
+      var $searchElements = $searchHeader.find('.input-search-header, .btn-search-header');
+      
+      $searchElements.toggleClass('visible');
+    });
+  
+  
+  
 
 });    
 })(jQuery);

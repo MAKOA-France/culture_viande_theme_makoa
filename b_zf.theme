@@ -253,6 +253,11 @@ function b_zf_preprocess_field(&$variables, $hook) {
  */
 function b_zf_preprocess_block(&$variables) {
   $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
+  // dump($variables);
+  if ($variables['content']['#bundle'] == 'civicrm_group' && $variables['plugin_id'] == 'field_block:civicrm_group:civicrm_group:title') {
+    $variables['content'][0]['#context']['value'] = Drupal\Core\Render\Markup::create('<div class="meeting-head"><span class="meetings"><i class="icon-custom-calendar"></i>Réunion</span><a class="btn-add-meeting"><i class="fa fa-plus-circle"></i>Ajouter une réunion</a>');
+
+  }
 }
 
 /**

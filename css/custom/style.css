@@ -30,36 +30,22 @@
     .icon-custom-group-person:before { content: '\e81a'; } /* '' */
     /*========================================= Fin load custom icon ===========================================================*/
   
-  
-  /*========================================= Load font local DM ===========================================================*/
-@font-face {
-    font-family: DM;
-    src: url('font/DMSerifText-Regular.eot');
-    src: url('font/DMSerifText-Regular.eot?') format('☺'),
-         url('font/DMSerifText-Regular.woff') format('woff'),
-         url('font/DMSerifText-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-/*========================================= Fin Load font local DM ===========================================================*/
-
 /*========================================= Police "new order" from CDN ===========================================================*/
-h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume, h2,
+h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume/* , h2,
 .paragraph.paragraph--type--dossier.paragraph--view-mode--default > div:first-of-type > div:nth-child(2),
-.title-last-doc{
+.title-last-doc */{
     font-family: "new-order", sans-serif !important;
     font-style: normal;
-}
+} 
 /*========================================= Fin Police "new order" from CDN ===========================================================*/
 
-/*========================================= DM Font ===========================================================*/
-/* h2,
+/*========================================= DM Font " from CDN  ===========================================================*/
+h2,
 .paragraph.paragraph--type--dossier.paragraph--view-mode--default > div:first-of-type > div:nth-child(2),
 .title-last-doc {
-    font-family: "DM" !important;
-    font-weight: 900 !important;
-} */
-/*========================================= Fin DM Font ===========================================================*/
+    font-family: 'DM Serif Display', serif !important;
+}
+/*========================================= Fin Police " DM " from CDN  ===========================================================*/
 
 /*========================================= Debut menu principal à gauche ===========================================================*/
 .adminimal-admin-toolbar.toolbar-tray-open #main-menu{
@@ -71,15 +57,28 @@ h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, tabl
     top:39px;
     height: calc(100% - 39px);
 }
+
+.taxo-second-niveau  h2 {
+    color: #3D3D3D;
+}
 #main-menu{
     position: absolute;
     top:0;
     height: 100%;
     width: 70px;
-    display: block !important;
+    /* display: block !important; */
     background-color: #e52329 !important;
     z-index: 10;
+    align-items: flex-start;
+    /* position: fixed; */
+    /* overflow-x: hidden; */
+   /*  overflow: scroll; */
+    /* -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none; */
 }
+/* #main-menu::-webkit-scrollbar {
+    display: none;
+  } */
 #main-menu .menu{
     display: initial;
 }
@@ -155,7 +154,8 @@ nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li:hover{
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
     display: none;
 }
-nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
+nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block,
+nav#block-menuprincipal ul > li > ul > li > ul.first-sub.d-block{
     display: block;
 }
 #main-menu.top-bar{
@@ -164,8 +164,6 @@ nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
 #main-menu.top-bar.menu-sidebar-open{
     width: 223px
 }
-
-
 #main-menu.top-bar .first-sub {
     min-width: 200px;
     width: 100%;
@@ -179,6 +177,13 @@ nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
 }
 #main-menu.top-bar .grid-container {
     width: 100%;
+}
+#main-menu .content-menu-burger{
+   position: relative;
+   z-index: 999;
+}
+.block-menuburgerblock .contextual .trigger {
+    top: 35px;
 }
 #main-menu .content-menu-burger .menu-close{
     display: none;
@@ -196,9 +201,10 @@ nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
     color: #fff;
     cursor: pointer;
     font-weight: 700;
+    position: relative;
 }
 #main-menu.top-bar .content-sub-menu-burger {
-    top: 50px;
+    top: 20px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -240,12 +246,11 @@ nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
     text-align: center;
     transition: initial;
 }
-#main-menu.top-bar.menu-sidebar-open  .content-sub-menu-burger .item-sub-menu-burger {
+#main-menu.top-bar.menu-sidebar-open .content-sub-menu-burger .item-sub-menu-burger {
     text-align: initial;
     width: 100%;
     padding: 12px 0 12px 23px;
-    display: inline-flex;
-    flex-wrap: nowrap;
+    display: flex;
     align-items: center;
     gap: 15px;
 }
@@ -255,7 +260,7 @@ nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
 #main-menu.top-bar .content-sub-menu-burger .item-sub-menu-burger .span-title-burger {
     display: none;
 }
-#main-menu.top-bar.menu-sidebar-open  .content-sub-menu-burger .item-sub-menu-burger .span-title-burger{
+#main-menu.top-bar.menu-sidebar-open .content-sub-menu-burger .item-sub-menu-burger .span-title-burger{
     display: block;
     font-size: .85rem;
     text-transform: uppercase;
@@ -275,7 +280,7 @@ nav#block-menuprincipal ul > li > ul > li > ul.second-sub.d-block{
 body #main-menu .grid-container  nav {
     display: none;
     width: 100%;
-    padding-top: 3rem;
+    padding-top: 20px;
 }
 #block-menuprincipal li{
     padding: 0 0 0.2em;
@@ -283,25 +288,10 @@ body #main-menu .grid-container  nav {
 #main-menu .menu > li > a {
     padding: 0;
 }
-.content-sub-menu-burger #submenu-burger-reunion {
-    top: 20px;
-}
-#main-menu.top-bar.menu-sidebar-open #submenu-burger-reunion {
-    top: 0;
-}
-.content-sub-menu-burger #submenu-burger-commission {
-    top: 90px;
-}
-#main-menu.top-bar.menu-sidebar-open #submenu-burger-commission {
-    top: 65px;
-}
-.content-sub-menu-burger #submenu-burger-question,
-#main-menu.top-bar.menu-sidebar-open #submenu-burger-question  {
-    bottom: 0;
-}
 .content-sub-menu-burger .dropdown-sub-menu-burger {
+    top: 0;
     position: absolute;
-    left: 47px;
+    left: 70px;
     display: none;
     min-width: 250px;
     min-height: 72px;
@@ -344,7 +334,7 @@ body #main-menu .grid-container  nav {
 .dropdown-item-burger .details-reunion .title_reunion {
     width: 100%;
     display: block;
-    text-wrap: wrap;
+    white-space: wrap;
     font-size: 0.9rem;
 }
 .dropdown-item-burger .details-reunion .date_reunion,
@@ -370,15 +360,21 @@ body #main-menu .grid-container  nav {
 /*========================================= Fin menu principal à gauche ===========================================================*/
 
 /*========================================= Debut en tete ===========================================================*/
-header .logo-entete{
+/* header .logo-entete{
     width: 10%;
 }
 header .section-recherche-entete{
     width: 90%;
-}
+} */
 /* header .grid-container .grid-margin-x {
     margin: 0;
 } */
+header  .grid-x > .medium-2 {
+    width: max-content;
+}
+header .grid-x {
+    flex-flow: initial;
+}
 /*========================================= Fin en tete ===========================================================*/
 
 /*========================================= Debut dropdown profil utilisateur ===========================================================*/
@@ -389,7 +385,6 @@ header .section-recherche-entete{
     border: 1px solid #3e7269;
     margin-right: 5px;
 }
-
 .custom-my-account .btn-my-account{
     padding: 5px 15px;
     text-transform: capitalize;
@@ -403,13 +398,11 @@ header .section-recherche-entete{
 .custom-my-account .btn-my-account:hover{
     background-color: #e7e0d9;
     border-radius: 20px 0 0;
-
 }
 .custom-my-account .dropdown-my-profil {
     position: relative;
     width: 100%;
-  }
-  
+  }  
   .custom-my-account .dropdown-menu-my-profil {
     position: absolute;
     top: 100%;
@@ -455,10 +448,11 @@ header .section-recherche-entete{
     border: 1px solid #e52329;
     text-transform: uppercase;
 }
-/* .btn-formation:hover {
-    background-color: #e7e0d9;;
+.btn-formation:hover {
+    background-color: #e7e0d9;
+    border-color:#e7e0d9;
     color: #000;
-} */
+}
 .custon-content-formation {
     width: 100%;
     border-left: 2px solid #bdbdbd;
@@ -485,8 +479,8 @@ header .section-recherche-entete{
     border: solid 1px #e52329;
 }
 .btn-search-header:hover {
-    /* background-color: #e7e0d9;;
-    color: #000 ;*/
+    background-color: #140d3d;    
+    border-color: #140d3d;
     color: #fff;
 }
 .input-search-header {
@@ -539,7 +533,6 @@ header .site-logo img {
     align-items: center;
     position: relative;
 }
-
 .hero #block-pagetitle--2.block-pagetitle--2 h1 {
     background: #140d3dd9;
     border-radius: 50px 0 50px;
@@ -554,16 +547,25 @@ header .site-logo img {
     text-transform: initial;
     font-weight: 300 !important;
 }
-.grid-container.full.hero.hero-taxonomy:after {
+/* .grid-container.full.hero.hero-taxonomy:after {
     content: "";
     background: url(/files/before-section-title.png) no-repeat center 0;
     right: -50px;
-    /* top: 31%; */
     top: 20%; 
     width: 150px;
     height: 100%;
     position: absolute;
     background-size: 100%;
+} */
+.grid-container.full.hero.hero-taxonomy:before {
+    content: "";
+    background: url(/files/before-section-title.png) no-repeat center 0;
+    left: -100px;
+    top: calc(30% + 5px);
+    width: 150px;
+    height: 346px;
+    position: absolute;
+    background-size: contain;
 }
 .hero #block-pagetitle--2.block-pagetitle--2 h1:before {
     content: "";
@@ -601,8 +603,7 @@ header .site-logo img {
     z-index: 1;
     text-align: left;
     background: #fce7e8;
-    border-radius: 10px 0 0;
-    
+    border-radius: 10px 0 0;    
   }
   .breadcrumb ol li > ul li {
     padding: 5px 15px;
@@ -633,13 +634,12 @@ header article.grid-container {
 .grid-container#main:before {
     content: "";
     background: url(/files/before-section-main.png) no-repeat center 0;
-    right: 0;
+    right: 13px;
     width: 12%;
     height: 800px;
     position: absolute;
     background-size: contain;
 }
-
 body > div.dialog-off-canvas-main-canvas > div > header {
     padding: 1em 0;
 }
@@ -649,6 +649,7 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 #footer.grid-container.full {
     background-color: #e52329 !important;
     padding: 1rem 0;
+    bottom: -1px;
 }
 #footer.grid-container.full .grid-container {
     margin-left: auto;
@@ -668,7 +669,6 @@ body > div.dialog-off-canvas-main-canvas > div > header {
     color: #e52329;
     transition: all .2s ease-in-out;
 }
-
 #footer-region .footer-distributed .footer-center i{
     text-align: initial;
     font-size: 1.2rem;
@@ -776,7 +776,7 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 .media-download-file-first  {
     border-radius: 15px 0 15px;
     text-transform: uppercase;
-    font-size: 0.85em;
+    font-size: 0.8em;
     font-weight: 600;
 }
 .media-download-all,
@@ -788,8 +788,8 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 }
 .media-download-file-first,
 .media-download-file-first:hover  {    
-    margin-top: 30px;
-    padding: 10px 30px;
+    margin-top: 10px;
+    padding: 5px 30px;
     background-color: #e7e0d9;
     color: #000;
     width: fit-content;
@@ -806,7 +806,8 @@ body > div.dialog-off-canvas-main-canvas > div > header {
     color: #b1b1b1;
     font-size: 0.7rem;
 }
-.custom-section-doc .description {
+.custom-section-doc .description,
+.first-element-doc .content-frist-doc .date-size-first-doc  {
     font-size: 0.89rem;
 }
 .custom-section-doc .description-with-date-size {
@@ -818,19 +819,21 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 .first-element-doc {
     display: inline-flex;
     margin: 30px 0;
-    gap: 50PX;
+    gap: 50px;
+    width: 100%;
 }
 .first-element-doc .content-frist-doc{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
-.first-element-doc .content-frist-doc .extrait-resume p {
-    font-size: 0.95rem;
+.first-element-doc .content-frist-doc .extrait-resume p{
+    font-size: 0.8rem;
 }
 .first-element-doc a.custom-icon-first-element {
-    min-width: 20%;
-    height: 100%;
+    width: 15%;
+    height: auto;
 }
 .media-download-file-first i{
     font-size: 1.2rem;
@@ -844,7 +847,6 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 .detail-date-button-first-doc {
     display: inline-grid;
 }
-
 .line-container-plus,
 .line-container-moins {
     display: flex;
@@ -901,6 +903,9 @@ h2.main-title-last-doc{
     position: absolute;
 }
 /* .grid-container.full.hero .section-caroussel */
+#views_slideshow_cycle_teaser_section_home_caroussel-block_1 {
+    position: relative;
+}
 #views_slideshow_cycle_teaser_section_home_caroussel-block_1::before{
     content: "";
     background: url(/files/before-section-title.png) no-repeat center 0;
@@ -1389,6 +1394,10 @@ h2.main-title-last-doc{
     background: url(/files/before-section-title.png) no-repeat right bottom;
     position: absolute;
     background-size: contain;
+    transform: scaleY(-1);
+}
+.formatted-text.img-txt-side-by-side table > thead > tr > th{
+    width: 50%;
 }
 .text-image .img-html-bloc:after {
     right: 40px;
@@ -1397,10 +1406,10 @@ h2.main-title-last-doc{
     height: 350px;
 }
 .text-image h2 {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 2.3rem;
-    font-family: "DM" !important;
-    margin-bottom: 1rem;
+    font-family: 'DM Serif Display' !important;
+    margin-bottom: 2rem;
 }
 .text-image h3 {
     color: #dc001d;
@@ -1431,7 +1440,7 @@ h2.main-title-last-doc{
     width: fit-content;
     align-content: center;
     margin: auto;
-    padding: 2rem 10rem;
+    padding: 2rem 5rem;
     border-radius: 50px 0;
     font-family: "new-order", sans-serif !important;
 }
@@ -1561,33 +1570,33 @@ h2.main-title-last-doc{
 /*========================================= Fin Image + texte ===========================================================*/
 
 /*========================================= Debut détails commission ===========================================================*/
-.civicrm-entity--type-civicrm-group table > thead, .civicrm-entity--type-civicrm-group table > tbody, .civicrm-entity--type-civicrm-group table > tfoot {
+.section-civicrm-group table > thead, .section-civicrm-group table > tbody, .section-civicrm-group table > tfoot {
     border: initial;
 }
-.civicrm-entity--type-civicrm-group table >thead > tr {
+.section-civicrm-group table >thead > tr {
     background-color: #e7e0d9;
     font-weight: 600;
     text-decoration : none;
 }
-.civicrm-entity--type-civicrm-group table > thead > tr > th > a{
+.section-civicrm-group table > thead > tr > th > a{
    color: #000;
    font-weight: 600;
 }
-.civicrm-entity--type-civicrm-group table > thead > tr > th:not(:last-child) {
+.section-civicrm-group table > thead > tr > th:not(:last-child) {
     border-right: solid 1px #b4b4b4;
 }
-.civicrm-entity--type-civicrm-group .views-field-display-name {
+.section-civicrm-group .views-field-display-name {
     text-decoration: none !important;
 }
-.civicrm-entity--type-civicrm-group table > tbody >  tr:nth-child(odd) {
+.section-civicrm-group table > tbody >  tr:nth-child(odd) {
     background-color: #f5f5f5;
     height: 60px;
 }
-.civicrm-entity--type-civicrm-group table > tbody >  tr:nth-child(even) {
+.section-civicrm-group table > tbody >  tr:nth-child(even) {
     background-color: #fff;
     height: 60px;
 }
-.detail-group-title {
+.section-civicrm-group  .detail-group-title {
     background-color: #f7f5f3;
     border-radius: 30px 0;
     padding: 30px;
@@ -1596,7 +1605,10 @@ h2.main-title-last-doc{
     align-items: center;
     position: relative;
 }
-.communication .block-blockdetailcommission--2 .icon-group {
+.section-civicrm-group .communication .block-blockdetailcommission--2{
+    width: 100%;
+}
+.section-civicrm-group .communication .block-blockdetailcommission--2 .icon-group {
     width: 130px;
     height: 130px;
     background-color: #3e7269;
@@ -1607,14 +1619,14 @@ h2.main-title-last-doc{
     justify-content: center;
     align-items: center;
 }
-.communication .block-blockdetailcommission--2 .icon-group i{
+.section-civicrm-group .communication .block-blockdetailcommission--2 .icon-group i{
     font-size: 3rem;
     color: #FFF;
 }
-.block-blockdetailcommission--2 .detail-group-title .group-info {
+.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title .group-info {
     text-align: center;
 }
-.block-blockdetailcommission--2 .detail-group-title .group-info .group-name{
+.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title .group-info .group-name{
     margin: 20px 0 0;
     font-size: 2rem;
 }
@@ -1623,12 +1635,12 @@ h2.main-title-last-doc{
     font-weight: 500;
     margin: 15px 0;
 }
-.block-blockdetailcommission--2 .group-presentation-description {
+.section-civicrm-group .block-blockdetailcommission--2 .group-presentation-description {
     background-color: #f7f5f3;
     padding: 15px;
     border-radius: 5px;
 }
-.block-blockdetailcommission--2 .detail-group-title:before{
+.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:before{
     content: "";
     background: url(/files/before-section-details-comission.png) no-repeat center 0;    
     top: 30px;
@@ -1638,7 +1650,7 @@ h2.main-title-last-doc{
     position: absolute;
     background-size: contain;
 }
-.block-blockdetailcommission--2 .detail-group-title:after{
+.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:after{
     content: "";
     background: url(/files/after-sestion-details-commission.png) no-repeat right bottom;
     right: 30px;
@@ -1648,38 +1660,244 @@ h2.main-title-last-doc{
     position: absolute;
     background-size: contain;
 }
-.button-purple a {
-    background-color: #140d3d;
+.section-civicrm-group .button-purple a {
+    background-color: #140d3d;    
+    top: 50px;
     color: #fff;
     padding: 15px 50px;
     position: relative;
     border-radius: 20px 0;
 }
-#main .civicrm-entity .views-field-current-employer,
-#main .civicrm-entity .views-field-display-name .field-content{    
+.section-civicrm-group .civicrm-entity .views-field-current-employer,
+.section-civicrm-group .views-field-display-name .field-content{    
     padding-left:  0.625rem;
 }
-#main .civicrm-entity .views-field-display-name .field-content{
+.section-civicrm-group .views-field-display-name .field-content{
     font-weight: 500;
 }
-#main .civicrm-entity > div:nth-child(4) .layout__region .cell {
+.section-civicrm-group > div:nth-child(4) .layout__region .cell {
     background: #f7f5f3;
     border-radius: 10px 0;
 }
-#main .civicrm-entity .views-field-current-employer .field-content {
+.section-civicrm-group .views-field-current-employer .field-content {
     color: #acacac;
 }
-.civicrm-entity .layout__region h2 {
+.section-civicrm-group .layout__region .contextual-region h2,
+.section-civicrm-group .last-doc-title h2.main-title-last-doc,
+.section-civicrm-group .meeting-head .meetings{ 
     border-bottom: initial;
     text-align: initial;
-    /* padding-bottom: 1rem; */
-    /* margin-bottom: 1rem; */
+    color: #3d3d3d;
+    font-size: xxx-large;
+    font-weight: 600;
+    font-family: "DM Serif Display" !important;
+}
+.section-civicrm-group .layout__region .contextual-region h2::before,
+.section-civicrm-group .last-doc-title h2.main-title-last-doc i::before,
+.section-civicrm-group .meeting-head .meetings i{
+    margin-right: 1rem;
+    padding-right: 5px;    
+}
+.section-civicrm-group .meeting-head {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.section-civicrm-group  .btn-add-meeting {
+    text-transform: uppercase;
+    font-size: .75rem;
+    color: #3e7269;
+    padding: 10px 15px;
+    font-weight: 600;
+    background-color: #f7f5f3;
+    border-radius: 20px 0;
+    line-height: initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-civicrm-group  .btn-add-meeting i{
+    margin-right: 1rem;
+    font-size: 20px;
+}
+/* .section-civicrm-group .layout--twocol-section--50-50 .layout__region .block-views h2::before,
+.section-civicrm-group .meeting-com .title-meet .title-meet-commission a::before{
+    content: unset !important;
+} */
+.section-civicrm-group .layout.layout--twocol-section.layout--twocol-section--50-50 {
+    background-color: #f7f5f3;
+    border-radius: 50px 0;
+    padding: 50px 20px;
+    margin: 0;
+    gap: 30px;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+}
+.section-civicrm-group .layout--twocol-section .layout__region.layout__region--first{
+    border-right: unset !important;
+    border-left: 5px solid #fff;
+    padding: 0 0 0 30px;
+    margin: 0;
+}
+.section-civicrm-group .layout--twocol-section .layout__region.layout__region--second {
+    margin: 0;
+    padding: 0;
+}
+.section-civicrm-group .layout--twocol-section--50-50 .layout__region .block-views h2{
+    background: #fff;
+    border-radius: 50px 0;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0 0 30px;
+    line-height: initial;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: 500;
+    font-family: "new-order" !important;
+}
+.section-civicrm-group .meeting-com {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    background-color: #e7e0d9;
+    border-radius: 50px 0;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.section-civicrm-group .meeting-com.odd {    
+    background-color: #fff;
+    pointer-events: none;
+}
+.section-civicrm-group .meeting-com .date-meet {
+    padding: 10px;
+    display: grid;
+    text-align: center;
+    border-radius: 30px 0;
+    background-color: #fff;
+    color: #140d3d;
+    min-width: 110px;
+}
+.section-civicrm-group .meeting-com.odd .date-meet,
+.section-civicrm-group .meeting-com.odd .title-meet .title-meet-commission a,
+.section-civicrm-group .meeting-com.odd span {
+    color: #acacac;
+    pointer-events: none;
+
+}
+.section-civicrm-group .meeting-com .date-meet .day {
+    font-size: xxx-large;
+    font-weight: bold;
+    line-height: normal;
+    font-family: "DM Serif Display" !important;
+}
+.section-civicrm-group .date-meet .month-and-year {
+    font-size: small;
+    line-height: initial;
+}
+.section-civicrm-group .meeting-com .title-meet{      
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.section-civicrm-group .meeting-com .title-meet .title-meet-commission a{
+    color: #140d3d;
+    font-size: x-large;
+    font-weight: 700;
+    line-height: initial;
+}
+.section-civicrm-group .meeting-com .title-meet .hour-begining-meet-commission{    
+    line-height: initial;
+}
+.section-civicrm-group .layout__region .printParticipants .item-list ul,
+.section-civicrm-group .layout__region .printParticipants .item-list ul li{
+    margin: 0 !important;
+    padding: 0;
+}
+.section-civicrm-group .civicrm-entity--view-mode-full .layout--onecol:first-of-type {
+    background: initial;
+    padding: 2rem 0;
+    border: none;
+    border-top: none;
+    margin: initial;
+}
+/*========================================= Fin détails commission ===========================================================*/
+
+
+/*reunion provisoire*/
+.section-civicrm-event article.civicrm-entity--type-civicrm-event{
+    border-radius: 50px 0; 
+    display: flex;
+    flex-direction: column;
+    background: #ffffff !important;
+}
+
+.section-civicrm-event article.civicrm-entity--type-civicrm-event h2 {
+    color: #140d3d;
+    font-size: 1.1rem;
+    font-weight: 600;
+    order: 3;
+    margin-bottom: 40px;
+    position: relative;
+}
+.section-civicrm-event article.civicrm-entity--type-civicrm-event h2:after {
+    width: 100%;
+    CONTENT: '';
+    height: 3px;
+    background: #f3f3f3;
+    position: absolute;
+    left: 0;
+    top: 55px;
+}
+.section-civicrm-event .block-blocklisteparticipant h3{
     color: #3d3d3d;
     margin-top: 2rem;
     font-size: 2.1rem;
     font-weight: 600;
+    font-family: 'DM Serif Display', serif !important;
 }
-/*========================================= Fin détails commission ===========================================================*/
+.section-civicrm-event  .date-end-event {
+    background-color: #f3f3f3;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 30px 0;
+    color: #3d3d3d;
+    font-weight: 500;
+    order: 1;
+    font-size: 1.6rem;
+    font-family: 'DM Serif Display', serif !important;
+    display: initial !important;
+}
+.section-civicrm-event  .date-start-event{
+color: #e52329;
+    font-size: 1.1rem;
+    font-weight: 600;
+    order:2
+}
+.section-civicrm-event article.civicrm-entity--type-civicrm-event div:first-child{
+    order: 4;
+}
+.section-civicrm-event article.civicrm-entity--type-civicrm-event div:has(p){
+    order: 5;
+}
+.section-civicrm-event article.civicrm-entity--type-civicrm-event span{
+    display: none;
+}680
+.section-civicrm-event  .block-blocklisteparticipant table > thead, .section-civicrm-event  .block-blocklisteparticipant table > tbody, .section-civicrm-event  .block-blocklisteparticipant table > tfoot {
+    border: initial;
+}
+.section-civicrm-event  .block-blocklisteparticipant table > thead {
+    background: #f8f8f8;
+    color: #0a0a0a;
+}
+.section-civicrm-event  .block-blocklisteparticipant table > thead > tr{
+    background-color: #e7e0d9;
+    font-weight: 600;
+}
+.section-civicrm-event  .block-blocklisteparticipant table > thead > tr > th:not(:last-child) {
+    border-right: solid 1px #b4b4b4;
+}
+/*reunion provisoire*/
 
 /*========================================= Debut Reesponsive design ===========================================================*/
 
@@ -1741,5 +1959,187 @@ h2.main-title-last-doc{
     #right_part {
         display: none;
     }
+    #main-menu.top-bar {
+        width: 100%;
+    }
+    
+    #footer-region .footer-distributed .footer-left .footer-company-details {
+        FLEX-DIRECTION: column;
+        GAP: 40PX;
+    }
+    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company, #footer-region .footer-distributed .footer-left .footer-company-details .desciption-company-footer {
+        width: 100%;
+    }
+    #footer-region .footer-distributed .footer-center, #footer-region .footer-distributed .footer-right {
+        padding: 0;
+    }
+    #footer-region .footer-distributed {
+        padding: 20px;
+        border-radius: 155px 0 0;
+    }
+    #footer-region .footer-distributed .footer-left {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    #footer-region .btn-footer-center a {
+        display: flex;
+        font-size: initial;
+    }
+    #footer-region .footer-distributed .footer-center i {
+        font-size: 2rem;
+        margin: initial;
+        min-width: 40px;
+    }
+    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company .img-footer-logo {
+        padding-right: 0;
+    }
+    
+    #footer .footer-distributed .footer-right {
+        margin-bottom: 10px;
+    }
+    #main-menu {
+        display: none;
+        position: initial;
+    }
+    #main-menu .content-menu-burger .menu-open,
+    #main-menu .content-menu-burger .menu-close {
+        display: none;
+    }
+    body #main-menu .grid-container nav,
+    #main-menu.top-bar .content-sub-menu-burger,
+    #main-menu.top-bar .content-sub-menu-burger .item-sub-menu-burger .span-title-burger {
+        display: block;
+        padding-top: 0;
+        /* margin-bottom: 15px; */
+    }
+    .content-sub-menu-burger .item-sub-menu-burger {
+        color: #fff;
+        width: 100%;
+        Display: FLEX;
+        padding: 10px 0 0;
+        gap: 15px;
+    }
+    #main-menu.top-bar .content-sub-menu-burger{
+        top: 0;
+        padding-top: 15px;
+    }
+    #main-menu.top-bar .content-sub-menu-burger:before {
+        height: 2px;
+        width: 100%;
+        top: 0;
+        CONTENT: "";
+        background-color: #f8f9f9;
+        position: absolute;
+    }
+    #main-menu .content-menu-burger .menu-open, #main-menu .content-menu-burger .menu-close, #main-menu .content-menu-burger .menu-reunion, #main-menu .content-menu-burger .menu-commission, #main-menu .content-menu-burger .menu-poser-question {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .title-bar {
+        
+    background: #e52329;
+    border-bottom: 1px solid #fff;
+    }
+    #footer.grid-container.full .grid-container {
+        max-width: 100%;
+    }
+    header article.grid-container, body .grid-container#main, .grid-container.hero.hero-taxonomy, #block-views-block-home-caroussel-block-1, body .grid-container.full.hero.communication {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+      .hero{
+        min-height: inherit;
+      }
+      #views_slideshow_cycle_teaser_section_home_caroussel-block_1::before {
+                left: -35px;
+        bottom: 0;
+        width: 55PX;
+        height: 100PX;
+        background-size: contain;
+      }
+      .views-field-field-texte-slider .field-content h2,
+      .views-field-field-texte-slider .field-content p{
+        font-size: medium;
+      }
+      .views-field-field-texte-slider {
+        bottom: 1rem;
+        left: 1rem;
+      }
+      #block-views-block-home-caroussel-block-1 .views-slideshow-controls-bottom {
+        justify-content: flex-start;
+      }
+      .views-slideshow-controls-bottom .views-slideshow-pager-bullets {
+        margin: -1rem .5rem;
+      }
+      #block-views-block-home-caroussel-block-1 img {
+        height: auto;
+        border-radius: 0 0 30px;
+      }
+      .all-meet-who-s-mine.col-md-6,
+      #block-blockmescommissions .my-group.row {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .all-meet-who-s-mine,
+      .home-ask-question .home-ask-question-overlay {
+        border-radius: 30px 0 0;
+        padding: 2rem;
+      }
+      .lists-meeting {
+        padding: 1rem;
+        border-radius: 30px 0;
+      }
+      .btn-each-meetings {
+        height: 4rem;
+        border-radius: 0 0 30PX;
+      }
+      #block-blockmescommissions .my-group-image, #block-blockmescommissions .all-group-who-s-mine {
+        width: 100%;
+        position: relative;
+      }
+      #block-blockmescommissions .my-group-image::after {
+        left: initial;
+        right: 30px;
+        bottom: 30px;
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+      }
+      #block-blockmescommissions .my-group-image .my-group-img {
+        border-radius: 30px 0;
+      }
+      #footer.grid-container.full{
+        margin-top: 2rem;
+    }
+    header .site-logo img {
+        width: 100px;
+      }
+      header i.icon-search-header {
+        cursor: unset;
+      }
+      .input-search-header,
+      .btn-search-header {
+        display:none
+      }
+      .input-search-header {
+        padding: 0.5rem 1rem;
+        position: absolute;
+        left: 1%;
+        width: 64%;
+    }
+    .btn-search-header {
+        padding: 0.5rem 1rem;
+        POSITION: absolute;
+        RIGHT: 1%;
+        WIDTH: 34%;
+    }
+    .visible {
+        display: block !important;
+      }
+      header .cell.medium-8{
+        width: auto;
+      }
 }
 /*========================================= Fin Reesponsive design ===========================================================*/
