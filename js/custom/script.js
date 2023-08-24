@@ -37,33 +37,85 @@
     
     $target.toggleClass("d-block");
   });
-  // This is a function dropdown on sidebar for reunion, community, poser question
-  function handleSubMenuEvents(menuSelector) {
-    $('body').on('mouseenter', `${menuSelector} .item-sub-menu-burger`, function() {
-      $(`${menuSelector} .dropdown-sub-menu-burger`).addClass("d-block");
-      $(this).addClass("sub-menu-burger-active");
-    });
 
-    $('body').on('mouseleave', `${menuSelector}`, function(event) {
-      var $dropdown = $(`${menuSelector} .dropdown-sub-menu-burger`);
-      var dropdownLeft = $dropdown.offset().left;
-      var dropdownTop = $dropdown.offset().top;
-      var dropdownWidth = $dropdown.outerWidth();
-      var dropdownHeight = $dropdown.outerHeight();
+ // This is a function dropdown on sidebar for reunion, community, poser question
 
-      var mouseX = event.pageX;
-      var mouseY = event.pageY;
+ // Detect la taille de l'ecran
+  if (window.innerWidth > 681) {
 
-      if (mouseX < dropdownLeft || mouseX > dropdownLeft + dropdownWidth || mouseY < dropdownTop || mouseY > dropdownTop + dropdownHeight) {
-        $dropdown.removeClass("d-block");
-        $(`${menuSelector} .item-sub-menu-burger`).removeClass("sub-menu-burger-active");
+      function handleSubMenuEvents(menuSelector) {
+        $('body').on('mouseenter', `${menuSelector} .item-sub-menu-burger`, function() {
+          $(`${menuSelector} .dropdown-sub-menu-burger`).addClass("d-block");
+          $(this).addClass("sub-menu-burger-active");
+        });
+
+        $('body').on('mouseleave', `${menuSelector}`, function(event) {
+          var $dropdown = $(`${menuSelector} .dropdown-sub-menu-burger`);
+          var dropdownLeft = $dropdown.offset().left;
+          var dropdownTop = $dropdown.offset().top;
+          var dropdownWidth = $dropdown.outerWidth();
+          var dropdownHeight = $dropdown.outerHeight();
+
+          var mouseX = event.pageX;
+          var mouseY = event.pageY;
+
+          if (mouseX < dropdownLeft || mouseX > dropdownLeft + dropdownWidth || mouseY < dropdownTop || mouseY > dropdownTop + dropdownHeight) {
+            $dropdown.removeClass("d-block");
+            $(`${menuSelector} .item-sub-menu-burger`).removeClass("sub-menu-burger-active");
+          }
+        });
       }
-    });
-  }
+      handleSubMenuEvents('.menu-reunion');
+      handleSubMenuEvents('.menu-commission');
+      handleSubMenuEvents('.menu-poser-question');
 
-  handleSubMenuEvents('.menu-reunion');
-  handleSubMenuEvents('.menu-commission');
-  handleSubMenuEvents('.menu-poser-question');
+  }else{
+    
+      /* $(document).ready(function() {
+        var menuSelectorMobile = '.menu-reunion, .menu-commission, .menu-poser-question';
+        var submenuBurger = $('.dropdown-sub-menu-burger');
+    
+        $('body').on('click', menuSelectorMobile, function() {
+            var $contentSubMenuBurger = $(this).find(submenuBurger);    
+            $('.content-sub-menu-burger').find(submenuBurger).not($contentSubMenuBurger).slideUp(300);    
+            $contentSubMenuBurger.slideToggle(300);
+        });
+    
+        $('body').on(menuSelectorMobile + ' ' + submenuBurger, function(event) {
+            event.stopPropagation();
+        });
+    
+        $(document).click(function(event) {
+            if (!$(event.target).closest(menuSelectorMobile).length) {
+              submenuBurger.slideUp(300);
+            }
+        });
+      });   */
+      $(document).ready(function() {
+        var menuSelectorMobile = '.menu-reunion, .menu-commission, .menu-poser-question';
+        var submenuBurger = $('.dropdown-sub-menu-burger');
+    
+        $('body').on('click', menuSelectorMobile, function() {
+            var $contentSubMenuBurger = $(this).find(submenuBurger);    
+            $('.content-sub-menu-burger').find(submenuBurger).not($contentSubMenuBurger).slideUp(300);    
+            $contentSubMenuBurger.slideDown(300);
+        });
+
+        $('body').on('click', menuSelectorMobile + ' ' + submenuBurger+ ' a', function(event) {
+          event.stopPropagation();
+      });
+    
+        $(document).click(function(event) {
+            if (!$(event.target).closest(menuSelectorMobile).length) {
+                submenuBurger.slideUp(300);
+            }
+        });
+    });
+    
+    
+    
+
+  }
 
   // This is function for breadcrumb
   $(".breadcrumb ol li").hover(function() {
@@ -76,13 +128,13 @@
   });
 
   // This is function for level 1 dropdown of menu
-  $('body').on('click', 'nav#block-menuprincipal ul li.is-dropdown-submenu-parent', function(event) {
+  $('body').on('click', 'nav#block-menuprincipal ul li.menu-item--expanded.premier-niv', function(event) {
     event.stopPropagation();
     var $this = $(this);
     var isClick = $this.hasClass("first-level-click");
 
     // This is to close all other open drop-down menus except the one just clicked
-    $('nav#block-menuprincipal ul li.is-dropdown-submenu-parent.first-level-click').not($this).removeClass("first-level-click").children("ul").stop().slideUp(300);
+    $('nav#block-menuprincipal ul li.menu-item--expanded.premier-niv.first-level-click').not($this).removeClass("first-level-click").children("ul").stop().slideUp(300);
 
     if (isClick) {
       $this.removeClass("first-level-click");
@@ -108,23 +160,39 @@
     $(this).addClass("second-level-active");
 });
 
+// This is function for hide level 2 dropdown of menu on mouseover
+$('body').on('mouseleave', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
+  event.stopPropagation();
+  var $dropdown = $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ul');
+  var dropdownLeft = $dropdown.offset().left;
+  var dropdownTop = $dropdown.offset().top;
+  var dropdownWidth = $dropdown.outerWidth();
+  var dropdownHeight = $dropdown.outerHeight();
 
-  // This is function for hide level 2 dropdown of menu on mouseover
-  $('body').on('mouseleave', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
-    event.stopPropagation();
-    var $dropdown = $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ul');
-    var dropdownLeft = $dropdown.offset().left;
-    var dropdownTop = $dropdown.offset().top;
-    var dropdownWidth = $dropdown.outerWidth();
-    var dropdownHeight = $dropdown.outerHeight();
+  var mouseX = event.pageX;
+  var mouseY = event.pageY;
 
-    var mouseX = event.pageX;
-    var mouseY = event.pageY;
+  if (mouseX < dropdownLeft || mouseX > dropdownLeft + dropdownWidth || mouseY < dropdownTop || mouseY > dropdownTop + dropdownHeight) {
+    $dropdown.removeClass("d-block");
+    $('nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded').removeClass("second-level-active");
+  }
+});  
 
-    if (mouseX < dropdownLeft || mouseX > dropdownLeft + dropdownWidth || mouseY < dropdownTop || mouseY > dropdownTop + dropdownHeight) {
-      $dropdown.removeClass("d-block");
-      $('nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded').removeClass("second-level-active");
-    }
+// This is function for display and hide level 2 dropdown of menu on clic in mobile
+  $('body').on('click', 'nav#block-menuprincipal ul > li.premier-niv > ul > li.menu-item--expanded.second-niv', function(event) {
+    event.stopPropagation();  
+    var $this = $(this);
+    var isClick = $this.hasClass("second-level-click");
+    $(this).find('ul').addClass("d-block");
+    
+    $('nav#block-menuprincipal ul > li.premier-niv > ul > li.menu-item--expanded.second-niv.second-level-click').not($this).removeClass("second-level-click").children("ul").stop().slideUp(300);
+      if (isClick) {
+        $this.removeClass("second-level-click");
+        $this.children("ul").stop().slideUp(300);
+      } else {
+        $this.addClass("second-level-click");
+        $this.children("ul").stop().slideDown(300);
+      }
   });  
 
   // This is function homepage search
@@ -201,18 +269,9 @@
       });
   }); 
 
-    $('.search-local-header .icon-search-header').on("click", function (event) {
-      event.stopPropagation(); // Empêche la propagation de l'événement vers les gestionnaires de niveau supérieur
-      event.preventDefault(); // Empêche le comportement par défaut du lien
-      
-      var $searchHeader = $('.search-local-header');
-      var $searchElements = $searchHeader.find('.input-search-header, .btn-search-header');
-      
-      $searchElements.toggleClass('visible');
-    });
-  
-  
-  
+  $('.search-local-header .icon-search-header').on("click", function () {
+    $('.search-local-header').find('.input-search-header, .btn-search-header').toggle();
+  });
 
 });    
 })(jQuery);
