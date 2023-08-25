@@ -2013,6 +2013,23 @@ h2.main-title-last-doc{
     font-weight: 900;
     margin-right: 1rem;
 }
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li .views-field-start-date {
+    padding: 20px 20px 0;
+}
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li .views-field-start-date time{
+    font-size: x-large;
+    color: #140d3d;
+    font-weight: 600;
+}
+
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 header,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 header {
+    margin: 20px 0;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 header p,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 header p {
+    margin-bottom: initial;
+}
 /*========================================= Fin toutes mes commissions ===========================================================*/
 
 /*reunion provisoire*/
