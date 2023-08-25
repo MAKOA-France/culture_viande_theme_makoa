@@ -43,6 +43,39 @@
  // Detect la taille de l'ecran
   if (window.innerWidth > 681) {
 
+      // This is function stopped propagation on click submenu in sidebar left
+        $('body').on('click', 'nav#block-menuprincipal ul > li > ul > li.menu-item a ', function(event) {
+          event.stopPropagation();
+        });
+
+        // This is function for display level 2 dropdown of menu on mouseenter
+        $('body').on('mouseenter', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded', function(event) {
+          event.stopPropagation();
+          $('nav#block-menuprincipal ul ul').removeClass("d-block");
+
+          $(this).find('ul').addClass("d-block");
+          $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded').removeClass("second-level-active");
+          $(this).addClass("second-level-active");
+      });
+
+      // This is function for hide level 2 dropdown of menu on mouseover
+      $('body').on('mouseleave', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
+        event.stopPropagation();
+        var $dropdown = $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ul');
+        var dropdownLeft = $dropdown.offset().left;
+        var dropdownTop = $dropdown.offset().top;
+        var dropdownWidth = $dropdown.outerWidth();
+        var dropdownHeight = $dropdown.outerHeight();
+
+        var mouseX = event.pageX;
+        var mouseY = event.pageY;
+
+        if (mouseX < dropdownLeft || mouseX > dropdownLeft + dropdownWidth || mouseY < dropdownTop || mouseY > dropdownTop + dropdownHeight) {
+          $dropdown.removeClass("d-block");
+          $('nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded').removeClass("second-level-active");
+        }
+      });  
+
       function handleSubMenuEvents(menuSelector) {
         $('body').on('mouseenter', `${menuSelector} .item-sub-menu-burger`, function() {
           $(`${menuSelector} .dropdown-sub-menu-burger`).addClass("d-block");
@@ -71,49 +104,40 @@
 
   }else{
     
-      /* $(document).ready(function() {
-        var menuSelectorMobile = '.menu-reunion, .menu-commission, .menu-poser-question';
-        var submenuBurger = $('.dropdown-sub-menu-burger');
-    
-        $('body').on('click', menuSelectorMobile, function() {
-            var $contentSubMenuBurger = $(this).find(submenuBurger);    
-            $('.content-sub-menu-burger').find(submenuBurger).not($contentSubMenuBurger).slideUp(300);    
-            $contentSubMenuBurger.slideToggle(300);
-        });
-    
-        $('body').on(menuSelectorMobile + ' ' + submenuBurger, function(event) {
-            event.stopPropagation();
-        });
-    
-        $(document).click(function(event) {
-            if (!$(event.target).closest(menuSelectorMobile).length) {
-              submenuBurger.slideUp(300);
-            }
-        });
-      });   */
-      $(document).ready(function() {
-        var menuSelectorMobile = '.menu-reunion, .menu-commission, .menu-poser-question';
-        var submenuBurger = $('.dropdown-sub-menu-burger');
-    
-        $('body').on('click', menuSelectorMobile, function() {
-            var $contentSubMenuBurger = $(this).find(submenuBurger);    
-            $('.content-sub-menu-burger').find(submenuBurger).not($contentSubMenuBurger).slideUp(300);    
-            $contentSubMenuBurger.slideDown(300);
-        });
-
-        $('body').on('click', menuSelectorMobile + ' ' + submenuBurger+ ' a', function(event) {
-          event.stopPropagation();
+      var menuSelectorMobile = '.menu-reunion, .menu-commission, .menu-poser-question';
+  
+      $('body').on('click', menuSelectorMobile, function() {
+        var $contentSubMenuBurger = $(this).find('.dropdown-sub-menu-burger');    
+        $('.content-sub-menu-burger').find('.dropdown-sub-menu-burger').not($contentSubMenuBurger).slideUp(300);    
+        $contentSubMenuBurger.slideToggle(300);
       });
-    
-        $(document).click(function(event) {
-            if (!$(event.target).closest(menuSelectorMobile).length) {
-                submenuBurger.slideUp(300);
-            }
-        });
-    });
-    
-    
-    
+  
+      $('body').on('click', '.menu-reunion .dropdown-sub-menu-burger, .menu-commission .dropdown-sub-menu-burger, .menu-poser-question .dropdown-sub-menu-burger', function(event) {
+        event.stopPropagation();
+      });
+  
+      $(document).click(function(event) {
+        if (!$(event.target).closest(menuSelectorMobile).length) {
+          $('.dropdown-sub-menu-burger').slideUp(300);
+        }
+      });
+
+     // This is function for display and hide level 2 dropdown of menu on clic in mobile
+      $('body').on('click', 'nav#block-menuprincipal ul > li.premier-niv > ul > li.menu-item--expanded.second-niv', function(event) {
+        event.stopPropagation();  
+        var $this = $(this);
+        var isClick = $this.hasClass("second-level-click");
+        $(this).find('ul').addClass("d-block");
+        
+        $('nav#block-menuprincipal ul > li.premier-niv > ul > li.menu-item--expanded.second-niv.second-level-click').not($this).removeClass("second-level-click").children("ul").stop().slideUp(300);
+          if (isClick) {
+            $this.removeClass("second-level-click");
+            $this.children("ul").stop().slideUp(300);
+          } else {
+            $this.addClass("second-level-click");
+            $this.children("ul").stop().slideDown(300);
+          }
+      });  
 
   }
 
@@ -144,56 +168,6 @@
       $this.children("ul").stop().slideDown(300);
     }
   });
-  
-  // This is function stopped propagation on click submenu in sidebar left
-  $('body').on('click', 'nav#block-menuprincipal ul > li > ul > li.menu-item a ', function(event) {
-    event.stopPropagation();
-  });
-
-   // This is function for display level 2 dropdown of menu on mouseenter
-  $('body').on('mouseenter', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded', function(event) {
-    event.stopPropagation();
-    $('nav#block-menuprincipal ul ul').removeClass("d-block");
-
-    $(this).find('ul').addClass("d-block");
-    $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded').removeClass("second-level-active");
-    $(this).addClass("second-level-active");
-});
-
-// This is function for hide level 2 dropdown of menu on mouseover
-$('body').on('mouseleave', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
-  event.stopPropagation();
-  var $dropdown = $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ul');
-  var dropdownLeft = $dropdown.offset().left;
-  var dropdownTop = $dropdown.offset().top;
-  var dropdownWidth = $dropdown.outerWidth();
-  var dropdownHeight = $dropdown.outerHeight();
-
-  var mouseX = event.pageX;
-  var mouseY = event.pageY;
-
-  if (mouseX < dropdownLeft || mouseX > dropdownLeft + dropdownWidth || mouseY < dropdownTop || mouseY > dropdownTop + dropdownHeight) {
-    $dropdown.removeClass("d-block");
-    $('nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded').removeClass("second-level-active");
-  }
-});  
-
-// This is function for display and hide level 2 dropdown of menu on clic in mobile
-  $('body').on('click', 'nav#block-menuprincipal ul > li.premier-niv > ul > li.menu-item--expanded.second-niv', function(event) {
-    event.stopPropagation();  
-    var $this = $(this);
-    var isClick = $this.hasClass("second-level-click");
-    $(this).find('ul').addClass("d-block");
-    
-    $('nav#block-menuprincipal ul > li.premier-niv > ul > li.menu-item--expanded.second-niv.second-level-click').not($this).removeClass("second-level-click").children("ul").stop().slideUp(300);
-      if (isClick) {
-        $this.removeClass("second-level-click");
-        $this.children("ul").stop().slideUp(300);
-      } else {
-        $this.addClass("second-level-click");
-        $this.children("ul").stop().slideDown(300);
-      }
-  });  
 
   // This is function homepage search
   jQuery('body .btn-search-header').on('click', () => {

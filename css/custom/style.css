@@ -31,9 +31,7 @@
     /*========================================= Fin load custom icon ===========================================================*/
   
 /*========================================= Police "new order" from CDN ===========================================================*/
-h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume/* , h2,
-.paragraph.paragraph--type--dossier.paragraph--view-mode--default > div:first-of-type > div:nth-child(2),
-.title-last-doc */{
+h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume{
     font-family: "new-order", sans-serif !important;
     font-style: normal;
 } 
@@ -1968,8 +1966,57 @@ h2.main-title-last-doc{
 }
 /*========================================= Fin page de recherche ===========================================================*/
 
+/*========================================= Toutes mes commissions et toutes mes réunions  ===========================================================*/
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 h2,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 h2 {
+    font-weight: 600;
+    font-size: 2.3rem;
+    font-family: 'DM Serif Display' !important;
+    margin-bottom: 2rem;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li:nth-of-type(odd),
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:nth-of-type(odd)  {
+    background-color: #e7e0d9;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul{
+    margin: 0;
+    list-style: none;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li{
+    border-radius: 20px 0;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li:hover,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:hover{
+    background-color: #fce6e7;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li:hover a,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:hover a{
+    color: #1a1a1a;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li a,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li a{
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #707070;
+    line-height: initial;
+    font-size: 1.2rem;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li a:before/* ,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:before */{
+    content: '\e81a';
+    display: inline-block;
+    font-family: "custom-icon-cv";
+    font-weight: 900;
+    margin-right: 1rem;
+}
+/*========================================= Fin toutes mes commissions ===========================================================*/
+
 /*reunion provisoire*/
-.section-civicrm-event article.civicrm-entity--type-civicrm-event{
+/* .section-civicrm-event article.civicrm-entity--type-civicrm-event{
     border-radius: 50px 0; 
     display: flex;
     flex-direction: column;
@@ -2039,8 +2086,8 @@ h2.main-title-last-doc{
     font-weight: 600;
 }
 .section-civicrm-event  .block-blocklisteparticipant table > thead > tr > th:not(:last-child) {
-    border-right: solid 1px #b4b4b4;
-}
+    border-right: solid 1px #b4b4b4; 
+}*/
 /*reunion provisoire*/
 
 /*========================================= Debut Reesponsive design ===========================================================*/
@@ -2049,7 +2096,8 @@ h2.main-title-last-doc{
 @media (max-width: 1200px) {
     /*header*/
     header .medium-10 .grid-x > .medium-2 {
-        width: 25%;
+       /*  width: 25%; */
+       width: auto;
     }
     header .grid-x > .medium-2 {
         width: calc(16.66667% - 1.875rem);
@@ -2227,14 +2275,88 @@ h2.main-title-last-doc{
         max-width: 94%;
     }
     #footer-region .footer-distributed {
-        padding: 25px;
-        border-radius: 80px 0 0;
+        padding: 15px;
+        border-radius: 65px 0 0;
     }
     #footer-region .footer-distributed .footer-icons,
     #footer-region .btn-footer-center {
         gap: 10px;
     }
+    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company .img-footer-logo {
+        padding-right: 15px;
+    }
+    #footer-region .footer-distributed .footer-center, #footer-region .footer-distributed .footer-right {
+        padding: 0 10px;
+    }
+    #footer-region .footer-distributed .footer-left {
+        padding-right: 10px;
+    }
     /*Fin footer*/
+}
+
+@media (max-width: 920px) { 
+    
+
+    /*Footer*/ 
+    #footer.grid-container.full{
+        margin-top: 2rem;
+    }  
+    #footer.grid-container.full .grid-container {
+        max-width: 92%;
+    }  
+    #footer-region .footer-distributed .footer-left {
+        padding-right: 0;
+        margin-bottom: 40px;
+        text-align: start;
+        width: 100%;
+    }     
+    #footer-region .footer-distributed .footer-left .footer-company-details {
+        flex-direction: column;
+        gap: 40px;
+    }       
+    #footer-region .footer-distributed .footer-center,
+    #footer-region .footer-distributed .footer-right,
+    #footer-region .btn-footer-center {
+        width: 100%;
+        text-align: start;
+        padding: 0;
+    }
+    #footer-region .footer-distributed .footer-center {
+        border-left: unset;
+        border-right: unset;
+        margin-bottom: 40px;
+    }
+    #footer-region .btn-footer-center a {
+        display: flex;
+        font-size: initial;
+    }
+    #footer-region .footer-distributed .footer-center i {
+        margin: initial;
+    }
+    #footer-region .footer-distributed .footer-icons {
+        justify-content: initial;
+        gap: 20px;
+    }
+    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company,
+    #footer-region .footer-distributed .footer-left .footer-company-details .desciption-company-footer {
+        width: 100%;
+    }    
+    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company{
+        text-align: center;
+    }    
+    #footer .footer-distributed .footer-right {
+        margin-bottom: 10px;
+    }
+    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company .img-footer-logo {
+        padding-right: 0;
+        max-width: 100%;
+        width: initial;
+    }    
+    #footer .footer-distributed .footer-right .footer-links a:before {
+        content: unset;
+    }
+    /*fin footer*/ 
+
 }
 
 /* Small devices (landscape phones) */
@@ -2298,6 +2420,11 @@ h2.main-title-last-doc{
         max-height: 260px;
         border-radius: 0 0 30px;
     } */
+    #views_slideshow_cycle_teaser_section_home_caroussel-block_1::before {
+        left: -60px;
+        width: 90px;
+        height: 200px;
+    }
     #block-views-block-home-caroussel-block-1 img {
         height: auto;
         border-radius: 0 0 30px;
@@ -2336,61 +2463,6 @@ h2.main-title-last-doc{
         font-size: large;
     }    
     /*Fin detail-comission*/
-
-    /*Footer*/ 
-    #footer.grid-container.full{
-        margin-top: 2rem;
-    }  
-    #footer.grid-container.full .grid-container {
-        max-width: 92%;
-    }  
-    #footer-region .footer-distributed .footer-left {
-        padding-right: 0;
-        margin-bottom: 40px;
-        text-align: start;
-    }     
-    #footer-region .footer-distributed .footer-left .footer-company-details {
-        flex-direction: column;
-        gap: 40px;
-    }       
-    #footer-region .footer-distributed .footer-center,
-    #footer-region .footer-distributed .footer-right,
-    #footer-region .btn-footer-center {
-        width: 100%;
-        text-align: start;
-        padding: 0;
-    }
-    #footer-region .footer-distributed .footer-center {
-        border-left: unset;
-        border-right: unset;
-    }
-    #footer-region .btn-footer-center a {
-        display: flex;
-        font-size: initial;
-    }
-    #footer-region .footer-distributed .footer-center i {
-        margin: initial;
-    }
-    #footer-region .footer-distributed .footer-icons {
-        justify-content: initial;
-        gap: 20px;
-    }
-    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company,
-    #footer-region .footer-distributed .footer-left .footer-company-details .desciption-company-footer {
-        width: 100%;
-    }    
-    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company{
-        text-align: center;
-    }    
-    #footer .footer-distributed .footer-right {
-        margin-bottom: 10px;
-    }
-    #footer-region .footer-distributed .footer-left .footer-company-details .footer-logo-company .img-footer-logo {
-        padding-right: 0;
-        max-width: 100%;
-        width: initial;
-    }    
-    /*fin footer*/ 
    
 }
 
@@ -2495,6 +2567,9 @@ h2.main-title-last-doc{
         color: #fff;
         width: 90%;
     }
+    .dropdown-item-burger:hover, #submenu-burger-question:hover {
+        background-color: initial;
+    }
     .dropdown-item-burger.all-my-reunion, .dropdown-item-burger.all-my-commission {
         border-color:#fff;
         margin: 1rem 0;
@@ -2538,13 +2613,9 @@ h2.main-title-last-doc{
     .content-sub-menu-burger .item-sub-menu-burger:hover i, .item-sub-menu-burger.sub-menu-burger-active i, .item-sub-menu-burger.sub-menu-burger-active span.span-title-burger, #main-menu.top-bar.menu-sidebar-open .content-sub-menu-burger .item-sub-menu-burger:hover .span-title-burger {
         color: #ffffff;
     }
-    
-    
-
-.content-sub-menu-burger .item-sub-menu-burger:hover, .item-sub-menu-burger.sub-menu-burger-active {
-    background-color: initial;
-}
-
+    .content-sub-menu-burger .item-sub-menu-burger:hover, .item-sub-menu-burger.sub-menu-burger-active {
+        background-color: initial;
+    }
     #main-menu.top-bar .content-sub-menu-burger{
         top: 0;
         padding-top: 15px;
