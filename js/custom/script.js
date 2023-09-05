@@ -41,15 +41,15 @@
  // This is a function dropdown on sidebar for reunion, community, poser question
 
  // Detect la taille de l'ecran
-  if (window.innerWidth > 681) {
+  if (window.innerWidth > 993) {
 
       // This is function stopped propagation on click submenu in sidebar left
-        $('body').on('click', 'nav#block-menuprincipal ul > li > ul > li.menu-item a ', function(event) {
+        $('body').on('click', 'nav#block-menuprincipal ul > li > ul > li.menu-item a, nav#block-menuprincipal ul > li > ul > li.is-dropdown-submenu-parent.second-niv ', function(event) {
           event.stopPropagation();
         });
-
+        
         // This is function for display level 2 dropdown of menu on mouseenter
-        $('body').on('mouseenter', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded', function(event) {
+        $('body').on('mouseenter', 'nav#block-menuprincipal ul > li.premier-niv.first-level-click > ul > li.menu-item--expanded', function(event) {
           event.stopPropagation();
           $('nav#block-menuprincipal ul ul').removeClass("d-block");
 
@@ -175,6 +175,17 @@
     keyword = keyword.replace(/ /g, '+');
     location.href="/recherche?search_api_fulltext=" + keyword
   })
+  
+  
+  // Attach a keypress event handler to the input field with class "input-search-header."
+  $('body .input-search-header').on('keypress', function(event) {
+    // Check if the Enter key (key code 13) is pressed.
+    if (event.which === 13) {
+      let keyword = $(this).val();
+      location.href="/recherche?search_api_fulltext=" + keyword
+      event.preventDefault();
+    }
+  });
 
   // This function is toogle of last document
   $('body').on('click', '.line-container-plus .btn-see-other-doc, .line-container-moins .btn-dismiss-other-doc', function() {

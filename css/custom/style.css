@@ -1,4 +1,4 @@
-    /*========================================= Load custom icon ===========================================================*/
+    /*========================================= Load custom icon ===========================================================*/ 
     @font-face {
     font-family: 'custom-icon-cv';
     src: url('custom-font-awesome/custom-icon-cv.eot');
@@ -31,7 +31,7 @@
     /*========================================= Fin load custom icon ===========================================================*/
   
 /*========================================= Police "new order" from CDN ===========================================================*/
-h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume{
+h1,h3, p, span, label, li, button, a,  input, select, textarea, td, tr, th, table, .extrait-resume, time, .title-bar-title{
     font-family: "new-order", sans-serif !important;
     font-style: normal;
 } 
@@ -87,6 +87,7 @@ nav#block-menuprincipal ul >li> ul{
 }
 nav#block-menuprincipal ul >li> ul>li >a{
     background: initial;
+    width: 80%;
 }
 nav#block-menuprincipal ul > li > ul > li >ul{
     position:absolute;
@@ -95,7 +96,8 @@ nav#block-menuprincipal ul > li > ul > li >ul{
     box-shadow: 1px 3px 5px rgb(195 195 195);
 }
 nav#block-menuprincipal ul >li> ul>li >ul > li > a{
-    color: #000 !important;
+    color: #000 !important;    
+    width: 100%;
 }
 nav#block-menuprincipal ul > li > ul.first-sub > li.menu-item{
     padding: initial;
@@ -122,16 +124,14 @@ nav#block-menuprincipal ul >li.menu-item--expanded.first-level-click::after{
 }
 nav#block-menuprincipal ul >li>ul.first-sub>li.menu-item--expanded::after,
 nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded::after{
-    content: ">" !important;
+   content: "\f054";
     background-color:transparent;
     color: #fff;
-    top: -2px;
+    top: 4px;
     right: 25px;
     font-weight: 600;
-    font-family: monospace;
-    font-size: 1.2rem;
-    width: auto;
-    height: auto;
+    font-family: 'Font Awesome 5 Free';
+    font-size: 12px;
 }
 nav#block-menuprincipal ul > li.first-level-click > ul.first-sub > li.menu-item--expanded:hover::after {  
     animation: slideOutRight 0.5s ease forwards;
@@ -358,31 +358,14 @@ body #main-menu .grid-container  nav {
 /*========================================= Fin menu principal à gauche ===========================================================*/
 
 /*========================================= Debut en tete ===========================================================*/
-/* header .logo-entete{
-    width: 10%;
-}
-header .section-recherche-entete{
-    width: 90%;
-} */
-/* header .grid-container .grid-margin-x {
-    margin: 0;
-} */
-header  .grid-x > .medium-2 {
+/* header  .grid-x > .medium-2 {
     width: max-content;
-}
+} */
 header .grid-x {
     flex-flow: initial;
 }
 /*========================================= Fin en tete ===========================================================*/
 
-/* Page mes commission */
-.page-commission-referent h2:before {
-    content: '\e81a';
-    font-family: "custom-icon-cv" !important;
-    font-style: normal;
-    font-weight: 400 !important;
-}
-/**********/
 /*========================================= Debut dropdown profil utilisateur ===========================================================*/
 .custom-my-account .profil-my-account {
     width: 40px;
@@ -558,6 +541,7 @@ header .site-logo img {
     margin: initial;
     color: #fff;
     width: 50%;
+    min-width: 25rem;
     min-height: 150px;
     height: auto;
     display: flex;
@@ -682,7 +666,6 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 #footer-region .footer-distributed .footer-center i{
     text-align: initial;
     font-size: 1.5rem;
-    /* width: auto; */
     min-width: 40px;
     margin: 5px 15px;
 }
@@ -691,8 +674,7 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 }
 #footer-region .footer-distributed .footer-icons {
     display: flex;
-    justify-content: space-between;
-    width: 75%;    
+    gap: 20px;
     float: left;
 }
 #footer-region .footer-icons a.social-button:hover {
@@ -820,6 +802,41 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 .custom-section-doc .description,
 .first-element-doc .content-frist-doc .date-size-first-doc  {
     font-size: 0.89rem;
+    position: relative;
+}
+.doc-info .doc-type{
+    margin-left: 15px;
+    padding: 3px 15px;
+}
+.first-element-doc .content-frist-doc .date-size-first-doc .type-first-doc,
+.doc-info .doc-type {
+    background-color: #ffc22c3d;
+    padding: 3px 10px;
+    font-weight: 500;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    margin-left: 40px;
+    
+}
+.first-element-doc .content-frist-doc .date-size-first-doc .type-first-doc::after,
+.doc-info .doc-type::after {
+    content: "●";
+    color: #ffc22c;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.first-element-doc .content-frist-doc .date-size-first-doc .type-first-doc::before,
+.doc-info .doc-type::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 8px solid #ffc22c3d;
 }
 .custom-section-doc .description-with-date-size {
     display: flex;
@@ -903,9 +920,14 @@ h2.main-title-last-doc{
     overflow: hidden;
     border-radius: 0 0 80px;
 } */
-
-#block-views-block-home-caroussel-block-1 img {
+#block-views-block-home-caroussel-block-1 .views-field-field-slide .field-content{
+    max-height: 600px;
+    overflow: hidden;
     border-radius: 0 0 80px;
+}
+#block-views-block-home-caroussel-block-1 img {/* 
+    border-radius: 0 0 80px; */
+    width: 100%;
 }
 .views-slideshow-controls-bottom .views-slideshow-pager-bullets {
     margin: 0 1rem;
@@ -922,6 +944,7 @@ h2.main-title-last-doc{
 /* .grid-container.full.hero .section-caroussel */
 #views_slideshow_cycle_teaser_section_home_caroussel-block_1 {
     position: relative;
+    width: 100% !important;
 }
 #views_slideshow_cycle_teaser_section_home_caroussel-block_1::before{
     content: "";
@@ -931,7 +954,7 @@ h2.main-title-last-doc{
     width: 150px;
     height: 344px;
     position: absolute;
-    background-size: 100%;
+    background-size: cover;
     z-index: 5;
 }
 .views-slideshow-controls-bottom .views-slideshow-pager-bullets li {
@@ -1407,7 +1430,7 @@ h2.main-title-last-doc{
     font-family: 'Glyphicons Halflings' !important;
 }
 .text-image .img-html-bloc:after,
-.formatted-text table > thead > tr > th:nth-child(1):after{
+.formatted-text table > thead > tr:nth-child(1) > th:has(img):after {
     content: '';
     background: url(/files/before-section-title.png) no-repeat right bottom;
     position: absolute;
@@ -1437,10 +1460,11 @@ h2.main-title-last-doc{
 .formatted-text table > thead > tr > th{
     position: relative;
 }
-.formatted-text table > thead > tr > th:nth-child(1):after{
+.formatted-text table > thead > tr:nth-child(1) > th:has(img):after{
     right: 50px;
     width: 100px;
     height: 310px;
+    bottom: 0;
 }
 .text-image .formatted-text blockquote {
     background-color: #fff5dd;
@@ -1587,11 +1611,13 @@ h2.main-title-last-doc{
 }
 /*========================================= Fin Image + texte ===========================================================*/
 
-/*========================================= Debut détails commission ===========================================================*/
-.section-civicrm-group table > thead, .section-civicrm-group table > tbody, .section-civicrm-group table > tfoot {
+/*========================================= Debut détails commission et réunion ===========================================================*/
+.section-civicrm-group table > thead, .section-civicrm-group table > tbody, .section-civicrm-group table > tfoot,
+.section-civicrm-event table > thead, .section-civicrm-event table > tbody, .section-civicrm-event table > tfoot {
     border: initial;
 }
-.section-civicrm-group table >thead > tr {
+.section-civicrm-group table >thead > tr,
+.section-civicrm-event table >thead > tr  {
     background-color: #e7e0d9;
     font-weight: 600;
     text-decoration : none;
@@ -1600,17 +1626,20 @@ h2.main-title-last-doc{
    color: #000;
    font-weight: 600;
 }
-.section-civicrm-group table > thead > tr > th:not(:last-child) {
+.section-civicrm-group table > thead > tr > th:not(:last-child),
+.section-civicrm-event table > thead > tr > th:not(:last-child) {
     border-right: solid 1px #b4b4b4;
 }
 .section-civicrm-group .views-field-display-name {
     text-decoration: none !important;
 }
-.section-civicrm-group table > tbody >  tr:nth-child(odd) {
+.section-civicrm-group table > tbody >  tr:nth-child(odd),
+.section-civicrm-event table > tbody >  tr:nth-child(odd) {
     background-color: #f5f5f5;
     height: 60px;
 }
-.section-civicrm-group table > tbody >  tr:nth-child(even) {
+.section-civicrm-group table > tbody >  tr:nth-child(even),
+.section-civicrm-event table > tbody >  tr:nth-child(even){
     background-color: #fff;
     height: 60px;
 }
@@ -1643,6 +1672,8 @@ h2.main-title-last-doc{
 }
 .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title .group-info {
     text-align: center;
+    position: relative;
+    z-index: 1
 }
 .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title .group-info .group-name{
     margin: 20px 0 0;
@@ -1658,7 +1689,8 @@ h2.main-title-last-doc{
     padding: 15px;
     border-radius: 5px;
 }
-.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:before{
+.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:before,
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event:before{
     content: "";
     background: url(/files/before-section-details-comission.png) no-repeat center 0;    
     top: 30px;
@@ -1686,7 +1718,8 @@ h2.main-title-last-doc{
 .section-civicrm-group .printParticipants .more-link{
     text-align: initial;
 }
-.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:after{
+.section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:after,
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event:after{
     content: "";
     background: url(/files/after-sestion-details-commission.png) no-repeat right bottom;
     right: 30px;
@@ -1720,7 +1753,9 @@ h2.main-title-last-doc{
 }
 .section-civicrm-group .layout__region .contextual-region h2,
 .section-civicrm-group .last-doc-title h2.main-title-last-doc,
-.section-civicrm-group .meeting-head .meetings{ 
+.section-civicrm-group .meeting-head .meetings,
+.section-civicrm-event .block-blocklisteparticipant h3,
+.section-civicrm-event .last-doc-title h2.main-title-last-doc{ 
     border-bottom: initial;
     text-align: initial;
     color: #3d3d3d;
@@ -1728,9 +1763,19 @@ h2.main-title-last-doc{
     font-weight: 600;
     font-family: "DM Serif Display" !important;
 }
+.section-civicrm-event .block-blocklisteparticipant h3:before,
+.page-commission-referent h2:before {
+    content: '\e81a';
+    position: relative;
+    font-family: "custom-icon-cv" !important;
+    font-style: normal;
+    font-weight: 400 !important;
+}
 .section-civicrm-group .layout__region .contextual-region h2::before,
 .section-civicrm-group .last-doc-title h2.main-title-last-doc i::before,
-.section-civicrm-group .meeting-head .meetings i{
+.section-civicrm-group .meeting-head .meetings i,
+.section-civicrm-event .block-blocklisteparticipant h3:before,
+.section-civicrm-event .last-doc-title h2.main-title-last-doc i{
     margin-right: 1rem;
     padding-right: 5px;    
 }
@@ -1787,7 +1832,8 @@ h2.main-title-last-doc{
     font-weight: 500;
     font-family: "new-order" !important;
 }
-.section-civicrm-group .meeting-com {
+.section-civicrm-group .meeting-com,
+.page-toutes-mes-reunions .meeting-com {
     display: flex;
     align-items: center;
     width: 100%;
@@ -1801,7 +1847,8 @@ h2.main-title-last-doc{
     background-color: #fff;
     pointer-events: none;
 }
-.section-civicrm-group .meeting-com .date-meet {
+.section-civicrm-group .meeting-com .date-meet,
+.page-toutes-mes-reunions .meeting-com .date-meet {
     padding: 10px;
     display: grid;
     text-align: center;
@@ -1817,28 +1864,33 @@ h2.main-title-last-doc{
     pointer-events: none;
 
 }
-.section-civicrm-group .meeting-com .date-meet .day {
+.section-civicrm-group .meeting-com .date-meet .day,
+.page-toutes-mes-reunions .meeting-com .date-meet .day {
     font-size: xxx-large;
     font-weight: bold;
     line-height: normal;
     font-family: "DM Serif Display" !important;
 }
-.section-civicrm-group .date-meet .month-and-year {
+.section-civicrm-group .date-meet .month-and-year,
+.page-toutes-mes-reunions .date-meet .month-and-year {
     font-size: small;
     line-height: initial;
 }
-.section-civicrm-group .meeting-com .title-meet{      
+.section-civicrm-group .meeting-com .title-meet,
+.page-toutes-mes-reunions .meeting-com .title-meet{      
     display: flex;
     flex-direction: column;
     row-gap: 15px;
 }
-.section-civicrm-group .meeting-com .title-meet .title-meet-commission a{
+.section-civicrm-group .meeting-com .title-meet .title-meet-commission a,
+.page-toutes-mes-reunions .meeting-com .title-meet .title-meet-commission a{
     color: #140d3d;
     font-size: x-large;
     font-weight: 700;
     line-height: initial;
 }
-.section-civicrm-group .meeting-com .title-meet .hour-begining-meet-commission{    
+.section-civicrm-group .meeting-com .title-meet .hour-begining-meet-commission,
+.page-toutes-mes-reunions .meeting-com .title-meet .hour-begining-meet-commission{    
     line-height: initial;
 }
 .section-civicrm-group .layout__region .printParticipants .item-list ul,
@@ -1853,120 +1905,133 @@ h2.main-title-last-doc{
     border-top: none;
     margin: initial;
 }
-/*========================================= Fin détails commission ===========================================================*/
+/*========================================= Fin détails commission et réunion ===========================================================*/
 
 /*========================================= Page de recherche ===========================================================*/
-.page-recherche .views-element-container .contextual-region table thead tr th {
+.page-recherche .views-element-container table thead tr th {
     padding: 0;
 }
-.page-recherche .views-element-container .contextual-region table thead tr th .result-label {
+.page-recherche .views-element-container table thead tr th .result-label {
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: 300;
 }
-.page-recherche .views-element-container .contextual-region table thead tr th .result-label .res-keyword {
+.page-recherche .views-element-container table thead tr th .result-label .res-keyword {
     font-weight: 600;
 }
-.page-recherche .views-element-container .contextual-region table {
+.page-recherche .views-element-container table {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.page-recherche .views-element-container .contextual-region table > thead {
+.page-recherche .views-element-container table > thead {
     background: initial;
     border: none;
     border-bottom: 1px solid #cacaca;
 }
-.page-recherche .views-element-container .contextual-region table > tbody {
+.page-recherche .views-element-container table > tbody {
     border: none;
     background-color: #fefefe;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.page-recherche .views-element-container .contextual-region table > tbody  > tr {
+.page-recherche .views-element-container table > tbody  > tr {
     border: none;
     background-color: #f7f5f3;
     border-radius: 20px 0;
     display: inline-table;
 }
-.page-recherche .views-element-container .contextual-region table tbody tr td {
+.page-recherche .views-element-container table tbody tr td {
     padding: 20px;
 }
-.page-recherche .views-element-container .contextual-region table > tbody  > tr > td:has(span.empty-td),
-.page-recherche .contextual-region .views-exposed-form#views-exposed-form-rechercher-page-1 {
+.page-recherche .views-element-container table > tbody  > tr > td:has(span.empty-td),
+.page-recherche .views-element-container .views-exposed-form#views-exposed-form-rechercher-page-1 {
     display: none !important;
 }
-.page-recherche .views-element-container .contextual-region table > tbody  > tr > td.views-field-thumbnail {
+.page-recherche .views-element-container table > tbody  > tr > td.views-field-thumbnail {
     width: 60px;
 }
-.page-recherche .views-element-container .contextual-region .document-content .default-content-doc a h3{
+.page-recherche .views-element-container table > tbody  > tr > td.views-field-field-media-video-file video{
+    max-width: 340px;
+    width: 100%;
+    height: auto;
+}
+.page-recherche .views-element-container .document-content .default-content-doc a h3{
     color: #e52329;
     font-size: x-large;
     font-weight: 500;
 }
 
-.page-recherche .views-element-container .contextual-region .document-content .default-content-doc .doc-created-at {
+.page-recherche .views-element-container .document-content .default-content-doc .doc-created-at {
     font-size: 18px;
 }
-.page-recherche .views-element-container .contextual-region .views-field-thumbnail .thumbnail-type {
+.page-recherche .views-element-container .views-field-thumbnail .thumbnail-type {
     color: #3e7269;
     font-size: larger;
     font-weight: 500;
 }
-.page-recherche .views-element-container .contextual-region .document-content .default-content-doc .doc-created-at,
-.page-recherche .views-element-container .contextual-region .document-content .doc-info {
+.page-recherche .views-element-container .document-content .default-content-doc .doc-created-at,
+.page-recherche .views-element-container .document-content .doc-info {
     color: #787878;
     font-weight: 300;
 }
-.page-recherche .views-element-container .contextual-region .document-content .doc-info .libelle-type-doc,
-.page-recherche .views-element-container .contextual-region .document-content .doc-info .libelle-filiere-doc{
+.page-recherche .views-element-container .document-content .doc-info .libelle-type-doc,
+.page-recherche .views-element-container .document-content .doc-info .libelle-filiere-doc{
     font-weight: 500;
 }
-.page-recherche .views-element-container .contextual-region nav.pager{
+.page-recherche .views-element-container nav.pager{
     border-top: solid 1px #cacaca;
     margin-top: 50px;
     padding-top: 20px;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items{
+.page-recherche .views-element-container nav.pager .pager__items{
     display: flex;
     justify-content: center;
     margin: 0;
     gap: 15px;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--previous {
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--previous {
     margin-right: auto;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--next {
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--next {
     margin-left: auto;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--previous a:before,
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--next a:after{
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--previous a:before,
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--next a:after{
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--previous a:before{
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--previous a:before{
     content:"\f060";
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--next a:after{
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--next a:after{
     content:"\f061";
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--last,
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item--first{
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--last,
+.page-recherche .views-element-container nav.pager .pager__items .pager__item--first{
    display: none;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item a{ 
+.page-recherche .views-element-container nav.pager .pager__items .pager__item a{ 
     color: #000;
     font-weight: 500;
 }
-.page-recherche .views-element-container .contextual-region nav.pager .pager__items .pager__item.pager__item--active a{ 
+.page-recherche .views-element-container nav.pager .pager__items .pager__item.pager__item--active a{ 
     color: #e52329;
     text-decoration: underline;
 }
 /*========================================= Fin page de recherche ===========================================================*/
 
 /*========================================= Toutes mes commissions et toutes mes réunions  ===========================================================*/
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 header,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 header {
+    margin: 0 0 30px;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 header p,
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 header p {
+    margin-bottom: initial;
+}
 .page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 h2,
 .section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 h2 {
     font-weight: 600;
@@ -1974,137 +2039,155 @@ h2.main-title-last-doc{
     font-family: 'DM Serif Display' !important;
     margin-bottom: 2rem;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li:nth-of-type(odd),
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:nth-of-type(odd)  {
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list ul li:nth-of-type(odd){
     background-color: #e7e0d9;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul{
+.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list ul{
     margin: 0;
     list-style: none;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li{
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list ul{
+    margin: 0;
+    list-style: none;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list ul li{
     border-radius: 20px 0;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li:hover,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:hover{
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list ul li:hover{
     background-color: #fce6e7;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li:hover a,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:hover a{
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list ul li:hover a{
     color: #1a1a1a;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li a,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li a{
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list ul li a{
     padding: 20px;
     width: 100%;
     height: 100%;
-    display: block;
-    color: #707070;
+    align-items: center;
+    display: flex;
     line-height: initial;
+    color: #140d3d;
+    font-weight: 600;
     font-size: 1.2rem;
 }
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li a:before/* ,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li:before */{
+.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 .item-list  ul li a:before{
     content: '\e81a';
-    display: inline-block;
     font-family: "custom-icon-cv";
     font-weight: 900;
     margin-right: 1rem;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    background-color: #3e7269;
+    border-radius: 100%;
+    border: 2px solid #FFF;
+    box-shadow: 1px 1px 5px #0000005e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li .views-field-start-date {
-    padding: 20px 20px 0;
-}
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 .item-list  ul li .views-field-start-date time{
-    font-size: x-large;
-    color: #140d3d;
-    font-weight: 600;
-}
-
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 header,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 header {
-    margin: 20px 0;
-}
-.page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 header p,
-.section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 header p {
-    margin-bottom: initial;
-}
-/*========================================= Fin toutes mes commissions ===========================================================*/
+/*========================================= Fin toutes mes commissions et mes réunions ===========================================================*/
 
 /*reunion provisoire*/
-/* .section-civicrm-event article.civicrm-entity--type-civicrm-event{
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event{
     border-radius: 50px 0; 
-    display: flex;
-    flex-direction: column;
-    background: #ffffff !important;
-}
-
-.section-civicrm-event article.civicrm-entity--type-civicrm-event h2 {
-    color: #140d3d;
-    font-size: 1.1rem;
-    font-weight: 600;
-    order: 3;
+    padding: 3rem;
+    border: initial;
+    background: #f7f5f3;
     margin-bottom: 40px;
     position: relative;
 }
-.section-civicrm-event article.civicrm-entity--type-civicrm-event h2:after {
-    width: 100%;
-    content: '';
-    height: 3px;
-    background: #f3f3f3;
-    position: absolute;
-    left: 0;
-    top: 55px;
+.section-civicrm-event .meeting-confirm-my-presence,
+.section-civicrm-event div[data-once="quickedit"] {
+    z-index: 1;
+    position: relative;
 }
-.section-civicrm-event .block-blocklisteparticipant h3{
-    color: #3d3d3d;
-    margin-top: 2rem;
-    font-size: 2.1rem;
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event .meeting-page{
+    display: flex;
+    justify-content: center;
+}
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event .meeting-page .icon-custom-calendar{
+    font-size: 3rem;
+    color: #FFF;
+    width: 130px;
+    height: 130px;
+    background-color: #3e7269;
+    border-radius: 100%;
+    border: 2px solid #FFF;
+    box-shadow: 1px 1px 5px #0000005e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event div[data-once="quickedit"]:nth-child(2){
+    color: #707070;
+    margin-bottom: 0;
+    font-family: "new-order", sans-serif !important;
     font-weight: 600;
-    font-family: 'DM Serif Display', serif !important;
+    display: flex;
+    justify-content: center;
 }
-.section-civicrm-event  .date-end-event {
-    background-color: #f3f3f3;
-    padding: 1rem;
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event h2 {
+    color: #140d3d;
+    font-weight: 600;
+    font-size: xx-large;
     text-align: center;
-    border-radius: 30px 0;
-    color: #3d3d3d;
+    font-family: "new-order", sans-serif !important;
+    padding: 15px 0 0;
+}
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event .meeting-confirm-my-presence a{
+    padding: 12px 30px;
+    background-color: #140d3d;
+    color: #f7f5f3;
+    border-radius: 20px 0;
+    text-transform: uppercase;
     font-weight: 500;
-    order: 1;
-    font-size: 1.6rem;
-    font-family: 'DM Serif Display', serif !important;
-    display: initial !important;
+    margin: 1rem 0rem 1rem 0;
 }
-.section-civicrm-event  .date-start-event{
-    color: #e52329;
-    font-size: 1.1rem;
-    font-weight: 600;
-    order:2
+.section-civicrm-event #main .civicrm-entity--type-civicrm-event .meeting-confirm-my-presence a:hover{
+    background-color: #e7e0d9;
+    color: #140d3d;
 }
-.section-civicrm-event article.civicrm-entity--type-civicrm-event div:first-child{
-    order: 4;
-}
-.section-civicrm-event article.civicrm-entity--type-civicrm-event div:has(p){
-    order: 5;
-}
-.section-civicrm-event article.civicrm-entity--type-civicrm-event span{
-    display: none;
-}
-.section-civicrm-event  .block-blocklisteparticipant table > thead, .section-civicrm-event  .block-blocklisteparticipant table > tbody, .section-civicrm-event  .block-blocklisteparticipant table > tfoot {
+.section-civicrm-event .block-blocklisteparticipant table > thead,
+.section-civicrm-event  .block-blocklisteparticipant table > tbody,
+.section-civicrm-event  .block-blocklisteparticipant table > tfoot {
     border: initial;
 }
-.section-civicrm-event  .block-blocklisteparticipant table > thead {
+.section-civicrm-event .block-blocklisteparticipant table > thead {
     background: #f8f8f8;
     color: #0a0a0a;
 }
-.section-civicrm-event  .block-blocklisteparticipant table > thead > tr{
+.section-civicrm-event .block-blocklisteparticipant table > thead > tr{
     background-color: #e7e0d9;
     font-weight: 600;
 }
-.section-civicrm-event  .block-blocklisteparticipant table > thead > tr > th:not(:last-child) {
+.section-civicrm-event .block-blocklisteparticipant table > thead > tr > th:not(:last-child) {
     border-right: solid 1px #b4b4b4; 
-}*/
+}
+.section-civicrm-event  #block-blockdocumentdetailreunion {
+    margin-bottom: 40px;
+}
+.section-civicrm-event .date-start-event {
+    color: #707070;
+    display: flex !important;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0 !important;
+    gap: 10px;
+}
+.section-civicrm-event .date-start-and-end,
+.section-civicrm-event .date-end-event {
+    background-color: #edeae77a;
+    padding: 5px 20px;
+    border-radius: 15px 0;
+}
+.section-civicrm-event .date-end-event {
+    margin: 0 !important;
+}
 /*reunion provisoire*/
 
 /*========================================= Debut Reesponsive design ===========================================================*/
@@ -2113,13 +2196,16 @@ h2.main-title-last-doc{
 @media (max-width: 1200px) {
     /*header*/
     header .medium-10 .grid-x > .medium-2 {
-       /*  width: 25%; */
        width: auto;
     }
     header .grid-x > .medium-2 {
         width: calc(16.66667% - 1.875rem);
     }
-    header article.grid-container, body .grid-container#main, .grid-container.hero.hero-taxonomy, #block-views-block-home-caroussel-block-1, body .grid-container.full.hero.communication {
+    header article.grid-container,
+    body .grid-container#main,
+    .grid-container.hero.hero-taxonomy,
+    #block-views-block-home-caroussel-block-1,
+    body .grid-container.full.hero.communication {
         max-width: 80%;
     }
     header .grid-x > .medium-8 {
@@ -2257,7 +2343,7 @@ h2.main-title-last-doc{
     .formatted-text.img-txt-side-by-side table > thead > tr > th {
         width: 100%;
     }
-    .formatted-text table > thead > tr > th:nth-child(1):after {
+    .formatted-text table > thead > tr:nth-child(1) > th:has(img):after {
         right: 30px;
         height: 235px;
         bottom: 30px;
@@ -2312,7 +2398,6 @@ h2.main-title-last-doc{
 }
 
 @media (max-width: 920px) { 
-    
 
     /*Footer*/ 
     #footer.grid-container.full{
@@ -2385,7 +2470,6 @@ h2.main-title-last-doc{
     }
      /*Fin login*/
 
-
      /*Global*/
      .hero{
         min-height: inherit;
@@ -2431,19 +2515,16 @@ h2.main-title-last-doc{
         width: auto;
     }
     /*Fin header*/
-
-    /*Accueil*/
-    /* #block-views-block-home-caroussel-block-1 .views-field.views-field-field-slide {
-        max-height: 260px;
-        border-radius: 0 0 30px;
-    } */
+    
     #views_slideshow_cycle_teaser_section_home_caroussel-block_1::before {
         left: -60px;
         width: 90px;
         height: 200px;
     }
     #block-views-block-home-caroussel-block-1 img {
-        height: auto;
+        height: 100%;
+    }
+    #block-views-block-home-caroussel-block-1 .views-field-field-slide .field-content{
         border-radius: 0 0 30px;
     }
     .views-field-field-texte-slider {
@@ -2467,8 +2548,13 @@ h2.main-title-last-doc{
     /*Detail-comission*/
     .section-civicrm-group .layout__region .contextual-region h2,
     .section-civicrm-group .last-doc-title h2.main-title-last-doc,
-    .section-civicrm-group .meeting-head .meetings {
-        font-size: xx-large;
+    .section-civicrm-group .meeting-head .meetings,
+    .section-civicrm-event .last-doc-title h2.main-title-last-doc,
+    .section-civicrm-event .block-blocklisteparticipant h3,
+    .page-tous-mes-groupes .block-views-block-civievents-base-sur-le-contact-block-5 h2,
+    .section-toutes-mes-reunions .block-views-block-civievents-base-sur-le-contact-block-7 h2 {
+        /* font-size: x-large; */
+        font-size: 2.1rem;
     }    
     .section-civicrm-group .meeting-com .date-meet {
         min-width: initial;
@@ -2479,7 +2565,54 @@ h2.main-title-last-doc{
     .section-civicrm-group .meeting-com .title-meet .title-meet-commission a {
         font-size: large;
     }    
+    .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:before, .section-civicrm-event #main .civicrm-entity--type-civicrm-event:before {
+        top: 15px;
+        left: 15px;
+        width: 50px;
+        height: 30px
+     }
+     .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:after, .section-civicrm-event #main .civicrm-entity--type-civicrm-event:after {
+        right: 15px;
+        bottom: 15px;
+        width: 50px;
+        height: 80px;
+     }
     /*Fin detail-comission*/
+
+    /*Details réunion*/
+    .section-civicrm-event .meeting-confirm-my-presence {
+        text-align: center;
+    }    
+    .section-civicrm-event #main .civicrm-entity--type-civicrm-event {
+        padding: 15px;
+        border-radius: 30px 0;
+    }
+   /*  .section-civicrm-event .civicrm-entity .date-start-event,
+    .section-civicrm-event .civicrm-entity .date-end-event,
+    .section-civicrm-event .civicrm-entity span{
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center;
+    } */
+    /*Fin détails réunion,*/
+
+    /*recherche*/
+    .page-recherche .views-element-container table > tbody > tr {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20PX;
+    }
+    .page-recherche .views-element-container table tbody tr td {
+        padding: 0;
+    }    
+    .page-recherche .views-element-container table > tbody  > tr > td.views-field-field-media-video-file video{
+        max-width: unset;
+    }
+    .page-recherche .views-element-container .document-content .default-content-doc .doc-created-at{
+        margin: 0; 
+    }
+    /*Fin recherche*/
    
 }
 
@@ -2501,7 +2634,8 @@ h2.main-title-last-doc{
         font-size: 1.2rem;       
         min-height: 100px;        
         margin: 50px 0; 
-        border-radius: 30px 0 30px;       
+        border-radius: 30px 0 30px;   
+        min-width: 15rem;    
     }
     .hero #block-pagetitle--2.block-pagetitle--2 h1:before {
         left: -10%;
@@ -2579,6 +2713,9 @@ h2.main-title-last-doc{
         min-width: initial;
         min-height: initial;
     }
+    .content-sub-menu-burger .dropdown-sub-menu-burger a{
+        padding: 0 0 0.6em;
+    }
     .content-sub-menu-burger .dropdown-item-burger {
         padding: 0;
         color: #fff;
@@ -2590,11 +2727,11 @@ h2.main-title-last-doc{
     .dropdown-item-burger.all-my-reunion, .dropdown-item-burger.all-my-commission {
         border-color:#fff;
         margin: 1rem 0;
-        padding: 5px;
+        padding: 5px !important;
     }
     .dropdown-item-burger .icon-reunion, .dropdown-item-burger .icon-comission, .dropdown-item-burger .icon-question {
-        width: 6%;
-        font-size: 12px;
+        width: 10%;
+        font-size: 15px;
         margin-right: initial;
     }
     /*fin header*/ 
@@ -2605,6 +2742,10 @@ h2.main-title-last-doc{
         border-bottom: 1px solid #fff;
         display: flex !important;
     } 
+    .title-bar-title {
+        height: 20px;
+        font-weight: 500;
+    }
     #main-menu.top-bar {
         display: none;
         position: initial;
@@ -2627,7 +2768,10 @@ h2.main-title-last-doc{
         padding: 10px 0 0;
         gap: 15px;
     }
-    .content-sub-menu-burger .item-sub-menu-burger:hover i, .item-sub-menu-burger.sub-menu-burger-active i, .item-sub-menu-burger.sub-menu-burger-active span.span-title-burger, #main-menu.top-bar.menu-sidebar-open .content-sub-menu-burger .item-sub-menu-burger:hover .span-title-burger {
+    .content-sub-menu-burger .item-sub-menu-burger:hover i,
+    .item-sub-menu-burger.sub-menu-burger-active i,
+    .item-sub-menu-burger.sub-menu-burger-active span.span-title-burger,
+    #main-menu.top-bar.menu-sidebar-open .content-sub-menu-burger .item-sub-menu-burger:hover .span-title-burger {
         color: #ffffff;
     }
     .content-sub-menu-burger .item-sub-menu-burger:hover, .item-sub-menu-burger.sub-menu-burger-active {
@@ -2652,7 +2796,14 @@ h2.main-title-last-doc{
     #main-menu .content-menu-burger .menu-poser-question {
         font-size: 16px;
         font-weight: 400;
+        cursor: initial;
     }
+    #block-menuprincipal li,
+    nav#block-menuprincipal ul > li > ul.first-sub > li.menu-item,
+    #main-menu.top-bar .content-sub-menu-burger span {
+        padding: 0 0 0.6em;
+    }
+    
    header #block-menuprincipal ul .submenu.is-dropdown-submenu {
         z-index: initial;
     }
@@ -2662,6 +2813,13 @@ h2.main-title-last-doc{
         background-color: initial;
         box-shadow: initial;
     }
+    #block-menuprincipal .menu .menu-item--active-trail > a,
+    #main-menu.top-bar .dropdown .is-dropdown-submenu a ,
+    #block-menuprincipal .menu li a,
+    #block-menuprincipal .menu li a:hover,
+    nav#block-menuprincipal ul >li> ul>li >a {
+        width: 90%;
+    }
     nav#block-menuprincipal ul >li> ul>li >ul > li > a {
         color: #fff !important;
     }
@@ -2669,14 +2827,10 @@ h2.main-title-last-doc{
     nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li:hover {
         background-color: initial;
     }
-    nav#block-menuprincipal ul >li.premier-niv>ul.first-sub>li::after {        
-        transform: rotate(-90deg);
-        font-size: 1rem;
+
+    nav#block-menuprincipal ul li.premier-niv.first-level-click ul li.second-niv.second-level-click::after {  
+       content: "\f078 "!important;        
     } 
-    nav#block-menuprincipal ul >li.premier-niv>ul.first-sub>li.second-level-click::after {  
-        transform: rotate(90deg);
-        font-size: 1rem;
-    }
     /*Fin menu*/
 
     /*Login*/
@@ -2690,7 +2844,7 @@ h2.main-title-last-doc{
 
     /*Page d'accueil*/
     #views_slideshow_cycle_teaser_section_home_caroussel-block_1::before {
-        left: -35px;
+        left: -37px;
         bottom: 0;
         width: 55px;
         height: 125px;
@@ -2743,27 +2897,22 @@ h2.main-title-last-doc{
     .section-civicrm-group .detail-group-title {
         padding: 15px;
     }
-    .section-civicrm-group .communication .block-blockdetailcommission--2 .icon-group {
+    .section-civicrm-group .communication .block-blockdetailcommission--2 .icon-group,
+    .section-civicrm-event #main .civicrm-entity--type-civicrm-event .meeting-page .icon-custom-calendar {
         width: 80px;
         height: 80px;
     }
-    .section-civicrm-group .communication .block-blockdetailcommission--2 .icon-group i {
+    .section-civicrm-group .communication .block-blockdetailcommission--2 .icon-group i,
+    .section-civicrm-event #main .civicrm-entity--type-civicrm-event .meeting-page .icon-custom-calendar {
         font-size: 2rem;
     }
-    .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title .group-info .group-name {
+    .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title .group-info .group-name,
+    .section-civicrm-event #main .civicrm-entity--type-civicrm-event h2 {
         font-size: 1.2rem;
     }
-    .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:after {
-        width: 50px;
-        height: 70px;
-        right: 15px;
-        bottom: 15px;
-    }
-    .section-civicrm-group .block-blockdetailcommission--2 .detail-group-title:before {
-        top: 15px;
-        left: 15px;
-        width: 50px;
-        height: 25px;
+    .section-civicrm-event #main .civicrm-entity--type-civicrm-event h2 {
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
     .section-civicrm-group .layout.layout--twocol-section.layout--twocol-section--50-50 {
         flex-wrap: wrap;
@@ -2776,27 +2925,38 @@ h2.main-title-last-doc{
     .section-civicrm-group .meeting-head {
         justify-content: space-between;
     }    
+    .civicrm-entity--view-mode-full .layout--onecol .block-layout-builder.bloc-head-meetings-in-theme .meeting-head {
+        margin-bottom: 1rem;
+    }
     /*Fin commission*/
 
     /*Dernier doc*/
-    .section-civicrm-group .layout__region .contextual-region h2,
-    .section-civicrm-group .last-doc-title h2.main-title-last-doc,
-    .section-civicrm-group .meeting-head .meetings,
-    .section-others-documents h2.main-title,
-    h2.main-title-last-doc {
-        font-size: xx-large;
-    }
     .section-others-documents h2.main-title {
         padding-top: 15px;
     }
     .first-element-doc {
         gap: 20px;
+        display: flex;
+        flex-direction: column;
     }
     .first-element-doc a.custom-icon-first-element {
         width: 50%;
+        margin: auto;
+    }
+    .line-container-plus a.btn-see-other-doc, .line-container-moins a.btn-dismiss-other-doc {
+        padding: 0 0.5rem;
     }
     .custom-section-doc .custom-icon-document {
         width: 8%;
+    }
+    .first-element-doc .content-frist-doc .date-size-first-doc {
+        display: flex;
+        flex-direction: column;
+    }
+    .first-element-doc .content-frist-doc .date-size-first-doc .type-first-doc {
+        padding: 0px 15px;
+        margin-left: 0;
+        width: fit-content;
     }
      /*Fin dernier doc*/
     
@@ -2814,7 +2974,7 @@ h2.main-title-last-doc{
         border-radius: 50px 0;
     }
     .text-image .img-html-bloc:after,
-    .formatted-text table > thead > tr > th:nth-child(1):after {
+    .formatted-text table > thead > tr:nth-child(1) > th:has(img):after{
         right: 30px;
         bottom: 30px;
         width: 70px;
@@ -2844,7 +3004,7 @@ h2.main-title-last-doc{
     .middle.faq-dropdown {
         padding-left: 1rem;
     }
-     /*Fin Text + image*/
+    /*Fin Text + image*/
 
     /*Footer*/ 
     #footer.grid-container.full .grid-container {

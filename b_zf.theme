@@ -256,7 +256,7 @@ function b_zf_preprocess_block(&$variables) {
   // dump($variables);
   if ($variables['content']['#bundle'] == 'civicrm_group' && $variables['plugin_id'] == 'field_block:civicrm_group:civicrm_group:title') {
     $variables['content'][0]['#context']['value'] = Drupal\Core\Render\Markup::create('<div class="meeting-head"><span class="meetings"><i class="icon-custom-calendar"></i>Réunions</span><a class="btn-add-meeting" href="/civicrm-event/add"><i class="fa fa-plus-circle"></i>Ajouter une réunion</a>');
-
+    $variables['attributes']['class'][] = 'bloc-head-meetings-in-theme';
   }
 }
 
