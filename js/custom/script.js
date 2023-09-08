@@ -208,7 +208,7 @@
     var messageText = messageDiv.text();
 
     if (messageText.includes("You have already submitted this webform.")) {
-        messageDiv.hide();
+        // messageDiv.hide();
     }
     //login page 
     const h2Text = $('.page-user-login .user-login-form [role="alert"] h2.visually-hidden').text().trim();

@@ -756,7 +756,7 @@ body > div.dialog-off-canvas-main-canvas > div > header {
 
 /*========================================= Debut dernière document ===========================================================*/
 .grid-container.full.hero.hero-taxonomy {
-    background-image: url(/sites/test-culture-viande.dev.makoa.net/files/2023-07/porc.jpg);
+    /* background-image: url(/sites/test-culture-viande.dev.makoa.net/files/2023-07/porc.jpg); */
 }
 .custom-section-doc {
     display: flex;
@@ -2618,6 +2618,19 @@ h2.main-title-last-doc{
 
 /* Extra small devices (portrait phones) */
 @media (max-width: 680px) { 
+
+
+    #auth_box #left_part #the_logo {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    #left_part #the_logo > a > img {
+        display: inline-block;
+        width: initial !important;
+        vertical-align: middle;
+        max-width: 100% !important;
+        height: auto !important;
+    }
     
     /*Global*/  
     header article.grid-container,
