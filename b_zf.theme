@@ -28,6 +28,8 @@ use Drupal\file\Entity\File;
   return $value;
 } */
 
+define('DEFAULT_ILLUSTRATION_IMG', 'public://2023-07/nutrition.jpg');
+
 /**
  * Prepares variables for the html.html.twig template.
  */
@@ -158,6 +160,8 @@ function customizeIllustrationImage (&$variables) {
           $uri = getNodeFieldValue($file_object, 'uri');
           $variables['page']['illustration_img'] = $uri;
         }
+      }else {
+        $variables['page']['illustration_img'] = DEFAULT_ILLUSTRATION_IMG;
       }
     }
   }
