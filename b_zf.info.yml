@@ -1,0 +1,35 @@
+name: basic Foundation 6
+type: theme
+description: 'Theme for CiviCRM new'
+package: Core
+base theme: false
+# version: VERSION
+# core: 8.x
+
+libraries:
+  - core/normalize
+  - b_zf/global
+
+
+regions:
+  header: Header
+  info: Info block
+  main_navigation: 'Main Navigation'
+  help: Help
+  hero: 'Hero content'
+  highlighted: Highlighted
+  content: Content
+  sidebar_left: Sidebar Left
+  sidebar: Sidebar Right
+  section1: Section1
+  side_section1: Side section 1 (depend de section 1)
+  section2: Section2
+  prefooter1: 'Pre-footer 1'
+  prefooter2: 'Pre-footer 2'
+  footer: Footer
+
+# Information added by Drupal.org packaging script on 2018-04-28
+version: '8.x-2.0'
+core: '8.x'
+project: 'b_zf'
+datestamp: 1524949387

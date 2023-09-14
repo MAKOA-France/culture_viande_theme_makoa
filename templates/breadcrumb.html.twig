@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+{% if breadcrumb %}
+  <nav class="breadcrumb c-breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+    <ol>
+    {% for item in breadcrumb %}
+      <li>
+        {% if item.url %}
+          <a href="{{ item.url }}">{{ item.text }}</a>
+          {% if item.submenu %}
+            <ul class="custom-submenu-ul">
+            {% for link_text,elm in item.submenu %}
+              <li class="custom-submenu-li">
+                {% if  'no-link' in link_text %}
+                  <span class="no-link-text">{{ elm }}</span>  
+                {% else %}
+                  <a class="with-link" href="{{ link_text}}">{{ elm }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% else %}
+          {{ item.text }}
+          {% if item.submenu %}
+            <ul class="custom-submenu-ul">
+            {% for string_url, elm in item.submenu %}
+              <li class="custom-submenu-li ">
+              {% if  'no-link' in string_url %}
+                <span class="no-link-text">{{ elm }}</span>
+               {% else %}
+                  <a class="with-link" href="{{ string_url }}">{{ elm }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </nav>
+{% endif %}
+
+

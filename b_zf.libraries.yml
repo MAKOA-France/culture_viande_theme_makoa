@@ -1,0 +1,35 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/base/foundation.css: {}
+      css/custom/style.css: {}
+    layout:
+      css/layout/custom.css: {}
+      css/layout/civicrm.css: {}
+      css/layout/betterlogincustom.css: {}
+    component:
+      css/components/components.css: {}
+    theme:
+      css/theme/theme.css: {}
+      css/fonts/stylesheet.css: {}
+      css/fonts/fontawesome5/css/all.css: {}
+      https://use.typekit.net/kty8aan.css: {}
+
+  js:
+    js/foundation.min.js: {}
+    js/foundation_init.js: {}
+    js/app.js: {}
+    js/what-input.js: {}
+    js/custom/script.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+
+messages:
+  version: VERSION
+  css:
+    component:
+      css/components/messages.css: {}
+

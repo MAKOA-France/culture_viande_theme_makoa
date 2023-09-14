@@ -1,0 +1,156 @@
+{% set main_menu = page.primary_menu|render %}
+{% set secondary_menu = page.secondary_menu|render %}
+<div{{ attributes.addClass(
+  'layout-container',
+  main_menu or secondary_menu ? 'with-navigation',
+  secondary_menu ? 'with-subnav'
+) }}>
+
+  <!-- ______________________ HEADER _______________________ -->
+  <header>
+      <!-- logo and ad break -->
+      <article class="grid-container">
+        <div class="grid-x grid-margin-x align-middle">
+          <div class="medium-8 cell">
+            {{ page.header }}
+          </div>
+          <div class="medium-4 cell">
+            <div class="grid-x align-middle">
+              <div class="cell medium-10">{{ page.info }}</div>
+              <div class="cell medium-2"><button class="float-right" data-toggle="searchModal"><i class="fas fa-search"></i></button></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- / logo and ad break -->
+    
+      <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="display: none;" data-e="osk1c9-e">
+        <button class="menu-icon" type="button" data-toggle=""></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+    
+      <div class="top-bar" id="main-menu" style="display: flex;">
+        <div class="grid-container">
+          {{ page.main_navigation }}
+        </div>
+      </div>
+    
+    </header>
+
+  {% if page.hero|render %}
+    <div class="grid-container full hero">
+      {{ page.hero }}
+    </div><!-- /#sidebar-first -->
+  {% endif %}
+
+  <!-- ______________________ MAIN _______________________ -->
+
+  <section class="grid-container na-pages" id="main">
+    <div class="grid-x grid-margin-x">
+
+    {% if page.sidebar_left %}
+      <aside id="sidebar_left" class="medium-3 cell sidebar">
+        {{ page.sidebar_left }}
+      </aside><!-- /#sidebar_left -->
+    {% endif %}
+
+    {% if page.sidebar and page.sidebar_left %}
+      <div class="medium-7 cell" id="content">
+    {% elseif page.sidebar %}
+      <div class="medium-10 cell" id="content">
+    {% elseif page.sidebar_left %}
+      <div class="medium-9 cell" id="content">
+    {% else %}
+      <div class="medium-12 cell" id="content">
+    {% endif %}
+
+        {{ page.breadcrumb }}
+
+        {% if page.highlighted|render %}
+          <div id="highlighted">{{ page.highlighted }}</div>
+        {% endif %}
+
+        {{ title_prefix }}
+
+        {% if title %}
+          <h1 class="title">{{ title }}</h1>
+        {% endif %}
+
+        {{ title_suffix }}
+        {{ page.help }}
+
+        {% if tabs %}
+          <div class="tabs">{{ tabs }}</div>
+        {% endif %}
+
+        {% if action_links %}
+          <ul class="action-links">{{ action_links }}</ul>
+        {% endif %}
+
+        {{ page.content }}
+      </div>
+
+    {% if page.sidebar %}
+      <aside id="sidebar" class="medium-2 cell sidebar">
+        {{ page.sidebar }}
+      </aside><!-- /#sidebar -->
+    {% endif %}
+    </div>
+  </section><!-- /#section-main -->
+
+  <!-- ______________________ SECTION 1 _______________________ -->
+
+  {% if page.section1 %}
+    <section class="grid-container section1">
+      <div class="grid-x grid-padding-x grid-margin-x small-up-1 medium-up-4">
+        {{ page.section1 }}
+      </div>
+    </section>
+  {% endif %}<!-- /#section-1 -->
+
+  <!-- ______________________ SECTION 2 _______________________ -->
+
+  {% if page.section2 %}
+    <section class="grid-container section2">
+      <div class="grid-container">
+        {{ page.section2 }}
+      </div>
+    </section>
+  {% endif %}<!-- /#section-2 -->
+
+  <!-- PRE-FOOTER 1 -->
+  {% if page.prefooter1 %}
+    <div class="grid-container full pre-footer1">
+      <div class="grid-container medium">
+        <div class="align-middle text-center">
+          {{ page.prefooter1 }}
+        </div>
+      </div>
+    </div>
+  {% endif %}<!-- /#prefooter-1 -->
+
+  <!-- PRE-FOOTER 2 -->
+  {% if page.prefooter2 %}
+    <div class="grid-container full pre-footer2">
+      <div class="grid-container medium">
+        {{ page.prefooter2 }}
+      </div>
+    </div>
+  {% endif %}<!-- /#prefooter-2 -->
+
+  <!-- ______________________ FOOTER _______________________ -->
+
+  {% if page.footer|render %}
+    <footer class="grid-container full" id="footer">
+      <div class="grid-container">
+        <div class="grid-x align-middle" id="footer-region">
+          <div class="cell small-12 medium-2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+          <div>Lorem ipsum</div>
+          <div class="cell small-12 medium-auto text-right">{{ page.footer }}</div>
+          <div class="cell small-12 medium-12 text-right grid-padding-x">© Makoa, {{ "now"|date("Y") }}. Tous droits réservés</div>
+        </div>
+      </div>
+    </footer><!-- /#footer -->
+  {% endif %}
+
+</div><!-- /.layout-container -->
