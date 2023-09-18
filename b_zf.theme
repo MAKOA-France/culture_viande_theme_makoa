@@ -63,9 +63,9 @@ foreach ($files as $file) {
 
 // Get a random key from the array
 $randomKey = array_rand($file_urls);
-
 // Get the random element using the random key
 $variables['page']['random_img_header_last_document'] = $file_urls[$randomKey];
+
 // Get the current route.
 
 //Image d'illustration d'une rubrique

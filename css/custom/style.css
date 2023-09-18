@@ -1707,6 +1707,12 @@
         background-color: #f7f5f3;
         border-radius: 20px 0;
     }
+    .section-civicrm-group .page-commission-referent .horizontal .cell .views-field-phone {
+        padding-left: 0.625rem;
+    }
+    #group-doc-detail .no-doc {
+        padding-top: 11px;
+    }
     .section-civicrm-group .printParticipants footer a,
     .section-civicrm-group .printParticipants .more-link a{
         background-color: #140d3d;
@@ -1754,7 +1760,7 @@
     .section-civicrm-group .views-field-current-employer .field-content {
         color: #acacac;
     }
-    .section-civicrm-group .layout__region .contextual-region h2,
+    .section-civicrm-group .layout__region .contextual-region h2, .section-civicrm-group .group-detail-page .layout--onecol h2,
     .section-civicrm-group .last-doc-title h2.main-title-last-doc,
     .section-civicrm-group .meeting-head .meetings,
     .section-civicrm-event .block-blocklisteparticipant h3,
