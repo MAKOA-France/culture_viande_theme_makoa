@@ -456,7 +456,7 @@
         color: #000;
     }
     .custon-content-formation {
-        width: 100%;
+        width: 116%;
         border-left: 2px solid #bdbdbd;
         border-right: 2px solid #bdbdbd;
         padding: 0 15px;
@@ -2197,10 +2197,27 @@
     .section-civicrm-event .date-end-event {
         margin: 0 !important;
     }
+    #block-blockmoncompte {
+        margin-left: 0px;
+    }
     /*reunion provisoire*/
     
     /*========================================= Debut Reesponsive design ===========================================================*/
     
+
+    /* Media query for Google Nest Hub Max */
+    
+    /* Media query for Google Nest Hub Max */
+    @media (min-width: 1280px) and (min-height: 800px) {
+        .custon-content-formation {
+            width: 117%;
+        }
+        #block-blockmoncompte {
+            margin-left: 20px;
+        }
+    }
+   
+  
     /* Large devices (desktops) */
     @media (max-width: 1200px) {
         /*header*/
@@ -2472,7 +2489,9 @@
     
     /* Small devices (landscape phones) */
     @media (max-width: 768px) {    
-    
+        .toolbar-oriented .toolbar-tray .toolbar-toggle-orientation {
+            display: block !important;
+        }
         /*Login*/
         #right_part:before {
             right: calc(31% - 24px);
