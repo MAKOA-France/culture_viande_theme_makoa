@@ -1703,6 +1703,17 @@
         position: absolute;
         background-size: contain;
     }
+    .foot-address {
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+    .btn-footer-center .icon-custom-map-marker {
+        margin-top: -37px !important;
+    }
+    .postal-code-city {
+        font-weight: 400 !important;
+        font-size: 1.2rem !important;
+    }
     .section-civicrm-group .page-commission-referent .horizontal .cell {
         background-color: #f7f5f3;
         border-radius: 20px 0;
