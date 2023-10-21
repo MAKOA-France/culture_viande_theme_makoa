@@ -288,9 +288,24 @@ function b_zf_preprocess_block(&$variables) {
   $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
   if ($variables['content']['#bundle'] == 'civicrm_group' && $variables['plugin_id'] == 'field_block:civicrm_group:civicrm_group:title') {
     $current_group_id = \Drupal::request()->get('civicrm_group')->get('id')->getValue()[0]['value'];
-    $variables['content'][0]['#context']['value'] = Drupal\Core\Render\Markup::create('<div class="meeting-head"><span class="meetings"><i class="icon-custom-calendar"></i>Réunions</span><a class="btn-add-meeting" href="/civicrm-event/add?group_id=' . $current_group_id . '"><i class="fa fa-plus-circle"></i>Ajouter une réunion</a>');
-    $variables['attributes']['class'][] = 'bloc-head-meetings-in-theme';
+    $btn_add_meet = '<a class="btn-add-meeting" href="/civicrm-event/add?group_id=' . $current_group_id . '"><i class="fa fa-plus-circle"></i>Ajouter une réunion</a>';
+    if (isAdherent()) {
+      $btn_add_meet = '';
+    }
+    
+      $variables['content'][0]['#context']['value'] = Drupal\Core\Render\Markup::create('<div class="meeting-head"><span class="meetings"><i class="icon-custom-calendar"></i>Réunions</span> ' . $btn_add_meet . '');
+      $variables['attributes']['class'][] = 'bloc-head-meetings-in-theme '. json_encode(\Drupal::currentUser()->getRoles());
   }
+}
+
+function isAdherent () {
+  $current_user = \Drupal::currentUser();
+  $user_roles = $current_user->getRoles();
+  $isAdherent = false;
+  if ((in_array('adherent', $user_roles) || in_array('social', $user_roles)) && (!in_array('super_utilisateur', $user_roles) && !in_array('permanent', $user_roles) && !in_array('administrator', $user_roles))) {
+    $isAdherent = true;
+  }
+  return $isAdherent;
 }
 
 /**
