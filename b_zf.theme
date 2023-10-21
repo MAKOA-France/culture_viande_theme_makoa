@@ -301,9 +301,9 @@ function b_zf_preprocess_block(&$variables) {
 function isAdherent () {
   $current_user = \Drupal::currentUser();
   $user_roles = $current_user->getRoles();
-  $isAdherent = false;
-  if ((in_array('adherent', $user_roles) || in_array('social', $user_roles)) && (!in_array('super_utilisateur', $user_roles) && !in_array('permanent', $user_roles) && !in_array('administrator', $user_roles))) {
-    $isAdherent = true;
+  $isAdherent = true;
+  if (in_array('super_utilisateur', $user_roles) || in_array('permanent', $user_roles) || in_array('administrator', $user_roles)) {
+    $isAdherent = false;
   }
   return $isAdherent;
 }
