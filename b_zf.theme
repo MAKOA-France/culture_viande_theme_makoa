@@ -99,16 +99,26 @@ customizeIllustrationImage($variables);
     }
   }
 
-  // Add cachability metadata.
-  $theme_name = \Drupal::theme()->getActiveTheme()->getName();
-  $theme_settings = \Drupal::config($theme_name . '.settings');
-  CacheableMetadata::createFromRenderArray($variables)
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  $request = \Drupal::request();
+
+  // Get the path of the current request.
+  $current_path = $request->getPathInfo();
+  // Check if the path contains "/civicrm-group/".
+  if (strpos($current_path, '/civicrm-event') === false) {
+
+    // Add cachability metadata.
+    $theme_name = \Drupal::theme()->getActiveTheme()->getName();
+    $theme_settings = \Drupal::config($theme_name . '.settings');
+    CacheableMetadata::createFromRenderArray($variables)
     ->addCacheableDependency($theme_settings)
     ->applyTo($variables);
-  // Union all theme setting variables to the html.html.twig template.
-  $variables += $theme_settings->getOriginal();
-  // pour voir le resultat d'une fonction en mode debug/test
-  // renvoie_le_resultat_de_ma_function();
+    // Union all theme setting variables to the html.html.twig template.
+    $variables += $theme_settings->getOriginal();
+    // pour voir le resultat d'une fonction en mode debug/test
+    // renvoie_le_resultat_de_ma_function();
+  }
 }
 
 // COLLER ICI les namespaces nécessaires à ma fonction à tester
