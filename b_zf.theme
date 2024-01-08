@@ -201,6 +201,15 @@ function b_zf_theme($existing, $type, $theme, $path) {
 
 }
 
+/**
+ * Implements hook_preprocess_HOOK() for variables.
+ */
+function b_zf_preprocess(&$variables, $hook) {
+  // Ajoutez la variable is_authenticated à toutes les variables.
+  $variables['is_authenticated'] = \Drupal::currentUser()->isAuthenticated();
+}
+
+
 
 /**
 * Implements hook_preprocess_HOOK().
