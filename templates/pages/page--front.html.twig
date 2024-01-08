@@ -16,17 +16,18 @@
           </div>
            <div class="medium-10 cell" {# section-recherche-entete #}>
             <div class="grid-x align-middle">
-              <div class="cell medium-8">
-                {# <button class="icon-recherche" data-toggle="searchModal"><i class="fas fa-search"></i></button> #}
-                {{ include ('@b_zf/recherche/recherche.html.twig') }}
-                
-              </div>
-
-              <div class="cell medium-2">
-                <div class="custon-content-formation">
-                  <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+              {% if is_authenticated %}
+                <div class="cell medium-8">
+                  {# <button class="icon-recherche" data-toggle="searchModal"><i class="fas fa-search"></i></button> #}
+                    {{ include ('@b_zf/recherche/recherche.html.twig') }}
                 </div>
-              </div>
+
+                <div class="cell medium-2">
+                  <div class="custon-content-formation">
+                    <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                  </div>
+                </div>
+              {% endif %}
 
               <div class="cell medium-2">{{ page.info }}</div>
             </div>
