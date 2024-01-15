@@ -160,7 +160,7 @@ function customizeIllustrationImage (&$variables) {
   if ($route_name === 'entity.taxonomy_term.canonical') {
     // Get the term ID from the route parameters.
     $term = $route_match->getParameter('taxonomy_term');
-    if ($term) {
+    if ($term && $term->hasField('field_image')) {
       $img = getNodeFieldValue($term, 'field_image');
       $img_object = Media::load($img);
       if ($img_object) {
