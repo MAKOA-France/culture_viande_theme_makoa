@@ -207,6 +207,12 @@ function b_zf_theme($existing, $type, $theme, $path) {
 function b_zf_preprocess(&$variables, $hook) {
   // Ajoutez la variable is_authenticated à toutes les variables.
   $variables['is_authenticated'] = \Drupal::currentUser()->isAuthenticated();
+  // Get the base URL of the Drupal site including the protocol.
+  $base_url = \Drupal::request()->getSchemeAndHttpHost();
+  $is_site_metier = strpos($base_url, 'metiers-viande.');
+  $is_site_metier = $is_site_metier ? true : false;
+  // dump($is_site_metier);
+  $variables['site_metier'] = $is_site_metier;
 }
 
 
