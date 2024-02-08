@@ -2215,11 +2215,20 @@
     
     /*========================================= Debut Reesponsive design ===========================================================*/
     
+    #main-menu.top-bar.menu-sidebar-open {
+        width: 12%;
+    }
 
     /* Media query for Google Nest Hub Max */
     
     /* Media query for Google Nest Hub Max */
-    @media (min-width: 1280px) and (min-height: 800px) {
+    @media (max-width: 1280px) and (min-height: 800px) {
+        #main-menu.top-bar.menu-sidebar-open {
+            width: 16%;
+        }
+        header article.grid-container, body .grid-container#main, .grid-container.hero.hero-taxonomy, #block-views-block-home-caroussel-block-1, body .grid-container.full.hero.communication {
+            max-width: 75%;
+        }
         .custon-content-formation {
             width: 117%;
         }
@@ -2230,7 +2239,10 @@
    
   
     /* Large devices (desktops) */
-    @media (max-width: 1200px) {
+    @media (max-width: 1280px) {
+        #main-menu.top-bar.menu-sidebar-open {
+            width: 19%;
+        }
         /*header*/
         header .medium-10 .grid-x > .medium-2 {
            width: auto;
@@ -2243,7 +2255,8 @@
         .grid-container.hero.hero-taxonomy,
         #block-views-block-home-caroussel-block-1,
         body .grid-container.full.hero.communication {
-            max-width: 80%;
+            max-width: 71%;
+            margin-right: 100px;
         }
         header .grid-x > .medium-8 {
             width: 50%;
@@ -2308,6 +2321,9 @@
     
     /* Medium devices (tablets) */
     @media (max-width: 992px) { 
+        #main-menu.top-bar.menu-sidebar-open {
+            width: 17%;
+        }
         /*Header*/
         .btn-search-header {
             padding: 0 0.5rem;
