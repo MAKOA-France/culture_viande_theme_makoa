@@ -54,15 +54,18 @@ foreach ($mediaItems as $media) {
 
 if ($current_route_match) {
   $taxonomy_term = $current_route_match->getParameter('taxonomy_term');
-  if ($taxonomy_term) {
+  if ($taxonomy_term && $taxonomy_term->hasField('field_image')) {
     $image_illustrationId = getNodeFieldValue($taxonomy_term, 'field_image');
     //Si le champ image illustration est rempli on l'affiche 
     if ($image_illustrationId) {
       $mediaImg = Media::load($image_illustrationId);
-      $media_field_img = getNodeFieldValue($mediaImg, 'field_media_image');
-      $image_illustration = Drupal\file\Entity\File::load($media_field_img);
-      $fileUrl = $image_illustration->createFileUrl();
-      $variables['page']['random_img_header_last_document'] = $fileUrl;
+      if ($mediaImg) {
+
+        $media_field_img = getNodeFieldValue($mediaImg, 'field_media_image');
+        $image_illustration = Drupal\file\Entity\File::load($media_field_img);
+        $fileUrl = $image_illustration->createFileUrl();
+        $variables['page']['random_img_header_last_document'] = $fileUrl;
+      }
     }else {//sinon on affiche une image aléatoirement
       
       // Load the files.
