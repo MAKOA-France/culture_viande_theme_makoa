@@ -2219,10 +2219,16 @@
         width: 12%;
     }
 
+    #footer.grid-container.full .grid-container {
+        max-width: 89%;
+    }
     /* Media query for Google Nest Hub Max */
     
     /* Media query for Google Nest Hub Max */
     @media (max-width: 1280px) and (min-height: 800px) {
+        #footer.grid-container.full .grid-container {
+            max-width: 82%;
+        }
         #main-menu.top-bar.menu-sidebar-open {
             width: 16%;
         }
@@ -2314,13 +2320,20 @@
             width: 100%;
         }
         #footer.grid-container.full .grid-container {
-            max-width: 95%;
+            max-width: 82%;
+        }
+
+        #footer.grid-container .footer-distributed {
+            padding-left: 10px;
+            padding-right: 10px;
         }
         /*Fin footer*/
     }
     
     /* Medium devices (tablets) */
     @media (max-width: 992px) { 
+        
+        
         #main-menu.top-bar.menu-sidebar-open {
             width: 17%;
         }
@@ -2673,6 +2686,12 @@
     
     /* Extra small devices (portrait phones) */
     @media (max-width: 680px) { 
+
+        .detail-title-resume-first-doc {
+            gap: 0;
+            display: flex;
+            flex-direction: column-reverse;
+        }
     
     
         #auth_box #left_part #the_logo {
