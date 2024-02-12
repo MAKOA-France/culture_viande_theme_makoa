@@ -2335,7 +2335,7 @@
         
         
         #main-menu.top-bar.menu-sidebar-open {
-            width: 17%;
+            width: 100%;
         }
         /*Header*/
         .btn-search-header {
@@ -2529,6 +2529,12 @@
     
     /* Small devices (landscape phones) */
     @media (max-width: 768px) {    
+        .menu-close .fa.fa-times {
+            display: none
+        }
+        #main-menu.top-bar.menu-sidebar-open {
+            width: 100%;
+        }
         .toolbar-oriented .toolbar-tray .toolbar-toggle-orientation {
             display: block !important;
         }
