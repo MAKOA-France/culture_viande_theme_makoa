@@ -233,8 +233,13 @@ function b_zf_preprocess(&$variables, $hook) {
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
   $is_site_metier = strpos($base_url, 'metiers-viande.');
   $is_site_metier = $is_site_metier ? true : false;
-  // dump($is_site_metier);
   $variables['site_metier'] = $is_site_metier;
+
+  //Vérifier si l'url du site 
+  $path = \Drupal::request()->getpathInfo();
+  $is_formulaire_donnee_eco = (strpos($path, '/civicrm/bulletin-de-cotisation-infomration') !== false)  || (strpos($path, 'civicrm/donnees-economique-entreprise-effectif-annuel') !== false);
+  $is_formulaire_donnee_eco = $is_formulaire_donnee_eco ? true : false;
+  $variables['is_formulaire_donnee_eco'] = $is_formulaire_donnee_eco;
 }
 
 
