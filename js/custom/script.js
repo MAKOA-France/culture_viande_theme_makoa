@@ -2,6 +2,17 @@
   $(document).ready(function() {
 
 
+    var screenWidth = $(window).width();
+
+    if (screenWidth <= 680) {
+
+      $('.title-bar').on('click', function() {
+        console.log('clikc fired')
+        $('.content-menu-burger').toggle();
+        $('')
+      })
+    }
+
     //mot de passe oublié
     jQuery('.back-to-login').insertBefore('.btn-custom-submit #edit-actions');
 
