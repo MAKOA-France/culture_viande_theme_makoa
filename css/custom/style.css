@@ -2701,6 +2701,9 @@
          .views_slideshow_cycle_teaser_section img {
             height: 250px !important;
         }
+        .is-front .tabs-title > a {
+            font-size: 0.60rem;
+        }
         .detail-title-resume-first-doc {
             gap: 0;
             display: flex;
