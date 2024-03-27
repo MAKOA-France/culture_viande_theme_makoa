@@ -2617,6 +2617,9 @@
         .hero #block-pagetitle--2.block-pagetitle--2 h1 {
             margin: 5rem 0;
         }
+        #block-views-block-home-caroussel-block-1 {
+            margin-right: 0;
+        }
         /*Fin accueil*/
     
         /*Detail-comission*/
@@ -2830,6 +2833,9 @@
         /*fin header*/ 
     
         /*Menu*/  
+        .content-menu-burger {
+            display: none;
+        }
         .title-bar {            
             background: #e52329;
             border-bottom: 1px solid #fff;

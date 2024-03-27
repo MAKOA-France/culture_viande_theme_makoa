@@ -37,13 +37,13 @@
         </div>
       </article>
       <!-- / logo and ad break -->
-      {% if not is_formulaire_donnee_eco %}
-        <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="display: none;" data-e="osk1c9-e">
-          <button class="menu-icon" type="button" data-toggle=""></button>
-          <div class="title-bar-title">MenuPAG</div>
-        </div>
-      {% endif %}
-      <div class="top-bar" id="main-menu" style="display: flex;">
+
+      <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="display: none;" data-e="osk1c9-e">
+        <button class="menu-icon" type="button" data-toggle=""></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+
+      <div class="top-bar" id="main-menu" {# style="display: flex;" #}>
         <div class="grid-container">
           {{ page.main_navigation }}
         </div>
