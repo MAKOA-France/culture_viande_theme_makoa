@@ -5,11 +5,11 @@
     var screenWidth = $(window).width();
 
     if (screenWidth <= 680) {
+      $('.top-bar').css('display', 'contents')
 
       $('.title-bar').on('click', function() {
-        console.log('clikc fired')
         $('.content-menu-burger').toggle();
-        $('')
+        jQuery('.layout-container #main-menu').css('display', 'flex').css('important', 'true');
       })
     }
 
@@ -25,7 +25,7 @@
       $('#main-menu.top-bar').addClass('menu-sidebar-open');
       $('.content-menu-burger .menu-open').hide();
       $('#main-menu .grid-container nav, .content-menu-burger .menu-close').show();
-
+      
     });
 
   // This is a function to close sidenav menu

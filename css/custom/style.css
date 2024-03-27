@@ -2695,7 +2695,12 @@
     
     /* Extra small devices (portrait phones) */
     @media (max-width: 680px) { 
-
+        .views_slideshow_cycle_teaser_section {
+            height: 242px !important;
+        }
+         .views_slideshow_cycle_teaser_section img {
+            height: 250px !important;
+        }
         .detail-title-resume-first-doc {
             gap: 0;
             display: flex;
