@@ -228,6 +228,24 @@ function b_zf_theme($existing, $type, $theme, $path) {
  */
 function b_zf_preprocess(&$variables, $hook) {
   // Ajoutez la variable is_authenticated à toutes les variables.
+
+  /** Si l'utilisateur est seulement 'un user authentifié sans role' ou 'adherent sans communication' on n'affiche pas la recherche */
+
+  $NotOnlyAuhtentificatedOrAdherentSansCommunicationOnly = false;
+  
+  $current_user = \Drupal::currentUser();
+  $user = \Drupal\user\Entity\User::load($current_user->id());
+  // Get an array of role IDs for the current user.
+  
+  $userRole = $current_user->getRoles();
+  /** Si l'utilisateur n'a aucun rôle ou adherent sans communication on n'affiche pas le menu */
+  if (in_array($userRole, 'administrator') || in_array($userRole, 'admin_client') || in_array($userRole, 'super_utilisateur') || in_array($userRole, 'permanent')
+  || in_array($userRole, 'permanent_lecture')|| in_array($userRole, 'animateur')|| in_array($userRole, 'adherent')|| in_array($userRole, 'social')
+  ) {
+    $NotOnlyAuhtentificatedOrAdherentSansCommunicationOnly = true;
+  }
+  $variables['authorize_to_see_search'] = $NotOnlyAuhtentificatedOrAdherentSansCommunicationOnly;
+
   $variables['is_authenticated'] = \Drupal::currentUser()->isAuthenticated();
   // Get the base URL of the Drupal site including the protocol.
   $base_url = \Drupal::request()->getSchemeAndHttpHost();

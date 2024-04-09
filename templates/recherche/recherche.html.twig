@@ -1,7 +1,9 @@
 {% if not site_metier %}
     <div class="search-local-header {{ page.is_authenticated }}">
-        <i class="icon-search-header fas fa-search  {{ is_authenticated }}"></i>
-        <input class="input-search-header" type="text" placeholder="Recherche">
-        <a class="btn-search-header" href="#">Rechercher</a>
+        {% if  authorize_to_see_search %}
+            <i class="icon-search-header fas fa-search  {{ is_authenticated }}"></i>
+            <input class="input-search-header" type="text" placeholder="Recherche">
+            <a class="btn-search-header" href="#">Rechercher</a>
+        {% endif %}
     </div>
 {% endif %}
