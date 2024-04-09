@@ -215,6 +215,22 @@
 
   //window on load 
   $(window).on('load', function () {
+  /*  TODO 
+    if (jQuery('[name="field_gabarit_texte_et_images[value]"]').prop('checked')) {
+      jQuery('[id*=field-dossier-values]').next('.clearfix').show();
+    }else {
+        jQuery('[id*=field-dossier-values]').next('.clearfix').hide();
+    }
+    jQuery('body.path-taxonomy').on('click', function(e) {
+      e.preventDefault();
+        console.log('is checked')
+        if (jQuery(this).prop('checked')) {
+            jQuery('[id*=field-dossier-values]').next('.clearfix').show();
+        }else {
+            jQuery('[id*=field-dossier-values]').next('.clearfix').hide();
+        }
+        // jQuery('#field-dossier-values').next('.clearfix').toggle();
+    }) */
     var messageDiv = $('.messages--status');
     var messageText = messageDiv.text();
 

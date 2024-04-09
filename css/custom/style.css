@@ -2778,6 +2778,16 @@
             background-color: gray;
         } */
         /*homepage*/
+        .role--adherent.is-front #block-views-block-home-caroussel-block-1 {
+            padding-bottom: 61px;
+        }
+        .is-front #block-views-block-home-caroussel-block-1 {
+            padding-bottom: 95px;
+        }
+        .is-front #block-views-block-home-caroussel-block-1 img {
+            width: 100%;
+            height: 255px !important;
+        }
         .top-bar#main-menu {
             margin-top: -25px;
         }

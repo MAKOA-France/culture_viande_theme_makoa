@@ -231,7 +231,7 @@ function b_zf_preprocess(&$variables, $hook) {
 
   /** Si l'utilisateur est seulement 'un user authentifié sans role' ou 'adherent sans communication' on n'affiche pas la recherche */
 
-  $NotOnlyAuhtentificatedOrAdherentSansCommunicationOnly = false;
+  $NotOnlyAuhtentificatedOrAdherentSansCommunicationOnly = true;
   
   $current_user = \Drupal::currentUser();
   $user = \Drupal\user\Entity\User::load($current_user->id());
