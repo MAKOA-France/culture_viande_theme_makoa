@@ -9,7 +9,7 @@
   <!-- ______________________ HEADER _______________________ -->
   <header>
       <!-- logo and ad break -->
-      <article class="grid-container">
+      <article class="grid-container {{ grid_container_metier_detail }}">
         <div class="grid-x grid-margin-x align-middle">
           <div class="medium-2 cell {# logo-entete #}">
             {{ page.header }}
@@ -44,23 +44,26 @@
         <div class="title-bar-title">Menu</div>
       </div>
 
-      <div class="top-bar page-taxonomys" id="main-menu" style="display: flex;">
+      <div class="{{ site_metier_custom_class }} top-bar  page-taxonomys fff {{ site_metier_menu_open }} " id="main-menu" style="display: flex;">
         <div class="grid-container">
           {{ page.main_navigation }}
-        </div>
+        </div> 
       </div>
 
     </header>
 
   {% if page.hero|render %}
-<div class="dubmas  grid-container full hero hero-taxonomy" style="background-image: url('{{ file_url(page.random_img_header_last_document) }}');">
+<div class="dubmas {{ site_metier_hero }}  grid-container full hero hero-taxonomy" style="background-image: url('{{ file_url(page.random_img_header_last_document) }}');">
+      {% if site_metier %}
+            <div class="overlay-site-metier-detail"></div>
+      {% endif %}
       {{ page.hero }}
     </div><!-- /#sidebar-first -->
   {% endif %}
 
   <!-- ______________________ MAIN _______________________ -->
 
-  <section class="grid-container na-pages" id="main">
+  <section class="grid-container {{ site_metier_grid_container }}  {{this_is_metier_detail_page}} na-pages" id="main">
     <div class="grid-x grid-margin-x">
 
     {% if page.sidebar_left %}
@@ -156,7 +159,7 @@
 <!-- ______________________ FOOTER _______________________ -->
 
   {% if page.footer|render %}
-    <footer class="grid-container full" id="footer">
+    <footer class="grid-container full {{ site_metier_footer}}" id="footer">
       <div class="grid-container">
         <div class="grid-x" id="footer-region">
           {# {{ page.footer }} #}
@@ -170,11 +173,18 @@
                     </div>
 
                     <div class="desciption-company-footer">
-
+                      {% if not site_metier %} 
                       <p class="footer-company-about">
   Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
 et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
                       </p>
+                      
+                      {% else %}
+ <p class="footer-company-about">
+  Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
+et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
+                      </p>
+                      {% endif %}
                       {# <div class="footer-icons">
                         <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
