@@ -634,6 +634,17 @@
         position: absolute;
         background-size: contain;
     }
+    .page-accueil-metier .grid-container#main:before {
+        right: -13px;
+        width: 20%;
+        position: fixed;
+    }
+    .metier-div-hero h1,.metier-div-hero h2, .metier-div-hero h3, .metier-div-hero p, .metier-div-hero span, .metier-div-hero label, .metier-div-hero li, .metier-div-hero button, .metier-div-hero a, .metier-div-hero input, .metier-div-hero select, .metier-div-hero textarea, .metier-div-hero td, .metier-div-hero tr, .metier-div-hero th, .metier-div-hero table, .metier-div-hero time,
+    .metier-div-hero h1,.metier-div-hero h2, .metier-div-hero h3, .metier-div-hero p, .metier-div-hero span, .metier-div-hero label, .metier-div-hero li, .metier-div-hero button, .metier-div-hero a, .metier-div-hero input, .metier-div-hero select, .metier-div-hero textarea, .metier-div-hero td, .metier-div-hero tr, .metier-div-hero th, .metier-div-hero table, .metier-div-hero time,
+    .this-is-metier-detail-page h1,.this-is-metier-detail-page h2, .this-is-metier-detail-page h3, .this-is-metier-detail-page p, .this-is-metier-detail-page span, .this-is-metier-detail-page label, .this-is-metier-detail-page li, .this-is-metier-detail-page button, .this-is-metier-detail-page a, .this-is-metier-detail-page input, .this-is-metier-detail-page select, .this-is-metier-detail-page textarea, .this-is-metier-detail-page td, .this-is-metier-detail-page tr, .this-is-metier-detail-page th, .this-is-metier-detail-page table, .this-is-metier-detail-page time
+    {
+        font-family: "new-order", sans-serif !important;
+    }
     body > div.dialog-off-canvas-main-canvas > div > header {
         padding: 1em 0;
     }
@@ -2274,6 +2285,14 @@
             max-width: 71%;
             margin-right: 100px;
         }
+        .page-accueil-metier .grid-container {
+            max-width: 88%;
+        }
+
+        .custom-metier-banner {
+            width: 86.5%;
+        }
+
         header .grid-x > .medium-8 {
             width: 50%;
         }
@@ -2332,6 +2351,10 @@
         #footer.grid-container.full .grid-container {
             max-width: 94%;
         }
+
+        /* TODO KKK #footer.grid-container.full .grid-container {
+            max-width: 82%;
+        } */
 
         #footer.grid-container .footer-distributed {
             padding-left: 10px;
