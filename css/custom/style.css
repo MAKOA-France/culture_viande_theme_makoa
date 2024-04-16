@@ -627,7 +627,7 @@
     
     .grid-container#main:before {
         content: "";
-        background: url(/files/before-section-main.png) no-repeat center 0;
+        background: url(/files/before-section-main-metier.png) no-repeat center 0;
         right: 13px;
         width: 12%;
         height: 800px;
