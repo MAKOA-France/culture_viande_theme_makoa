@@ -10,7 +10,7 @@
   <header>
       <!-- logo and ad break -->
       <article class="grid-container">
-        <div class="grid-x grid-margin-x align-middle">
+        <div class="grid-x grid-margin-x align-middle {{site_metier_header }}">
           <div class="medium-2 cell {# logo-entete #}">
             {{ page.header }}
           </div>
@@ -43,7 +43,7 @@
         <div class="title-bar-title">Menu</div>
       </div>
 
-      <div class="top-bar" id="main-menu" {# style="display: flex;" #}>
+      <div class="top-bar {{ site_metier_custom_class }}" id="main-menu" style="display: flex;">
         <div class="grid-container">
           {{ page.main_navigation }}
         </div>
@@ -159,7 +159,7 @@
 <!-- ______________________ FOOTER _______________________ -->
 
   {% if page.footer|render %}
-    <footer class="grid-container full" id="footer">
+    <footer class="grid-container full  {{ site_metier_footer}} " id="footer">
       <div class="grid-container">
         <div class="grid-x" id="footer-region">
           {# {{ page.footer }} #}
@@ -174,10 +174,18 @@
 
                     <div class="desciption-company-footer">
 
+                       {% if not site_metier %} 
                       <p class="footer-company-about">
   Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
-et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers.    
+et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
                       </p>
+                      
+                      {% else %}
+ <p class="footer-company-about">
+  Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
+et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
+                      </p>
+                      {% endif %}
                       {# <div class="footer-icons">
                         <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
