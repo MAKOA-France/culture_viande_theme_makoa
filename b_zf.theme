@@ -253,6 +253,46 @@ function b_zf_preprocess(&$variables, $hook) {
   $is_site_metier = $is_site_metier ? true : false;
   $variables['site_metier'] = $is_site_metier;
 
+  $current_path = \Drupal::service('path.current')->getPath();
+  $node_path = \Drupal::service('path_alias.manager')->getPathByAlias($current_path);
+  $homepage = false;
+  
+  
+  $_raw_variables = \Drupal::request()->attributes->get('_raw_variables');
+  if ($_raw_variables) {
+
+    $node = $_raw_variables->get('node');
+    if ($node) {
+      if ($node == '41250' || $node == '41248') {//todo mise en prod
+        $variables['is_home_page_metier'] = true;
+        $homepage = true;
+        $variables['is_home_page'] = $homepage;
+      }
+    }
+  }
+  $variables['site_metier_custom_class'] = $is_site_metier ? "custom-class-site-metier ttes menu-sidebar-open " : '';
+  $variables['site_metier_menu_open'] = $is_site_metier ? ' menu-sidebar-open ' : '';
+  $variables['site_metier_hero'] = $is_site_metier ? ' metier-div-hero ' : '';
+  $variables['site_metier_grid_container'] = $is_site_metier ? ' metier-div-grid-container ' : '';
+  $variables['site_metier_header'] = $is_site_metier ? ' site-metier-header ' : '';
+  $variables['site_metier_footer'] = $is_site_metier ? ' site-metier-footer ' : '';
+
+  // Check if the current page is a taxonomy term page.
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    // Get the current term ID.
+    $term_id = \Drupal::routeMatch()->getParameter('taxonomy_term')->id();
+    // Load the term entity.
+    $term = \Drupal\taxonomy\Entity\Term::load($term_id);
+    // Get the parent term ID.
+    $parent_term_id = $term->parent->target_id;
+    //TODO pour la mise en prod mettre le bon id parent  // peut etre créer une constante pour amélioration
+    // dump($parent_term_id);
+    if ($parent_term_id == 6328 || $parent_term_id == 6329) {//todo mettre le bon id pour la mise en prod
+      $variables['this_is_metier_detail_page'] = 'this-is-metier-detail-page';
+      $variables['grid_container_metier_detail'] = $is_site_metier ? ' grid-container-metier-detail ' : '';
+    }
+  }
+
   //Vérifier si l'url du site 
   $path = \Drupal::request()->getpathInfo();
   $is_formulaire_donnee_eco = (strpos($path, '/civicrm/bulletin-de-cotisation-infomration') !== false)  || (strpos($path, 'civicrm/donnees-economique-entreprise-effectif-annuel') !== false);
