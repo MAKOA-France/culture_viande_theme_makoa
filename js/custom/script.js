@@ -30,10 +30,11 @@
 
   // This is a function to close sidenav menu
   $('body').on('click', '.menu-close', function(){
+    if (! $('.custom-class-site-metier').length) {
       $('#main-menu.top-bar').removeClass('menu-sidebar-open');
       $('.content-menu-burger .menu-open').show();
       $('#main-menu .grid-container nav, .content-menu-burger .menu-close').hide();
-
+    }
   });
 
   // This is a function for dropdown account in the header
@@ -67,7 +68,18 @@
           $(this).find('ul').addClass("d-block");
           $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded').removeClass("second-level-active");
           $(this).addClass("second-level-active");
-      });
+        });
+
+        //Menu 3e niveau site metier
+        // This is function for display level 2 dropdown of menu on mouseenter
+        $('body').on('mouseenter', 'nav#block-menuprincipal.nav_custom_class_metier ul > li > ul > li.menu-item--expanded', function(event) {
+          event.stopPropagation();
+          $('nav#block-menuprincipal ul ul').removeClass("d-block");
+
+          $(this).find('ul').addClass("d-block");
+          $('nav#block-menuprincipal ul > li > ul > li.menu-item--expanded').removeClass("second-level-active");
+          $(this).addClass("second-level-active");
+        });
 
       // This is function for hide level 2 dropdown of menu on mouseover
       $('body').on('mouseleave', 'nav#block-menuprincipal ul > li > ul > li.menu-item--expanded ', function(event) {
