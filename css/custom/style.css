@@ -2556,9 +2556,15 @@
         }
        
         /*Footer*/ 
+        #footer.grid-container.full.site-metier-footer{
+            margin-left: 0;
+            max-width: 100%;
+        }
+
         #footer.grid-container.full{
             margin-top: 2rem;
-        }  
+        } 
+
         #footer.grid-container.full .grid-container {
             max-width: 92%;
         }  
