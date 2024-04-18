@@ -146,7 +146,7 @@
         }
       }
     nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li.menu-item--expanded.second-level-active,
-    nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li:hover{
+    nav#block-menuprincipal ul >li.first-level-click>ul.first-sub>li:hover, nav#block-menuprincipal ul >li.premier-niv>ul.metier-first-menu>li:hover{
         background-color:#ffffff77;
     }
     .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
