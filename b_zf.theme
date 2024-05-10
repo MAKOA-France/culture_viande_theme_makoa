@@ -250,8 +250,10 @@ function b_zf_preprocess(&$variables, $hook) {
   // Get the base URL of the Drupal site including the protocol.
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
   $is_site_metier = strpos($base_url, 'metiers-viande.');
+  $is_site_extranet = strpos($base_url, 'phenix.cultureviande') ? 'site-extranet-cv' : '';
   $is_site_metier = $is_site_metier ? true : false;
   $variables['site_metier'] = $is_site_metier;
+  $variables['is_site_extranet'] = $is_site_extranet;
 
   $current_path = \Drupal::service('path.current')->getPath();
   $node_path = \Drupal::service('path_alias.manager')->getPathByAlias($current_path);
@@ -287,8 +289,9 @@ function b_zf_preprocess(&$variables, $hook) {
     $parent_term_id = $term->parent->target_id;
     //TODO pour la mise en prod mettre le bon id parent  // peut etre créer une constante pour amélioration
     // dump($parent_term_id);
-    if ($parent_term_id == 6328 || $parent_term_id == 6329) {//todo mettre le bon id pour la mise en prod
+    if ($parent_term_id == 6328 || $parent_term_id == 6329 || $parent_term_id == 6332) {//todo mettre le bon id pour la mise en prod
       $variables['this_is_metier_detail_page'] = 'this-is-metier-detail-page';
+      $variables['metier_detail_page'] = 'metier-detail-page';
       $variables['grid_container_metier_detail'] = $is_site_metier ? ' grid-container-metier-detail ' : '';
     }
   }
