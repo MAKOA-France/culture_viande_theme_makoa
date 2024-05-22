@@ -3,7 +3,7 @@
 <div{{ attributes.addClass(
   'layout-container',
   main_menu or secondary_menu ? 'with-navigation',
-  secondary_menu ? 'with-subnav'
+  secondary_menu ? 'with-subnav' , class_body_site_pub ? class_body_site_pub
 ) }}>
 
   <!-- ______________________ HEADER _______________________ -->
@@ -24,11 +24,13 @@
                   
                 </div>
                 {% if not site_metier %}
-                  <div class="cell medium-2">
-                    <div class="custon-content-formation">
-                      <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                  {% if not  site_public %}
+                    <div class="cell medium-2">
+                      <div class="custon-content-formation">
+                        <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                      </div>
                     </div>
-                  </div>
+                  {% endif %}
                 {% endif %}
               {% endif %}
 
@@ -218,13 +220,18 @@ et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des
                   <div class="footer-right">
 
                     <ul class="footer-links">
-                      <li>
-                        <a href="https://www.cultureviande.eu/"><i class="icon-custom-terrestrial-globe"></i> Site public</a>
+                       <li>
+                        {% if site_public %}
+                          <a href="{{ footer_lien_extranet }}" target="_blank" ><i class="icon-custom-terrestrial-globe b"></i> Espace Adhérents</a>
+                          <p><a href="{{ footer_lien_metier }}" target="_blank" > Site métiers</a></p>
+                        {% else %}
+                          <a href="https://www.cultureviande.eu/"><i class="icon-custom-terrestrial-globe b"></i> Site public</a>
+                        {% endif %}
                       </li>
                       {{ include ('@b_zf/footer-social-media.html.twig') }}
                    <ul>
                 </div>
-
+              {{ include ('@b_zf/pages/mention-legale-copyright.html.twig') }}
             </div>
         </div>
       </div>
