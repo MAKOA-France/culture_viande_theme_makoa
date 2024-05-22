@@ -249,9 +249,19 @@ function b_zf_preprocess(&$variables, $hook) {
   $variables['is_authenticated'] = \Drupal::currentUser()->isAuthenticated();
   // Get the base URL of the Drupal site including the protocol.
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
-  $is_site_metier = strpos($base_url, 'metiers-viande.');
+  $is_site_metier = strpos($base_url, 'metiers-viande.');//Vérifier avec le domaine du site si c'est le site metier
+  $is_site_public = strpos($base_url, 'cultureviande.dev.makoa.net') ||  strpos($base_url, 'cultureviande.makoa4.makoa.net');//Vérifier avec le domaine du site si c'est le site public
   $is_site_metier = $is_site_metier ? true : false;
   $variables['site_metier'] = $is_site_metier;
+  $variables['site_public'] = $is_site_public;
+  if ($is_site_public) {
+    $variables['class_body_site_pub'] = 'cv-body-site-pub';
+    $variables['cv_class_site_pub'] = 'cv-body-site-pub';
+  }
+  if ($is_site_public) {
+    $variables['footer_lien_extranet'] = 'https://phenix.cultureviande.fr';
+    $variables['footer_lien_metier'] = 'https://metiers-viande.makoa4.makoa.net';
+  }
 
   $current_path = \Drupal::service('path.current')->getPath();
   $node_path = \Drupal::service('path_alias.manager')->getPathByAlias($current_path);
