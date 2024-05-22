@@ -22,11 +22,13 @@
                     {{ include ('@b_zf/recherche/recherche.html.twig') }}
                 </div>
                 {% if not site_metier %}
-                  <div class="cell medium-2">
-                    <div class="custon-content-formation">
-                      <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                  {% if not  site_public %}
+                    <div class="cell medium-2">
+                      <div class="custon-content-formation">
+                        <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                      </div>
                     </div>
-                  </div>
+                  {% endif %}
                 {% endif %}
               {% endif %}
 
