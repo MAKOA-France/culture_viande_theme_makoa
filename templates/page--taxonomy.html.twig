@@ -9,7 +9,7 @@
   <!-- ______________________ HEADER _______________________ -->
   <header>
       <!-- logo and ad break -->
-      <article class="grid-container {{ grid_container_metier_detail }}">
+      <article class="grid-container {{ grid_container_metier_detail }} {{metier_detail_page}} {{is_site_extranet}}">
         <div class="grid-x grid-margin-x align-middle">
           <div class="medium-2 cell {# logo-entete #}">
             {{ page.header }}
@@ -170,8 +170,12 @@
 
                   <div class="footer-left">
                   <div class="footer-company-details">
-                    <div class="footer-logo-company">
+                     <div class="footer-logo-company">
+                     {% if not site_metier %} 
                       <img src="/files/Groupe%202%402x.png" class="img-footer-logo" />
+                      {% else %}
+                      <img src="/files/Groupe_2.png" class="img-footer-logo" />
+                      {% endif %}
                     </div>
 
                     <div class="desciption-company-footer">

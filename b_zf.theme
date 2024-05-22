@@ -249,10 +249,18 @@ function b_zf_preprocess(&$variables, $hook) {
   $variables['is_authenticated'] = \Drupal::currentUser()->isAuthenticated();
   // Get the base URL of the Drupal site including the protocol.
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
-  $is_site_metier = strpos($base_url, 'metiers-viande.');//Vérifier avec le domaine du site si c'est le site metier
-  $is_site_public = strpos($base_url, 'cultureviande.dev.makoa.net') ||  strpos($base_url, 'cultureviande.makoa4.makoa.net');//Vérifier avec le domaine du site si c'est le site public
+
+
+  $is_site_metier = strpos($base_url, 'metiers-viande.');
+  $is_site_extranet = strpos($base_url, 'phenix.cultureviande') ? 'site-extranet-cv' : '';
   $is_site_metier = $is_site_metier ? true : false;
   $variables['site_metier'] = $is_site_metier;
+  $variables['is_site_extranet'] = $is_site_extranet;
+
+  // $is_site_metier = strpos($base_url, 'metiers-viande.');//Vérifier avec le domaine du site si c'est le site metier
+  $is_site_public = strpos($base_url, 'cultureviande.dev.makoa.net') ||  strpos($base_url, 'cultureviande.makoa4.makoa.net');//Vérifier avec le domaine du site si c'est le site public
+  // $is_site_metier = $is_site_metier ? true : false;
+  // $variables['site_metier'] = $is_site_metier;
   $variables['site_public'] = $is_site_public;
   if ($is_site_public) {
     $variables['class_body_site_pub'] = 'cv-body-site-pub';
@@ -262,6 +270,7 @@ function b_zf_preprocess(&$variables, $hook) {
     $variables['footer_lien_extranet'] = 'https://phenix.cultureviande.fr';
     $variables['footer_lien_metier'] = 'https://metiers-viande.makoa4.makoa.net';
   }
+
 
   $current_path = \Drupal::service('path.current')->getPath();
   $node_path = \Drupal::service('path_alias.manager')->getPathByAlias($current_path);
@@ -297,8 +306,9 @@ function b_zf_preprocess(&$variables, $hook) {
     $parent_term_id = $term->parent->target_id;
     //TODO pour la mise en prod mettre le bon id parent  // peut etre créer une constante pour amélioration
     // dump($parent_term_id);
-    if ($parent_term_id == 6328 || $parent_term_id == 6329) {//todo mettre le bon id pour la mise en prod
+    if ($parent_term_id == 6328 || $parent_term_id == 6329 || $parent_term_id == 6332) {//todo mettre le bon id pour la mise en prod
       $variables['this_is_metier_detail_page'] = 'this-is-metier-detail-page';
+      $variables['metier_detail_page'] = 'metier-detail-page';
       $variables['grid_container_metier_detail'] = $is_site_metier ? ' grid-container-metier-detail ' : '';
     }
   }
