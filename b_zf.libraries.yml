@@ -1,6 +1,8 @@
 global:
   version: VERSION
   css:
+    print:
+        css/custom/print.css: {}
     base:
       css/base/foundation.css: {}
       css/custom/style.css: {}
