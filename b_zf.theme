@@ -265,6 +265,7 @@ function b_zf_preprocess(&$variables, $hook) {
   if ($is_site_public) {
     $variables['class_body_site_pub'] = 'cv-body-site-pub';
     $variables['cv_class_site_pub'] = 'cv-body-site-pub';
+    $variables['detail_taxonomy_cb_pub'] = 'detail-taxonomy-cb-pub';
   }
   if ($is_site_public) {
     $variables['footer_lien_extranet'] = 'https://phenix.cultureviande.fr';
