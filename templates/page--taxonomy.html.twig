@@ -3,13 +3,13 @@
 <div{{ attributes.addClass(
   'layout-container',
   main_menu or secondary_menu ? 'with-navigation',
-  secondary_menu ? 'with-subnav' , class_body_site_pub ? class_body_site_pub
+  secondary_menu ? 'with-subnav' , detail_taxonomy_cb_pub ? detail_taxonomy_cb_pub, class_body_site_pub ? class_body_site_pub
 ) }}>
 
   <!-- ______________________ HEADER _______________________ -->
   <header>
       <!-- logo and ad break -->
-      <article class="grid-container {{ grid_container_metier_detail }} {{metier_detail_page}} {{is_site_extranet}}">
+      <article class="grid-container {{ grid_container_metier_detail }} {{ class_body_site_pub }} {{metier_detail_page}} {{is_site_extranet}}">
         <div class="grid-x grid-margin-x align-middle">
           <div class="medium-2 cell {# logo-entete #}">
             {{ page.header }}
