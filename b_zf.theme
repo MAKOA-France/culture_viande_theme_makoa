@@ -266,6 +266,19 @@ function b_zf_preprocess(&$variables, $hook) {
     $variables['class_body_site_pub'] = 'cv-body-site-pub';
     $variables['cv_class_site_pub'] = 'cv-body-site-pub';
     $variables['detail_taxonomy_cb_pub'] = 'detail-taxonomy-cb-pub';
+    
+    $route_match = \Drupal::routeMatch();
+    
+    // Check if the current route has a term parameter.
+    if ($term = $route_match->getParameter('taxonomy_term')) {
+      if ($term instanceof Term) {
+        // Get the term ID and pass it to the Twig template.
+        $variables['current_term_id'] = $term->id();
+        $termObj = Term::load($term->id());
+        $description = getNodeFieldValue($termObj, 'description');
+        $variables['cv_pub_description'] = $description;
+      }
+    }
   }
   if ($is_site_public) {
     $variables['footer_lien_extranet'] = 'https://phenix.cultureviande.fr';
