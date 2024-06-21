@@ -60,6 +60,10 @@
             <div class="overlay-site-metier-detail"></div>
       {% endif %}
       {{ page.hero }}
+      {% if site_public %}
+        {{ cv_pub_description | raw }}
+      {% endif %}
+      {# {{}} #}
     </div><!-- /#sidebar-first -->
   {% endif %}
 
@@ -171,7 +175,7 @@
                   <div class="footer-left">
                   <div class="footer-company-details">
                      <div class="footer-logo-company">
-                     {% if not site_metier %} 
+                     {% if not site_metier and not site_public %} 
                       <img src="/files/Groupe%202%402x.png" class="img-footer-logo" />
                       {% else %}
                       <img src="/files/Groupe_2.png" class="img-footer-logo" />
@@ -228,14 +232,14 @@ et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des
                         {% if site_public %}
                           <a href="{{ footer_lien_extranet }}" target="_blank" ><i class="icon-custom-terrestrial-globe b"></i> Espace Adhérents</a>
                           <p><a href="{{ footer_lien_metier }}" target="_blank" > Site métiers</a></p>
+                          {{ include ('@b_zf/pages/mention-legale-copyright.html.twig') }}
+                          {{ include ('@b_zf/footer-social-media.html.twig') }}
                         {% else %}
                           <a href="https://www.cultureviande.eu/"><i class="icon-custom-terrestrial-globe b"></i> Site public</a>
                         {% endif %}
                       </li>
-                      {{ include ('@b_zf/footer-social-media.html.twig') }}
                    <ul>
                 </div>
-              {{ include ('@b_zf/pages/mention-legale-copyright.html.twig') }}
             </div>
         </div>
       </div>
