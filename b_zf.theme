@@ -277,12 +277,18 @@ function b_zf_preprocess(&$variables, $hook) {
         $termObj = Term::load($term->id());
         $description = getNodeFieldValue($termObj, 'description');
         $variables['cv_pub_description'] = $description;
+        $domain_access = getNodeFieldValue($termObj, 'field_domain_acces');
+        if (!$domain_access || !in_array('cultureviande_dev_makoa_net', $domain_access)) {
+          $variables['not_site_pub'] = false;
+        }else {
+          $variables['not_site_pub'] = true;
+        }
       }
     }
   }
   if ($is_site_public) {
     $variables['footer_lien_extranet'] = 'https://phenix.cultureviande.fr';
-    $variables['footer_lien_metier'] = 'https://metiers-viande.makoa4.makoa.net';
+    $variables['footer_lien_metier'] = 'https://metiers-viande.com/accueil-metier';
   }
 
 
