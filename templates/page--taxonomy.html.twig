@@ -60,7 +60,7 @@
             <div class="overlay-site-metier-detail"></div>
       {% endif %}
       {{ page.hero }}
-      {% if site_public %}
+      {% if site_public  and not_site_pub %}
         {{ cv_pub_description | raw }}
       {% endif %}
       {# {{}} #}
