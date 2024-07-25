@@ -3271,3 +3271,42 @@
         /*fin footer*/ 
     }
     /*========================================= Fin Reesponsive design ===========================================================*/
+
+
+/*
+
+TODO DECOMMENTER SI MENU HORIZONTAL
+    .cv-body-site-pub .block-menu-burger .content-menu-burger .menu-open,
+    .cv-body-site-pub .block-menu-burger .content-menu-burger .menu-close{
+        display:none;
+    }
+     #main-menu.top-bar.cv-body-site-pub{
+        background-color: unset;
+        width:100%;
+        position:relative;
+    }
+    .cv-body-site-pub .block-menu-burger .menu--menu-principal{
+        display:block;
+        padding-top: unset;
+    }
+    body #main-menu.cv-body-site-pub .grid-container nav {
+        display:block;
+    }
+    body #main-menu.cv-body-site-pub .grid-container nav .menu.cv-pub-site{
+        display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+} */
+
+
+
+
+
+
+
+
+
+/* .layout-container.cv-body-site-pub header{
+    display: flex;
+    flex-direction: column-reverse;
+} */

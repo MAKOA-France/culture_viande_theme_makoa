@@ -28,7 +28,7 @@
     {% endif %}
   {% endif %}
   
-  {% if not site_metier %}
+  {% if not site_metier and not site_public %}
     {% if site_logo %}
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo">
         <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />

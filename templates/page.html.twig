@@ -3,7 +3,7 @@
 <div{{ attributes.addClass(
   'layout-container',
   main_menu or secondary_menu ? 'with-navigation',
-  secondary_menu ? 'with-subnav'
+  secondary_menu ? 'with-subnav' , class_body_site_pub ? class_body_site_pub
 ) }}>
 
   <!-- ______________________ HEADER _______________________ -->
@@ -23,11 +23,13 @@
 
                 </div>
                 {% if not site_metier %}
-                  <div class="cell medium-2">
-                    <div class="custon-content-formation">
-                      <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                  {% if not  site_public %}
+                    <div class="cell medium-2">
+                      <div class="custon-content-formation">
+                        <a href="/social-rh/formations" class="btn-formation" >Formations</a>
+                      </div>
                     </div>
-                  </div>
+                  {% endif %}
                 {% endif %}
               {% endif %}
 
@@ -43,7 +45,7 @@
         <div class="title-bar-title">Menu</div>
       </div>
 
-      <div class="top-bar {{ site_metier_custom_class }}" id="main-menu" style="display: flex;">
+      <div class="top-bar {{ site_metier_custom_class }}  {{ cv_class_site_pub }}" id="main-menu" style="display: flex;">
         <div class="grid-container">
           {{ page.main_navigation }}
         </div>
@@ -169,7 +171,7 @@
                   <div class="footer-left">
                   <div class="footer-company-details">
                     <div class="footer-logo-company">
-                     {% if not site_metier %} 
+                     {% if not site_metier and  not site_public  %} 
                       <img src="/files/Groupe%202%402x.png" class="img-footer-logo" />
                       {% else %}
                       <img src="/files/Groupe_2.png" class="img-footer-logo" />
@@ -180,14 +182,14 @@
 
                        {% if not site_metier %} 
                       <p class="footer-company-about">
-  Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
-et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
+                          Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
+                        et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
                       </p>
                       
                       {% else %}
- <p class="footer-company-about">
-  Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
-et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
+                      <p class="footer-company-about">
+                        Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
+                      et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
                       </p>
                       {% endif %}
                       {# <div class="footer-icons">
@@ -224,13 +226,21 @@ et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des
 
                     <ul class="footer-links">
                       <li>
-                        <a href="https://www.cultureviande.eu/"><i class="icon-custom-terrestrial-globe b"></i> Site public</a>
+                        {% if site_public %}
+                          <a href="{{ footer_lien_extranet }}" target="_blank" ><i class="icon-custom-terrestrial-globe b"></i> Espace Adhérents</a>
+                          <p><a href="{{ footer_lien_metier }}" target="_blank" > Site métiers</a></p>
+                          {{ include ('@b_zf/pages/mention-legale-copyright.html.twig') }}
+                        {% else %}
+                          <a href="https://www.cultureviande.eu/"><i class="icon-custom-terrestrial-globe b"></i> Site public</a>
+                        {% endif %}
+                        {{ include ('@b_zf/footer-social-media.html.twig') }}
                       </li>
-                      {{ include ('@b_zf/footer-social-media.html.twig') }}
                    <ul>
                 </div>
 
             </div>
+            
+            {#  #}
         </div>
       </div>
     </footer><!-- /#footer -->

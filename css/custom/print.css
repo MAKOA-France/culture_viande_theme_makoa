@@ -1,0 +1,22 @@
+@media print {
+    body , p, h1 {
+        color: cyan !important;
+    }
+    #content {
+        width: 115%;
+    }
+    #main-menu {
+        display: none;
+    }
+    .grid-x.grid-margin-x {
+        width: 115%;
+    }
+    #footer , #progressbar, .messages.messages--error, .af-button.btn-warning, .btn.btn-sm.af-repeat-add-btn.ng-binding.ng-scope,
+    .btn.btn-sm.af-repeat-copy-btn.ng-binding.ng-scope, .af-button.btn.btn-primary
+    
+    {
+        display: none !important;
+        color: white !important;
+        background-color: white !important;
+    }
+}

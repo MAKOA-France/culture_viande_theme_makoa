@@ -1,4 +1,5 @@
 {% if not site_metier %}
+    {% if not  site_public %}
     <div class="search-local-header {{ page.is_authenticated }}">
         {% if  authorize_to_see_search %}
             <i class="icon-search-header fas fa-search  {{ is_authenticated }}"></i>
@@ -6,4 +7,6 @@
             <a class="btn-search-header" href="#">Rechercher</a>
         {% endif %}
     </div>
+    {% endif %}
 {% endif %}
+{# site_public #}

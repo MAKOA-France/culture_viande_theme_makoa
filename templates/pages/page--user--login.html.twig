@@ -22,7 +22,7 @@
  */
 #}
 
-<div id="auth_box" class="login">
+<div id="auth_box" class="login {{ class_body_site_pub }}">
   <div id="left_part">
     <div id="the_logo">
       <a href="{{ url('<front>') }}">
@@ -36,6 +36,9 @@
     {{ page.content }}
 
     {{ page.footer }}
+    {% if site_public %}
+      {{ include ('@b_zf/pages/mention-legale-copyright.html.twig') }}
+    {% endif %}
   </div>
 
   <div id="right_part">

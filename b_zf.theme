@@ -249,11 +249,48 @@ function b_zf_preprocess(&$variables, $hook) {
   $variables['is_authenticated'] = \Drupal::currentUser()->isAuthenticated();
   // Get the base URL of the Drupal site including the protocol.
   $base_url = \Drupal::request()->getSchemeAndHttpHost();
+
+
   $is_site_metier = strpos($base_url, 'metiers-viande.');
   $is_site_extranet = strpos($base_url, 'phenix.cultureviande') ? 'site-extranet-cv' : '';
   $is_site_metier = $is_site_metier ? true : false;
   $variables['site_metier'] = $is_site_metier;
   $variables['is_site_extranet'] = $is_site_extranet;
+
+  // $is_site_metier = strpos($base_url, 'metiers-viande.');//Vérifier avec le domaine du site si c'est le site metier
+  $is_site_public = strpos($base_url, 'cultureviande.dev.makoa.net') ||  strpos($base_url, 'cultureviande.makoa4.makoa.net');//Vérifier avec le domaine du site si c'est le site public
+  // $is_site_metier = $is_site_metier ? true : false;
+  // $variables['site_metier'] = $is_site_metier;
+  $variables['site_public'] = $is_site_public;
+  if ($is_site_public) {
+    $variables['class_body_site_pub'] = 'cv-body-site-pub';
+    $variables['cv_class_site_pub'] = 'cv-body-site-pub';
+    $variables['detail_taxonomy_cb_pub'] = 'detail-taxonomy-cb-pub';
+    
+    $route_match = \Drupal::routeMatch();
+    
+    // Check if the current route has a term parameter.
+    if ($term = $route_match->getParameter('taxonomy_term')) {
+      if ($term instanceof Term) {
+        // Get the term ID and pass it to the Twig template.
+        $variables['current_term_id'] = $term->id();
+        $termObj = Term::load($term->id());
+        $description = getNodeFieldValue($termObj, 'description');
+        $variables['cv_pub_description'] = $description;
+        $domain_access = getNodeFieldValue($termObj, 'field_domain_acces');
+        if (!$domain_access || !in_array('cultureviande_dev_makoa_net', $domain_access) || !in_array('cultureviande_makoa4_makoa_net', $domain_access)) {
+          $variables['not_site_pub'] = false;
+        }else {
+          $variables['not_site_pub'] = true;
+        }
+      }
+    }
+  }
+  if ($is_site_public) {
+    $variables['footer_lien_extranet'] = 'https://phenix.cultureviande.fr';
+    $variables['footer_lien_metier'] = 'https://metiers-viande.com/accueil-metier';
+  }
+
 
   $current_path = \Drupal::service('path.current')->getPath();
   $node_path = \Drupal::service('path_alias.manager')->getPathByAlias($current_path);
