@@ -1,10 +1,22 @@
 (function($) {
   $(document).ready(function() {
 
+   
 
+    
+    
     var screenWidth = $(window).width();
 
-    if (screenWidth <= 680) {
+  
+    if (screenWidth <= 992) { $('.gabarit-txt-img-pre').insertAfter('.field--name-field-domain-acces fieldset')
+    $('.field--name-field-promu-en-page-d-accueil.field--widget-boolean-checkbox').insertAfter('.field--name-field-domain-acces fieldset')
+    $('.paragraph-type--texte-a-3-colonnnes .field--name-field-titre.field--widget-string-textfield').insertBefore('.paragraph-type--texte-a-3-colonnnes .paragraphs-subform.js-form-wrapper.form-wrapper')
+    // $('<div class="my-custom-txt-col-2-wrapper">').insertBefore('.paragraph-type--texte-a-2-colonne .field--type-string.field--name-field-titre.field--widget-string-textfield.paragraphs-content.js-form-wrapper.form-wrapper');
+    // $('</div>').insertAfter('.paragraph-type--texte-a-2-colonne .field--type-string-long.field--name-field-sous-titre.field--widget-string-textarea.paragraphs-content.js-form-wrapper.form-wrapper');
+    // $('.paragraph-type--texte-a-2-colonne .field--type-string-long.field--name-field-sous-titre.field--widget-string-textarea.paragraphs-content.js-form-wrapper.form-wrapper').appendTo('.paragraph-type--texte-a-2-colonne .field--type-string.field--name-field-titre.field--widget-string-textfield.paragraphs-content.js-form-wrapper.form-wrapper')
+    // $('.paragraph-type--texte-a-2-colonne .field--type-text-long.field--name-field-2e-colonne-de-texte.field--widget-text-textarea.paragraphs-content.js-form-wrapper.form-wrapper').appendTo('.paragraph-type--texte-a-2-colonne  .field--type-string.field--name-field-titre-du-2e-colonne.field--widget-string-textfield.paragraphs-content.js-form-wrapper.form-wrapper')
+    // $('.paragraph-type--texte-a-2-colonne .field--type-text-long.field--name-field-1er-colonne-de-texte').appendTo('.paragraph-type--texte-a-2-colonne .field--type-string.field--name-field-titre')
+    jQuery('.dossier-container-custom-date-creation').insertAfter('.dossier-container-customzz');
       $('.top-bar').css('display', 'contents')
 
       $('.title-bar').on('click', function() {
