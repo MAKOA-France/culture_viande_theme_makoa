@@ -278,7 +278,7 @@ function b_zf_preprocess(&$variables, $hook) {
         $description = getNodeFieldValue($termObj, 'description');
         $variables['cv_pub_description'] = $description;
         $domain_access = getNodeFieldValue($termObj, 'field_domain_acces');
-        if (!$domain_access || !in_array('cultureviande_dev_makoa_net', $domain_access)) {
+        if (!$domain_access || !in_array('cultureviande_dev_makoa_net', $domain_access) || !in_array('cultureviande_makoa4_makoa_net', $domain_access)) {
           $variables['not_site_pub'] = false;
         }else {
           $variables['not_site_pub'] = true;
