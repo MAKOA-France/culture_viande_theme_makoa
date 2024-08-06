@@ -231,7 +231,7 @@
                           <p><a href="{{ footer_lien_metier }}" target="_blank" > Site métiers</a></p>
                           {{ include ('@b_zf/pages/mention-legale-copyright.html.twig') }}
                         {% else %}
-                          <a href="https://www.cultureviande.eu/"><i class="icon-custom-terrestrial-globe b"></i> Site public</a>
+                          <a href="{{ site_pub_domain }}"><i class="icon-custom-terrestrial-globe b"></i> Site public</a>
                         {% endif %}
                         {{ include ('@b_zf/footer-social-media.html.twig') }}
                       </li>

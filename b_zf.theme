@@ -29,6 +29,7 @@ use Drupal\file\Entity\File;
 } */
 
 define('DEFAULT_ILLUSTRATION_IMG', 'public://2023-07/nutrition.jpg');
+define('SITE_PUBLIC_DOMAIN', 'https://cultureviande.makoa4.makoa.net/accueil-public');
 
 /**
  * Prepares variables for the html.html.twig template.
@@ -41,6 +42,9 @@ $current_route_match = \Drupal::routeMatch();
 // Define the array of media IDs you want to load.
 // $mediaIds = [29369, 29368, 29367, 29366, 29370]; // Replace these IDs with your actual media IDs.
 $mediaIds = [29597, 29598]; // Replace these IDs with your actual media IDs.
+
+
+
 
 // Load the media items.
 $mediaItems = $entityTypeManager->getStorage('media')->loadMultiple($mediaIds);
@@ -230,7 +234,7 @@ function b_zf_preprocess(&$variables, $hook) {
   // Ajoutez la variable is_authenticated à toutes les variables.
 
   /** Si l'utilisateur est seulement 'un user authentifié sans role' ou 'adherent sans communication' on n'affiche pas la recherche */
-
+  $variables['site_pub_domain'] = SITE_PUBLIC_DOMAIN;
   $NotOnlyAuhtentificatedOrAdherentSansCommunicationOnly = false;
   
   $current_user = \Drupal::currentUser();
