@@ -29,6 +29,7 @@ use Drupal\file\Entity\File;
 } */
 
 define('DEFAULT_ILLUSTRATION_IMG', 'public://2023-07/nutrition.jpg');
+define('DEFAULT_ILLUSTRATION_IMG_SITE_PUB', '/files/2024-03/shutterstock_775933282%20%287%29_0.jpg');
 define('SITE_PUBLIC_DOMAIN', 'https://cultureviande.makoa4.makoa.net/accueil-public');
 
 /**
@@ -76,16 +77,30 @@ if ($current_route_match) {
       $files = Drupal\file\Entity\File::loadMultiple($file_ids);
 
       $file_urls = [];
+     
       foreach ($files as $file) {
         // Get the URL of the file.
         $fileUrl = $file->createFileUrl();
         $file_urls[] = $fileUrl;
+       
       }
 
       // Get a random key from the array
       $randomKey = array_rand($file_urls);
       // Get the random element using the random key
+      
+
+
+
+      //ajout condition si c'est le site pub on met l'image par defaut ici 
+      $base_url = \Drupal::request()->getSchemeAndHttpHost();
+      $is_site_public = strpos($base_url, 'cultureviande.dev.makoa.net') ||  strpos($base_url, 'cultureviande.makoa4.makoa.net');//Vérifier avec le domaine du site si c'est le site public
+      
       $variables['page']['random_img_header_last_document'] = $file_urls[$randomKey];
+      if ($is_site_public) {
+        $variables['page']['random_img_header_last_document'] = DEFAULT_ILLUSTRATION_IMG_SITE_PUB;
+        $variables['page']['there_is_no_image_linked'] = 'there-is-no-image-linked';
+      }
     }
   }
 }
@@ -319,6 +334,13 @@ function b_zf_preprocess(&$variables, $hook) {
   $variables['site_metier_grid_container'] = $is_site_metier ? ' metier-div-grid-container ' : '';
   $variables['site_metier_header'] = $is_site_metier ? ' site-metier-header ' : '';
   $variables['site_metier_footer'] = $is_site_metier ? ' site-metier-footer ' : '';
+  
+  if ($is_site_extranet) {
+    if (!$current_user->isAuthenticated()) {
+    // The user is logged in.
+      $variables['extranet_user_anonymous'] = 'extranet-user-anonymous';
+    }
+  }
 
   // Check if the current page is a taxonomy term page.
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {

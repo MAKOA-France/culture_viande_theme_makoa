@@ -46,7 +46,7 @@
         <div class="title-bar-title">Menu</div>
       </div>
 
-      <div class="{{ site_metier_custom_class }} top-bar  page-taxonomys fff {{ site_metier_menu_open }} " id="main-menu" style="display: flex;">
+      <div class="{{ site_metier_custom_class }} {{ extranet_user_anonymous }} top-bar  page-taxonomys fff {{ site_metier_menu_open }} " id="main-menu" style="display: flex;">
         <div class="grid-container">
           {{ page.main_navigation }}
         </div> 
@@ -55,7 +55,7 @@
     </header>
 
   {% if page.hero|render %}
-<div class="dubmas {{ site_metier_hero }}  grid-container full hero hero-taxonomy" style="background-image: url('{{ file_url(page.random_img_header_last_document) }}');">
+<div class="dubmas {{ site_metier_hero }} {{ page.there_is_no_image_linked }}  grid-container full hero hero-taxonomy" style="background-image: url('{{ file_url(page.random_img_header_last_document) }}');">
       {% if site_metier %}
             <div class="overlay-site-metier-detail"></div>
       {% endif %}
