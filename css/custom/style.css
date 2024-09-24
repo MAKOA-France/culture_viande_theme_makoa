@@ -631,8 +631,9 @@
         right: 13px;
         width: 12%;
         height: 800px;
-        position: absolute;
         background-size: contain;
+        position: fixed;
+        top: 150px;
     }
     .page-accueil-metier .grid-container#main:before {
         right: -13px;
