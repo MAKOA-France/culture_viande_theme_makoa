@@ -281,8 +281,26 @@ function b_zf_preprocess(&$variables, $hook) {
   // $is_site_metier = $is_site_metier ? true : false;
   // $variables['site_metier'] = $is_site_metier;
   $variables['site_public'] = $is_site_public;
+  $config_form = \Drupal::config('phenix_cv_public.address_footer.settings');
+  $twitter_link = $config_form->get('cv_twitter');
+  $footer_mail = $config_form->get('mail');
+  $footer_tel = $config_form->get('tel');
+  $footer_address = $config_form->get('address');
+  $footer_description_definition = $config_form->get('description_definition');
+  $footer_cv_linkedin = $config_form->get('cv_linkedin');
+  $variables['twitter_link'] = $twitter_link;
+  $variables['footer_mail'] = ['#markup' => $footer_mail['value']];
+  $clean_string = strip_tags( $footer_mail['value']);
+  $variables['footer_mail_to'] = $clean_string;
+  $variables['footer_tel'] = $footer_tel;
+  $variables['footer_address'] = ['#markup' => $footer_address['value']];
+  $variables['footer_description_definition'] = ['#markup' => $footer_description_definition['value']];
+  $variables['footer_cv_linkedin'] = $footer_cv_linkedin;
+  
   if ($is_site_public) {
     $variables['class_body_site_pub'] = 'cv-body-site-pub';
+    
+
     $variables['cv_class_site_pub'] = 'cv-body-site-pub';
     $variables['detail_taxonomy_cb_pub'] = 'detail-taxonomy-cb-pub';
     

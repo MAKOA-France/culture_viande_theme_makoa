@@ -185,14 +185,12 @@
                     <div class="desciption-company-footer">
                       {% if not site_metier %} 
                       <p class="footer-company-about">
-  Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
-et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
+  {{ footer_description_definition | raw }}
                       </p>
                       
                       {% else %}
  <p class="footer-company-about">
-  Culture Viande fédère près de 300 entreprises exerçant leurs activités dans les métiers de l’abattage-découpe-préparation
-et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des produits tripiers. 
+  {{ footer_description_definition | raw }} 
                       </p>
                       {% endif %}
                       {# <div class="footer-icons">
@@ -211,16 +209,16 @@ et commerce en gros des viandes, bovine, porcine, ovine, caprine, équine et des
 
                     <div class="btn-footer-center">
                       <a  target="_blank" href="https://www.google.com/maps/place/17+Pl.+des+Vins+de+France,+75012+Paris,+France/@48.8323146,2.3843719,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6723f7bb6c197:0x99f51e3b2ada0b89!8m2!3d48.8323111!4d2.3869468!16s%2Fg%2F11cslplhc2?entry=ttu">
-                      <i class="icon-custom-map-marker"></i><p class="foot-address">17, Place des vins de France <br><span class="postal-code-city"> 75012 PARIS</span></p>
+                      <i class="icon-custom-map-marker"></i>{{ footer_address }}
                       </a>
                     </div>
 
                     <div class="btn-footer-center">                                           
-                      <a href="tel:0153024004"><i class="icon-custom-phone-call"></i>01 53 02 40 04</a>
+                      <a href="tel:0153024004"><i class="icon-custom-phone-call"></i>{{ footer_tel }}</a>
                     </div>
 
                     <div class="btn-footer-center">                      
-                      <a href="mailto:courrier@cultureviande.fr"><i class="icon-custom-mail-box"></i>courrier@cultureviande.fr</a>
+                      <a href="mailto: {{ footer_mail_to }}"><i class="icon-custom-mail-box"></i> {{ footer_mail }}</a> 
                     </div>
 
                   </div>

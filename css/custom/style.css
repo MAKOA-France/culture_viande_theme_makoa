@@ -437,6 +437,21 @@
         padding-left: 15px;
         width: 100%;
     }
+
+    .footer-company-about + p {
+        color: black;
+        color: #000000;
+        font-size: 1.2em;
+        line-height: inherit;
+    }
+    .page-accueil-public  .footer-company-about + p, .cv-body-site-pub  .footer-company-about + p {
+        font-size: 1.2em;
+        color: white;
+        line-height: inherit;
+    }
+    .page-accueil-metier  .footer-company-about + p, .section-taxonomy    .footer-company-about + p{
+        color: white;
+    }
     /*========================================= Fin dropdown profil utilisateur ===========================================================*/
     
     /*========================================= Debut button formation sur l'entete ===========================================================*/
